@@ -1,0 +1,651 @@
+\documentclass[border=3pt,tikz]{standalone}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usepackage{tkz-euclide}
+\usepackage{physics}
+\usetikzlibrary{calc}
+\usetikzlibrary{matrix}
+\usetikzlibrary{shapes}
+\tikzset{>=latex} % for LaTeX arrow head
+\usepackage{xcolor}
+\usepackage{pgfplots}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+\colorlet{veccol}{green!45!black}
+\colorlet{myred}{red!90!black}
+\colorlet{myblue}{blue!90!black}
+\colorlet{mypurple}{blue!50!red!80!black!80}
+\tikzstyle{vector}=[->,very thick,veccol]
+\usetikzlibrary{arrows.meta}
+
+\tikzstyle{thin arrow}=[dashed,thin,-{Latex[length=4,width=3]}]
+
+\begin{document}
+
+% 
+% % TWO VECTORS SUM
+% \begin{tikzpicture}[line cap=round]
+%   \coordinate (O) at (0,0);
+%   \coordinate (A) at ( -3:2.1);
+%   \coordinate (B) at ( 55:1.4);
+%   \coordinate (A+B) at ($(A)+(B)$);
+% 
+%   \draw[vector,thin arrow,myarsenic!40] (B) -- (A+B) node[midway,above] {$\vb{a}$};
+%   \draw[vector,thin arrow,myblue!40] (A) -- (A+B) node[midway,below right=-2] {$\vb{b}$};
+% 
+%   \draw[vector,myarsenic] (O) -- (A) node[midway,below] {$\vb{a}$};
+%   \draw[vector,myblue] (O) -- (B) node[midway,above left=-2] {$\vb{b}$};
+%   \draw[vector,mypurple] (O) -- (A+B) node[above right=-3] {$\vb{a}+\vb{b}$};
+% \end{tikzpicture}
+% 
+% 
+%  \begin{tikzpicture}[line cap = round]
+%      \coordinate (A) at (0,0);
+%      \coordinate (B) at (1,3);
+%      \coordinate (C) at (4,1);
+%      \coordinate (D) at ($(B)+(C)-(A)$);
+% 
+%      \draw[vector,myblue] (A) -- (B) node[midway,left] {$\overrightarrow{AB}$};
+%      \draw[vector,myblue] (C) -- (D)node[midway,right] {$\overrightarrow{CD}$};
+%      \draw[gray, dashed] (A) -- (C);
+%      \draw[gray, dashed] (B) -- (D);
+% 
+%      \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+%                     (B) circle [radius=2pt] node[left] {$B$}
+%                     (C) circle [radius=2pt] node[right] {$C$}
+%                     (D) circle [radius=2pt] node[right] {$D$};
+% 
+%  \end{tikzpicture}
+% 
+% 
+%  \begin{tikzpicture}[line cap = round]
+%      \coordinate (O) at (0,0);
+%      \coordinate (A) at (1,3);
+%      \coordinate (B) at (4,1);
+% 
+%      \draw[vector,myblue] (O) -- (A) node[midway,left] {$\vb{a} = \overrightarrow{OA}$};
+%      \draw[vector,gray] (A) -- (B) node[midway,above] {$\overrightarrow{AB}$};
+%      \draw[vector,myblue] (O) -- (B) node[midway,below] {$\vb{b} = \overrightarrow{OB}$};
+% 
+%      \filldraw [myblue] (O) circle [radius=2pt] node[left] {$O$}
+%                     (B) circle [radius=2pt] node[right] {$B$}
+%                     (A) circle [radius=2pt] node[above] {$A$};
+%  \end{tikzpicture}
+% 
+% 
+%  \begin{tikzpicture}[line cap = round]
+%      \coordinate (O) at (0,0);
+%      \coordinate (A) at (2,0.5);
+%      \coordinate (B) at (5,3);
+%      \coordinate (C) at ($(B)+(O)-(A)$);
+%      \coordinate (D) at (-2,-3);
+%      \coordinate (E) at ($(D) + (B) - (A)$);
+%      \coordinate (F) at (-3.5,1);
+%      \coordinate (G) at ($(F) + (B) - (A)$);
+%      \coordinate (H) at (1,3);
+%      \coordinate (I) at ($(H) + (B) - (A)$);
+% 
+%      \draw[vector, black] (-1,0) -- (6,0) node[below] {$x$};
+%      \draw[vector, black] (0,-1) -- (0,5) node[left] {$y$};
+%      \draw[vector, myblue] (A) -- (B) node[midway, above] {$\overrightarrow{AB}\ \  $};
+%      \draw[vector, myarsenic] (O) -- (C);
+%      \draw[vector, myblue] (D) -- (E);
+%      \draw[vector, myblue] (F) -- (G);
+%      \draw[vector, myblue] (H) -- (I);
+% 
+%      \draw[dashed, gray] (A) -- (2,0) node[below] {$x_A$};
+%      \draw[dashed, gray] (A) -- (0,0.5) node[left] {$y_A$};
+%      \draw[dashed, gray] (B) -- (0,3) node[left] {$y_B$};
+%      \draw[dashed, gray] (5,0.5) -- (5,0) node[below] {$x_B$};
+% 
+%      \draw[->, dashed, gray] (A) -- (5,0.5) node[midway, below] {$x_B - x_A$};
+%      \draw[->, dashed, gray] (5,0.5) -- (B) node[midway, right] {$y_B - y_A$};
+% 
+%      \filldraw [myblue]
+%      (B) circle [radius=2pt] node[right] {$B$}
+%      (A) circle [radius=2pt] node[above] {$A$};
+% 
+%      \filldraw [black] (O) circle [radius=2pt] node[below left] {$O$};
+% 
+%  \end{tikzpicture}
+% 
+% 
+%  % Chasles
+%  \begin{tikzpicture}[line cap = round]
+%      \coordinate (A) at (0,0);
+%      \coordinate (B) at (1,3);
+%      \coordinate (C) at (4,1);
+% 
+%      \draw[vector,myblue] (A) -- (B) node[midway,left] {$\overrightarrow{AB}$};
+%      \draw[vector,myarsenic] (A) -- (C) node[midway, below] {$\overrightarrow{AC}$};
+%      \draw[vector,myblue] (B) -- (C) node[midway, right] {\, $\overrightarrow{BC}$};
+% 
+%      \filldraw [myblue] (C) circle [radius=2pt] node[right] {$C$}
+%                     (B) circle [radius=2pt] node[above] {$B$}
+%                     (A) circle [radius=2pt] node[left] {$A$};
+%  \end{tikzpicture}
+% 
+% 
+%  % Somme triangle
+%  \begin{tikzpicture}
+%      \coordinate (A) at (1,1);
+%      \coordinate (B) at (2,4);
+%      \coordinate (C) at (5,2);
+%      \coordinate (D) at (0,0);
+%      \coordinate (E) at ($(D) + (C) - (B)$);
+% 
+%      \draw[vector, myblue] (A) -- (B) node[midway, left] {$\vb{u}$};
+%      \draw[vector, myblue] (D) -- (E) node[midway, below] {$\vb{v}$};
+%      \draw[vector, gray] (B) -- (C) node[midway, above] {$\vb{v}$};
+%      \draw[vector, myarsenic] (A) -- (C) node[midway, below] {$\vb{v} + \vb {u}$};
+% 
+%  \end{tikzpicture}
+% 
+% 
+% 
+%  % SOMME PARALLELOG
+%  \begin{tikzpicture}[line cap=round]
+%  	\coordinate (O) at (0,0);
+%      \coordinate (U) at (4,-1);
+%      \coordinate (V) at (2,3);
+%      \coordinate (W) at ($(U) + (V)$);
+% 
+%  	\draw[vector, myblue] (O) -- (U) node[midway, below] {$\vb{u}$};
+%  	\draw[vector, myblue] (O) -- (V) node[midway, left] {$\vb{v}$};
+%  	\draw[vector, myarsenic] (O) -- (W) node[midway, above] {$\vb{w}$};
+%  	\draw[vector, myblue!40] (V) -- (W) node[midway, above] {$\vb{u}$};
+%  	\draw[vector, myblue!40] (U) -- (W) node[midway, right] {$\vb{v}$};
+% 
+%  	\filldraw [myblue] (O) circle [radius=2pt] node[left] {$O$}
+%                     (U) circle [radius=2pt] node[right] {$U$}
+%                     (V) circle [radius=2pt] node[left] {$V$}
+%                     (W) circle [radius=2pt] node[right] {$W$};
+% 
+%  \end{tikzpicture}
+% 
+% 
+% 
+%  % LOI DES COS
+% 
+%  \begin{tikzpicture}[line cap = round]
+% 
+%   \coordinate (A) at (0,0);
+%   \coordinate (B) at (6,1);
+%   \coordinate (C) at (2,3);
+% 
+%   \draw [myblue, thick](A)--(B) node[midway, below] {$c$};
+%   \draw [myblue, thick](B)--(C) node[midway, above] {$a$};
+%   \draw [myblue, thick](C)--(A) node[midway, left] {$b$};
+% 
+%   \draw [myarsenic, thick](0.5, 1/12) arc [start angle = 12, end angle = 57, radius =0.5cm] node[right] {$\alpha$};
+%  \draw [myarsenic, thick](5.55, 1.22) arc [start angle = 154, end angle = 190, radius =0.5cm] node[midway, left = -2] {$\beta$};
+%   \draw [myarsenic, thick](1.72, 2.58) arc [start angle = 236, end angle = 333, radius =0.5cm] node[midway , below=3] {$\gamma$};
+%   \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+%                     (B) circle [radius=2pt] node[right] {$B$}
+%                     (C) circle [radius=2pt] node[above] {$C$};
+% 
+% 
+% 
+%  \end{tikzpicture}
+% 
+% 
+% 
+%  \begin{tikzpicture}
+%   \coordinate (A) at (0,0);
+%   \coordinate (M) at (3,1);
+%   \coordinate (B) at (6,2);
+%   \draw [myblue, thick] (A)--(M)--(B);
+%   \tkzMarkSegment[mark=s||, myblue](A,M);
+%   \tkzMarkSegment[mark=s||, myblue](M,B);
+% 
+%   \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+%                     (M) circle [radius=2pt] node[above] {$M$}
+%                     (B) circle [radius=2pt] node[right] {$B$};
+%   \end{tikzpicture}
+% 
+% 
+%     \begin{tikzpicture}
+%          \coordinate (A) at (0,2);
+%          \coordinate (B) at (6,0);
+%          \coordinate (C) at (2,6);
+%          \coordinate (P) at (1,4);
+%          \coordinate (Q) at (4,3);
+% 
+%          \draw [myblue, thick] (A)--(B)--(C)--(A);
+%          \draw [myarsenic, thick] (P)--(Q);
+%          \tkzMarkSegment[mark=s||, myblue](A,P);
+%          \tkzMarkSegment[mark=s||, myblue](P,C);
+%          \tkzMarkSegment[mark=s|, myblue](B,Q);
+%          \tkzMarkSegment[mark=s|, myblue](Q,C);
+% 
+%          \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+%                   (C) circle [radius=2pt] node[above] {$C$}
+%                   (B) circle [radius=2pt] node[right] {$B$};
+%                   \filldraw [myarsenic]
+%                   (P) circle [radius=2pt] node[left] {$P$}
+%                   (Q) circle [radius=2pt] node[right] {$Q$};
+%          \end{tikzpicture}
+% 
+% 
+% 
+%            \begin{tikzpicture}
+%          \coordinate (A) at (0,2);
+%          \coordinate (B) at (6,0);
+%          \coordinate (C) at (2,6);
+%          \coordinate (Q) at (1,4);
+%          \coordinate (P) at (4,3);
+%          \coordinate (R) at (3,1);
+%          \coordinate (G) at (2.666,2.666);
+% 
+% 
+%          \draw [myblue, thick] (A)--(B)--(C)--(A);
+%          \draw [myarsenic, thick] (A) -- (P);
+%          \draw [myarsenic, thick, dashed] (B) -- (Q);
+%          \draw [myarsenic, thick, dashed ] (C) -- (R);
+% 
+% 
+%          \tkzMarkSegment[mark=s||, myblue](A,Q);
+%          \tkzMarkSegment[mark=s||, myblue](Q,C);
+%          \tkzMarkSegment[mark=s|, myblue](B,P);
+%          \tkzMarkSegment[mark=s|, myblue](P,C);
+%          \tkzMarkSegment[mark=s|||, myblue](B,R);
+%          \tkzMarkSegment[mark=s|||, myblue](R,A);
+% 
+%          \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+%                   (C) circle [radius=2pt] node[above] {$C$}
+%                   (B) circle [radius=2pt] node[right] {$B$};
+%                   \filldraw [myarsenic]
+%                   (P) circle [radius=2pt] node[right] {$P$}
+%                   (R) circle [radius=2pt] node[below] {$R$}
+%                   (G) circle [radius=2pt] node[below left] {$G$}
+%                   (Q) circle [radius=2pt] node[left] {$Q$};
+% 
+%          \end{tikzpicture}
+% 
+%  \begin{tikzpicture}
+%              \draw[step=.5cm, gray, thin, dotted] (0,0) grid (6,8);
+%  \end{tikzpicture}
+% 
+% % 
+% \begin{tikzcd}[column sep = large]
+%     				& & \bullet \arrow[dr, "\text{Damien}"] \arrow[dd, "\text{Canal}"] & &\\
+%      \arrow[r, "300"]& \bullet \arrow[ur, "\text{Avril}"] \arrow[dr, "\text{Bardes}"'] & & \bullet \arrow[r, "300"]&\  \\
+%     & & \bullet \arrow[ur, "\text{Espérance}"']& &
+% \end{tikzcd}
+
+
+% \begin{tikzcd}
+% 					&\phantom{x} 					& \arrow[d,"750"] & \\
+% \arrow[r, "300"]	& D \arrow[r,"x_3"] \arrow[u,"400"]& A \arrow[r,"250"] \arrow[d,"x_4"]&\phantom{x}\\
+% \phantom{x}                    & C \arrow[u,"x_2"]\arrow[l,"400"]	& B \arrow[l,"x_1"]   \arrow[d,"300"] &\arrow[l,"200"]\\
+%  & \phantom{x}\arrow[u,"100"]  & \phantom{x} & &
+% \end{tikzcd}
+% 
+
+% \begin{tikzcd}
+% \ar[r, "500"] & A\ar[dr, bend right = 15, "f_5"]\ar[ddr, "f_3"', bend right = 30] \ar[rr, "f_1"] & & B \ar[r, "400"]&\ \\
+%     & & D \ar[ur, bend right = 15, "f_4"] \ar[d, "f_5"] & &\\
+%     & & C \ar[uur, "f_6"', bend right = 30]\ar[d,"100"]  & &\\
+%     & & \ & & 
+% \end{tikzcd}
+
+
+\begin{tikzcd}[column sep = normal]
+     A  \arrow[rr, no head] \arrow[loop, l, no head] & & B \arrow[ld, no head] \arrow[loop, r, no head]\\
+                    & C
+\end{tikzcd}
+
+
+
+%\begin{tikzpicture}
+%    %%% Inspiré de https://texample.net/tikz/examples/cuboid/
+%	%%% Edit the following coordinate to change the shape of your
+%	%%% cuboid
+%      
+%	%% Vanishing points for perspective handling
+%	\coordinate (P1) at (-7cm,1.5cm); % left vanishing point (To pick)
+%	\coordinate (P2) at (8cm,1.5cm); % right vanishing point (To pick)
+%
+%	%% (A1) and (A2) defines the 2 central points of the cuboid
+%	\coordinate (A1) at (0em,0cm); % central top point (To pick)
+%	\coordinate (A2) at (0em,-2cm); % central bottom point (To pick)
+%
+%	%% (A3) to (A8) are computed given a unique parameter (or 2) .8
+%	% You can vary .8 from 0 to 1 to change perspective on left side
+%	\coordinate (A3) at ($(P1)!.8!(A2)$); % To pick for perspective 
+%	\coordinate (A4) at ($(P1)!.8!(A1)$);
+%
+%	% You can vary .8 from 0 to 1 to change perspective on right side
+%	\coordinate (A7) at ($(P2)!.7!(A2)$);
+%	\coordinate (A8) at ($(P2)!.7!(A1)$);
+%
+%	%% Automatically compute the last 2 points with intersections
+%	\coordinate (A5) at
+%	  (intersection cs: first line={(A8) -- (P1)},
+%			    second line={(A4) -- (P2)});
+%	\coordinate (A6) at
+%	  (intersection cs: first line={(A7) -- (P1)}, 
+%			    second line={(A3) -- (P2)});
+%
+%	%%% Depending of what you want to display, you can comment/edit
+%	%%% the following lines
+%
+%	%% Possibly draw back faces
+%
+%	\fill[gray!90] (A2) -- (A3) -- (A6) -- (A7) -- cycle; % face 6
+%	%\node at (barycentric cs:A2=1,A3=1,A6=1,A7=1) {\tiny f6};
+%	
+%	\fill[gray!50] (A3) -- (A4) -- (A5) -- (A6) -- cycle; % face 3
+%	%\node at (barycentric cs:A3=1,A4=1,A5=1,A6=1) {\tiny f3};
+%	
+%	\fill[gray!30] (A5) -- (A6) -- (A7) -- (A8) -- cycle; % face 4
+%	%\node at (barycentric cs:A5=1,A6=1,A7=1,A8=1) {\tiny f4};
+%	
+%	\draw[thick,dashed] (A5) -- (A6);
+%	\draw[thick,dashed] (A3) -- (A6);
+%	\draw[thick,dashed] (A7) -- (A6);
+%
+%	%% Possibly draw front faces
+%
+%	% \fill[orange] (A1) -- (A8) -- (A7) -- (A2) -- cycle; % face 1
+%	% \node at (barycentric cs:A1=1,A8=1,A7=1,A2=1) {\tiny f1};
+%	\fill[gray!50,opacity=0.2] (A1) -- (A2) -- (A3) -- (A4) -- cycle; % f2
+%	%\node at (barycentric cs:A1=1,A2=1,A3=1,A4=1) {\tiny f2};
+%	\fill[gray!90,opacity=0.2] (A1) -- (A4) -- (A5) -- (A8) -- cycle; % f5
+%	%\node at (barycentric cs:A1=1,A4=1,A5=1,A8=1) {\tiny f5};
+%
+%	%% Possibly draw front lines
+%	\draw[thick] (A1) -- (A2);
+%	\draw[thick] (A3) -- (A4);
+%	\draw[thick] (A7) -- (A8);
+%	\draw[thick] (A1) -- (A4);
+%	\draw[thick] (A1) -- (A8);
+%	\draw[thick] (A2) -- (A3);
+%	\draw[thick] (A2) -- (A7);
+%	\draw[thick] (A4) -- (A5);
+%	\draw[thick] (A8) -- (A5);
+%	
+%	% Possibly draw points
+%	% (it can help you understand the cuboid structure)
+%% 	\foreach \i in {1,2,...,8}
+%% 	{
+%% 	  \draw[fill=black] (A\i) circle (0.15em)
+%% 	    node[above right] {\tiny \i};
+%% 	}
+%	 \draw[fill=black] (A1) circle (0.1em) node[below right] {\small $H$};
+%	 \draw[fill=black] (A2) circle (0.1em) node[below right] {\small $G$};
+%	 \draw[fill=black] (A3) circle (0.1em) node[below] {\small $F$};
+%	 
+%	 \draw[fill=black] (A4) circle (0.1em) node[above] {\small $E$};
+%     \draw[fill=black] (A5) circle (0.1em) node[above] {\small $A$};
+%     \draw[fill=black] (A6) circle (0.1em) node[above right] {\small $B$};
+%     \draw[fill=black] (A7) circle (0.1em) node[right] {\small $C$};
+%     \draw[fill=black] (A8) circle (0.1em) node[right] {\small $D$};
+%	 
+%	% \draw[fill=black] (P2) circle (0.1em) node[below] {\tiny p2};
+%\end{tikzpicture}
+%
+
+% 
+% 
+% 
+%   \begin{tikzcd}[column sep = large]
+%   				& & \bullet \arrow[dr, "\text{Damien}"] \arrow[dd, "\text{Canal}", "100"' ] & &\\
+%    \arrow[r, "300"]& \bullet \arrow[ur, "\text{Avril}"] \arrow[dr, "\text{Bardes}"'] & & \bullet \arrow[r, "300"]&\  \\
+%   & & \bullet \arrow[ur, "\text{Espérance}"']& &
+%   \end{tikzcd}
+% 
+% 
+% \newpage
+% 
+% \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+% \draw [color=gray,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (-2,-2) grid (6,6);
+% \draw[->,color=black] (-2,0) -- (6,0);
+% \draw[->,color=black] (0,-2) -- (0,6);
+% \foreach \x in {1, 5}
+% \draw[shift={(\x,0)}, color=black] (0pt,2pt) -- (0pt,-2pt) node[below]{\footnotesize $\x$};
+% 
+% \foreach \y in {1, 5}
+% \draw[shift={(0,\y)}, color=black] (0pt,2pt) -- (0pt,-2pt) node[left]{\footnotesize $\y$};
+% 
+% \draw [->] (0, 0.) -- (1, 1) node[right]{\footnotesize $\mathbf{u}$};
+% \draw [->] (0, 0.) -- (1, -1.) node[right]{\footnotesize $\mathbf{v}$};;
+% \draw [->] (0, 0.) -- (3, 1.)node[right]{\footnotesize $\mathbf{w}$};;
+% 
+% \end{tikzpicture}
+%
+%
+%\begin{tikzpicture}
+%        \matrix (m) [matrix of math nodes,left delimiter={[} ,right delimiter={]}] at (0,0)
+%        {
+%            a_{11} &a_{12} &\cdots &a_{1n} \\               
+%            \vdots &\vdots  &  &\vdots \\
+%            a_{i1} & a_{i2}&\cdots &a_{in}\\
+%            \vdots &\vdots  &  &\vdots \\
+%            a_{m1} &a_{m2} &\cdots &a_{mn} \\           
+%        };  
+%        \draw[color=arsenic] (m-3-1.north west) -- (m-3-4.north east) -- (m-3-4.south east) -- (m-3-1.south west) -- (m-3-1.north west);
+%        \matrix (n) [matrix of math nodes,left delimiter={[},right delimiter={]}] at (4.2,0)
+%                {
+%                    b_{11} &\cdots  & b_{1j}    &\cdots & b_{1r} \\               
+%                    b_{21} &\cdots  & b_{2j}    &\cdots & b_{2r}\\
+%                    \vdots &        & \vdots    & &\vdots  \\
+%                    b_{n1} &\cdots  & b_{nj}    &\cdots & b_{nr}\\           
+%                };  
+%                \draw[color=arsenic] (n-1-3.north west) -- (n-1-3.north east) -- (n-4-3.south east) -- (n-4-3.south west) -- (n-1-3.north west);
+%        \draw (6.77,-0.10) node[anchor = south] {$=$};
+%        \matrix (x) [matrix of math nodes,left delimiter={[},right delimiter={]}] at (9.5,0)
+%                {
+%                    c_{11} &\cdots  & c_{1j}    &\cdots & c_{1r} \\
+%                    \vdots &        & \vdots    & &\vdots  \\
+%                    c_{i1} & \cdots        & c_{ij} & \cdots & c_{ir}\\
+%                    \vdots &        & \vdots    & &\vdots  \\
+%                    c_{m1} &\cdots  & c_{mj}    &\cdots & c_{mr}\\           
+%                };  
+%                \draw[color=arsenic] (x-3-3.north west) -- (x-3-3.north east) -- (x-3-3.south east) -- (x-3-3.south west) -- (x-3-3.north west);         
+%        
+%            \end{tikzpicture}
+%
+%
+%
+%
+% % VECTORS
+% \begin{tikzpicture}[line cap=round]
+%   \coordinate (O) at (0,0);
+%   \coordinate (A) at ( -5:2.1);
+%   \coordinate (B) at ( 55:1.4);
+%   \coordinate (C) at (130:1.2);
+%   \coordinate (D) at (210:2.0);
+%   \draw[vector,myarsenic] (O) -- (A) node[right=-2] {$\vb{a}$};
+%   \draw[vector,myblue] (O) -- (B) node[above right=-3] {$\vb{b}$};
+%   \draw[vector,green!50!black] (O) -- (C) node[above left=-3] {$\vb{c}$};
+%   \draw[vector,orange!90!black] (O) -- (D) node[left=-1] {$\vb{d}$};
+% \end{tikzpicture}
+%
+%
+% % VECTOR SUM
+% \begin{tikzpicture}[line cap=round]
+%   \draw[vector,myarsenic] (O) -- (A) node[below left=0] {$\vb{a}$};
+%   \draw[vector,myblue] (A) --++ (B) node[below right=-3] {$\vb{b}$};
+%   \draw[vector,green!50!black] (A)++(B) --++ (C) node[above=1,right=2] {$\vb{c}$};
+%   \draw[vector,orange!90!black] (A)++(B)++(C) --++ (D) node[above=2] {$\vb{d}$};
+%   \draw[vector,<-,blue!50!black] (A)++(B)++(C)++(D) -- (O)
+%     node[midway,left=1,scale=0.9] {$\vb{a}+\vb{b}+\vb{c}+\vb{d}$};
+% \end{tikzpicture}
+%
+
+
+%\begin{tikzcd}[column sep = large, cells={nodes={draw=black, ellipse,anchor=center,minimum height=2em}}]
+%& 2 \arrow[dd, dash, bend left = 35]\arrow[dd, dash, bend right = 35 ] \\
+%1 \arrow[ur, dash] \arrow[dr, dash] & \\
+%& 3
+%\end{tikzcd}
+
+
+%
+%  \begin{tikzpicture}
+%    \matrix [%
+%      matrix of math nodes,
+%      column sep=1em,
+%      row sep=1em
+%    ] (sarrus) {%
+%      a_{11} & a_{12} & a_{13} & a_{11} & a_{12} \\
+%      a_{21} & a_{22} & a_{23} & a_{21} & a_{22} \\
+%      a_{31} & a_{32} & a_{33} & a_{31} & a_{32} \\
+%    }; 
+%
+%    \path ($(sarrus-1-3.north east)+(0.5em,0)$) edge[dotted] ($(sarrus-3-3.south east)+(0.5em,0)$)
+%          (sarrus-1-1)                          edge         (sarrus-2-2)
+%          (sarrus-2-2)                          edge         (sarrus-3-3)
+%          (sarrus-1-2)                          edge         (sarrus-2-3)
+%          (sarrus-2-3)                          edge         (sarrus-3-4)
+%          (sarrus-1-3)                          edge         (sarrus-2-4)
+%          (sarrus-2-4)                          edge         (sarrus-3-5)
+%          (sarrus-3-1)                          edge[dashed] (sarrus-2-2)
+%          (sarrus-2-2)                          edge[dashed] (sarrus-1-3)
+%          (sarrus-3-2)                          edge[dashed] (sarrus-2-3)
+%          (sarrus-2-3)                          edge[dashed] (sarrus-1-4)
+%          (sarrus-3-3)                          edge[dashed] (sarrus-2-4)
+%          (sarrus-2-4)                          edge[dashed] (sarrus-1-5);
+%
+%    \foreach \c in {1,2,3} {\node[anchor=south] at (sarrus-1-\c.north) {$+$};};
+%    \foreach \c in {1,2,3} {\node[anchor=north] at (sarrus-3-\c.south) {$-$};};
+%  \end{tikzpicture}
+%  
+%  
+%\begin{tikzpicture}
+%    \matrix [%
+%      matrix of math nodes,
+%      column sep=1em,
+%      row sep=1em
+%    ] (sarrus) {%
+%      a_{11} & a_{12}  \\
+%      a_{21} & a_{22}  \\
+%    }; 
+%
+%    \path 
+%          (sarrus-1-1)                          edge         (sarrus-2-2)
+%          (sarrus-2-1)                          edge[dashed] (sarrus-1-2);
+%
+%    \foreach \c in {1} {\node[anchor=south] at (sarrus-1-\c.north) {$+$};};
+%    \foreach \c in {1} {\node[anchor=north] at (sarrus-2-\c.south) {$-$};};
+%  \end{tikzpicture}  
+%  
+
+
+%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%\clip(-3.81,-0.84) rectangle (4.52,5.28);
+%\draw [color=myblue] (-1.09,4.65)-- (-2.9,0.53);
+%\draw [color=myblue] (-2.9,0.53)-- (3.58,-0.23);
+%\draw [color=myblue] (3.58,-0.23)-- (-1.09,4.65);
+%\draw [dash pattern=on 2pt off 2pt] (-0.37,0.23)-- (-2.19,2.14);
+%\draw (-2.19,2.14)-- (1.75,1.68);
+%\draw (1.75,1.68)-- (1.05,0.06);
+%\draw (1.05,0.06)-- (-1.8,3.04);
+%\draw (-1.8,3.04)-- (0.73,2.75);
+%\draw (0.73,2.75)-- (-0.37,0.23);
+%\begin{scriptsize}
+%\fill [color = arsenic] (-1.09,4.65) circle (1.5pt);
+%\draw[color = arsenic] (-0.96,4.87) node {$A$};
+%\fill [color = arsenic] (-2.9,0.53) circle (1.5pt);
+%\draw[color = arsenic] (-3.19,1.02) node {$B$};
+%\fill [color = arsenic] (3.58,-0.23) circle (1.5pt);
+%\draw[color = arsenic] (3.71,-0.01) node {$C$};
+%\fill [color = arsenic] (-2.19,2.14) circle (1.5pt);
+%\draw[color = arsenic] (-2.8,2.46) node {$M_0\stackrel{?}{=}M_6$};
+%\fill [color = arsenic] (1.75,1.68) circle (1.5pt);
+%\draw[color = arsenic] (2.02,1.9) node {$M_1$};
+%\fill [color = arsenic] (1.05,0.06) circle (1.5pt);
+%\draw[color = arsenic] (1.34,-0.18) node {$M_2$};
+%\fill [color = arsenic] (-1.8,3.04) circle (1.5pt);
+%\draw[color = arsenic] (-1.87,3.54) node {$M_3$};
+%\fill [color = arsenic] (0.73,2.75) circle (1.5pt);
+%\draw[color = arsenic] (1.01,2.96) node {$M_4$};
+%\fill [color = arsenic] (-0.37,0.23) circle (1.5pt);
+%\draw[color = arsenic] (-0.36,-0.06) node {$M_5$};
+%\end{scriptsize}
+%\end{tikzpicture}
+
+%\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.5cm,y=1.5cm]
+%		\clip(-0.5,-0.25) rectangle (4.5,3);
+%		\draw [line width=0.8pt] (0.,2.)-- (3.,2.);
+%		\draw [line width=0.8pt] (3.,2.)-- (3.,0.);
+%		\draw [line width=0.8pt] (3.,0.)-- (0.,0.);
+%		\draw [line width=0.8pt] (0.,0.)-- (0.,2.);
+%		\draw [line width=0.8pt] (0.,2.)-- (1.274455216204477,2.7973153530107844);
+%		\draw [line width=0.8pt] (1.274455216204477,2.7973153530107844)-- (4.274455216204477,2.7973153530107844);
+%		\draw [line width=0.8pt] (4.274455216204477,2.7973153530107844)-- (3.,2.);
+%		\draw [line width=0.8pt] (4.274455216204477,2.7973153530107844)-- (4.274455216204477,0.7973153530107845);
+%		\draw [line width=0.8pt] (4.274455216204477,0.7973153530107845)-- (3.,0.);
+%		\draw [dash pattern=on 3pt off 3pt] (0.,0.)-- (1.274455216204477,0.7973153530107845);
+%		\draw [dash pattern=on 3pt off 3pt] (4.274455216204477,0.7973153530107845)-- (1.274455216204477,0.7973153530107845);
+%		\draw [dash pattern=on 3pt off 3pt] (1.274455216204477,0.7973153530107845)-- (1.274455216204477,2.7973153530107844);
+%		\draw [dash pattern=on 3pt off 3pt] (2.274455216204477,0.7973153530107845)-- (1.,0.);
+%		\draw [dash pattern=on 3pt off 3pt] (3.274455216204477,0.7973153530107845)-- (2.,0.);
+%		\draw [line width=0.8pt] (0.,1.)-- (3.,1.);
+%		\draw [line width=0.8pt] (3.,1.)-- (4.274455216204477,1.7973153530107844);
+%		\draw [line width=0.8pt] (0.6372276081022386,2.398657676505392)-- (3.637227608102238,2.398657676505392);
+%		\draw [line width=0.8pt] (1.,2.)-- (2.274455216204477,2.7973153530107844);
+%		\draw [line width=0.8pt] (2.,2.)-- (3.274455216204477,2.7973153530107844);
+%		\draw [line width=0.8pt] (1.,2.)-- (1.,0.);
+%		\draw [line width=0.8pt] (2.,2.)-- (2.,0.);
+%		\draw [line width=0.8pt] (3.637227608102238,2.398657676505392)-- (3.6372276081022386,0.39865767650539224);
+%		\draw [dash pattern=on 3pt off 3pt] (0.6372276081022386,2.398657676505392)-- (0.6372276081022386,0.39865767650539224);
+%		\draw [dash pattern=on 3pt off 3pt] (0.6372276081022386,0.39865767650539224)-- (3.6372276081022386,0.39865767650539224);
+%		\draw [dash pattern=on 3pt off 3pt] (3.274455216204477,2.7973153530107844)-- (3.274455216204477,0.7973153530107845);
+%		\draw [dash pattern=on 3pt off 3pt] (2.274455216204477,0.7973153530107845)-- (2.274455216204477,2.7973153530107844);
+%		\draw [dash pattern=on 3pt off 3pt] (3.637227608102238,1.398657676505392)-- (0.6372276081022386,1.3986576765053922);
+%		\draw [dash pattern=on 3pt off 3pt] (1.274455216204477,1.7973153530107844)-- (0.,1.);
+%		\draw [dash pattern=on 3pt off 3pt] (1.274455216204477,1.7973153530107844)-- (4.274455216204477,1.7973153530107844);
+%		\draw [dash pattern=on 3pt off 3pt] (2.274455216204477,1.7973153530107844)-- (1.,1.);
+%		\draw [dash pattern=on 3pt off 3pt] (3.2744552162044775,1.7973153530107844)-- (2.,1.);
+%		\draw [dash pattern=on 3pt off 3pt] (1.637227608102238,2.398657676505392)-- (1.6372276081022388,0.39865767650539224);
+%		\draw [dash pattern=on 3pt off 3pt] (2.637227608102238,2.398657676505392)-- (2.6372276081022386,0.39865767650539224);
+%		\draw [->,line width=1.6pt] (0.,2.) -- (1.637227608102238,2.398657676505392);
+%		\draw [->,line width=1.6pt] (0.,2.) -- (1.,1.);
+%		\draw [->,line width=1.6pt] (0.,2.) -- (0.,0.);
+%		\begin{scriptsize}
+%		\draw [fill=black] (0.,0.) circle (1.0pt);
+%		\draw[color=black] (-0.13458197721960166,-0.014190508377307967) node {$S$};
+%		\draw [fill=black] (3.,0.) circle (1.0pt);
+%		\draw [fill=black] (4.274455216204477,0.7973153530107845) circle (1.0pt);
+%		\draw [fill=black] (0.,2.) circle (1.0pt);
+%		\draw[color=black] (-0.14326118429327114,2.1729696741873905) node {$P$};
+%		\draw [fill=black] (3.,2.) circle (1.0pt);
+%		\draw [fill=black] (4.274455216204477,2.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (1.274455216204477,2.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (1.274455216204477,0.7973153530107845) circle (1.0pt);
+%		\draw [fill=black] (0.,1.) circle (1.0pt);
+%		\draw [fill=black] (3.,1.) circle (1.0pt);
+%		\draw [fill=black] (4.274455216204477,1.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (1.,0.) circle (1.0pt);
+%		\draw [fill=black] (2.,0.) circle (1.0pt);
+%		\draw [fill=black] (2.274455216204477,0.7973153530107845) circle (1.0pt);
+%		\draw [fill=black] (3.274455216204477,0.7973153530107845) circle (1.0pt);
+%		\draw [fill=black] (1.,2.) circle (1.0pt);
+%		\draw [fill=black] (2.,2.) circle (1.0pt);
+%		\draw [fill=black] (2.274455216204477,2.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (3.274455216204477,2.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (3.6372276081022386,0.39865767650539224) circle (1.0pt);
+%		\draw [fill=black] (0.6372276081022386,0.39865767650539224) circle (1.0pt);
+%		\draw [fill=black] (0.6372276081022386,2.398657676505392) circle (1.0pt);
+%		\draw [fill=black] (3.637227608102238,2.398657676505392) circle (1.0pt);
+%		\draw [fill=black] (3.637227608102238,1.398657676505392) circle (1.0pt);
+%		\draw [fill=black] (0.6372276081022386,1.3986576765053922) circle (1.0pt);
+%		\draw [fill=black] (1.274455216204477,1.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (1.,1.) circle (1.0pt);
+%		\draw[color=black] (0.8982436645470656,0.85) node {$R$};
+%		\draw [fill=black] (2.274455216204477,1.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (3.2744552162044775,1.7973153530107844) circle (1.0pt);
+%		\draw [fill=black] (2.,1.) circle (1.0pt);
+%		\draw [fill=black] (1.637227608102238,2.398657676505392) circle (1.0pt);
+%		\draw[color=black] (1.601259437514293,2.5722131995761854) node {$Q$};
+%		\draw [fill=black] (2.637227608102238,2.398657676505392) circle (1.0pt);
+%		\draw [fill=black] (1.6372276081022388,0.39865767650539224) circle (1.0pt);
+%		\draw [fill=black] (2.6372276081022386,0.39865767650539224) circle (1.0pt);
+%		\end{scriptsize}
+%		\end{tikzpicture}
+
+
+\end{document}
