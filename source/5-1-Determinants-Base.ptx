@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-5-1-Determinants-intro" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Déterminants : définition et propriétés de base</title>
+
+  <introduction>
+    <p>Nous avons déjà utilisé les déterminants de matrices <m>2\times 2</m>, notamment en lien avec l'inversibilité et l'indépendance linéaire. Commençons par faire quelques rappels / remarques au sujet de ces déterminants, ceci mettra la table pour ce qui sera fait par la suite.
+    </p>
+
+    <remark xml:id = "rmk-rappel-dets-2x2">
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Étant donnée  <m>A= \mdd abcd</m>, son <em>déterminant</em>, qu'on dénote par <m>\det{A}</m> ou <m>|A|</m> est le nombre réel <m>\det{A} =|A| = ad-bc</m>. Nous savons que :
+            <md>
+              <mrow>A \text{ inversible} \amp \Leftrightarrow \det{A}\ne 0 \text{ et dans ce cas } A^{-1} = \frac{1}{\det{A}} \mdd{d}{-b}{-c}{a} </mrow>
+              <mrow> \amp \Leftrightarrow \text{les colonnnes de } A \text{ sont linéairement indépendantes} </mrow>
+              <mrow> \amp \Leftrightarrow \text{les rangées de } A \text{ sont linéairement indépendantes}</mrow>
+            </md>
+          </p>
+        </li>
+        <li>
+          <p>
+            Il est clair que <m>\det{A} = \det{A^T}.</m> De plus, si <m>A</m> est inversible, alors par une suite d'opérations élémentaires sur ses lignes elle peut être transformée en la matrice identité,  <m>I</m>, et <m>\det{I} = 1</m>. On peut donc se demander si <m>A = \mdd{a}{b}{c}{d}</m> est donnée, et <m>A'</m> est obtenue à partir de <m>A</m> par une seule opération élémentaire, quel est le lien entre <m>\det{A}</m> et <m>\det{A'}.</m>
+            <ol marker = "i">
+              <li>
+                <p>
+                  Opération <m>R_1 \leftrightarrow R_2</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  Opération <m>kR_i</m> avec <m>k\ne 0</m>;
+                </p>
+              </li>
+              <li>
+                <p>
+                  Opération <m>R_i + k R_j.</m>
+                </p>
+              </li>
+
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Étant donnée une équation <m>\mdd a b c d \Rvd{x_1}{x_2} = \Rvd{y_1}{y_2}</m>, écrite sous la forme <m>A\vx = \vy</m> nous avons
+            <me>
+              \vx = A^{-1} \vy= \frac{1}{\det{A}} \mdd{d}{-b}{-c}{a} \Rvd{y_1}{y_2}
+            </me>
+            ce qui permet de calculer la solution au moyen de déterminants.
+
+          </p>
+        </li>
+      </ol>
+    </remark>
+    <p>
+      Dans ce qui suit, nous allons voir que toutes ces caractéristiques ont leurs analogues avec les matrices de taille plus grande. Il faut cependant définir ce que les déterminants sont dans ces cas.
+    </p>
+
+    </introduction>
+
+
+  <paragraphs>
+    <title>Définitions et premières propriétés</title>
+    <p>
+      La définition des déterminants que nous présentons ici est une définition <em>récursive</em> :
+      <ul>
+        <li>
+          <p>
+            On sait calculer les déterminants <m>2\times 2</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            On définit un déterminant <m>3\times 3</m> comme une combinaison linéaire bien spécifique de déterminants <m>2 \times 2</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            On définit un déterminant <m>4\times 4</m> comme une combinaison linéaire bien spécifique de déterminants <m>3 \times 3</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            En général, on définit un déterminant <m>n\times n</m> comme une combinaison linéaire bien spécifique de déterminants <m>(n-1) \times (n-1).</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Nous avons besoin d'un peu de vocabulaire pour être plus précis au sujet des <q><em>combinaisons linéaires bien spécifiques</em></q>.
+    </p>
+    <definition xml:id="def-mineurs-cofacteurs">
+      <statement>
+      <p>
+
+      </p>
+        <p>Soit <m>A = [a_{ij}] \in \mmn{n}{n}</m> une matrice donnée.
+        <ol marker = "(a)">
+          <li>
+            <p>
+              On appelle <em>mineur de</em> <m>a_{i,j}</m> le déterminant de la matrice dans <m>\mmn{(n-1)}{(n-1)}</m> obtenue à partir de  <m>A</m> en biffant la <m>i^{\text{ème}}</m> ligne et la <m>j^{\text{éme}}</m> colonne. Cette matrice sera denotée par <m>A_{ij}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Le <em>cofacteur</em> de <m>a_{i,j}</m>, qu'on note <m>C_{ij}</m> est défini par <m>C_{ij} = (-1)^{i+j}\det{A_{ij}}</m>.
+            </p>
+          </li>
+        </ol>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Calculer les mineurs et cofacteurs des matrices suivantes :
+        </p>
+
+          <ol marker = "(a)">
+            <li>
+              <p>
+                <m>A = \mdd{2}{3}{3}{5}.</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m> A = \mtt{5}{-3}{2}{1}{0}{2}{3}{-1}{3}.</m>
+              </p>
+            </li>
+          </ol>
+
+      </statement>
+
+    </example>
+    <p>
+      Nous pouvons maintenant définir le déterminant d'une matrice <m>n\times n.</m>
+    </p>
+    <definition xml:id="def-determinant">
+      <title>Le déterminant, le long de la première rangée</title>
+      <statement>
+        <p>
+          Soit <m>A = [a_{ij}] \in \mmn{n}{n}</m>, son déterminant est <me>\det{A} = |A| = \sum_{j=1}^n (-1)^{1+j}a_{1j} |A_{1j}|</me>.
+        </p>
+
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Calculer le déterminant de la matrice <m> A = \mtt{5}{-3}{2}{1}{0}{2}{3}{-1}{3}.</m>
+        </p>
+      </statement>
+    </example>
+
+    <sidebyside widths="75% 15%" >
+        <p>
+        Il existe une formule / façon visuelle de calculer les déterminants <m>3\times 3</m>, appelée la règle de Sarrus. C'est l'analogue à la définition des déterminants <m>2 \times 2.</m> Le déterminant d'une matrice <m>2\times 2</m>, disons <m>A = \mdd{a_{11}}{a_{12}}{a_{21}}{a_{22}}</m> peut être représenté par le diagramme ci-contre.
+      </p>
+      <p>
+        <image source="Det-2x2" width="12%">
+          <description>schéma montrant le calcul</description>
+        </image>
+      </p>
+    </sidebyside>
+
+    <remark>
+      <title>Règle de Sarrus</title>
+      <p>
+
+      </p>
+      <p>
+       Soit <m>A = \mtt{a_{11}}{a_{12}}{a_{31}}{a_{21}}{a_{22}}{a_{23}}{a_{31}}{a_{32}}{a_{33}}</m> alors son déterminant peut ête calculé avec le procédé suivant :
+       <ol marker = "1">
+        <li>
+          <p>
+            Recopier les deux premières colonnes de <m>A</m> à la droite de <m>A</m>, ce qui donne lieu à un arrangement rectangulaire avec <m>3</m> rangées et <m>5</m> colonnes;
+          </p>
+        </li>
+        <li>
+          <p>
+            Effectuer les produits des éléments sur les six diagonales.
+          </p>
+        </li>
+        <li>
+          <p>
+            Le déterminant se calcule en additionnant produits des diagonales descendantes, et en soustrayant les produits des diagonales ascendantes.
+          </p>
+        </li>
+       </ol>
+       </p>
+
+       <p>
+       <image source="Det-3x3-Sarrus" width="50%">
+        <description>La règle de Sarrus</description>
+       </image>
+       </p>
+    </remark>
+
+    <p>
+      Il faut noter que cette règle n'est valable que pour les déterminants <m>3\times 3.</m> Par ailleurs, elle présente un inconvénient si on travaille avec des paramètres à l'intérieur des matrices. Bien qu'elle donne un résultat correct, on ne priviligiéra pas cette méthode.
+    </p>
+
+    <p>
+      Il se trouve qu'il n'y a aucune raison de privilégier la première rangée pour la définition. Le Théorème suivant nous dit précisément qu'on peut faire le calcul par rapport à n'importe quelle rangée ou n'importe quelle colonne. Nous acceptons ce résultat, la preuve étant très technique.
+    </p>
+
+    <theorem xml:id="thm-Det-Laplace">
+      <title>Expansion de Laplace</title>
+      <statement>
+        <p>
+
+        </p>
+        <p>
+        Soit  <m>A = [a_{ij}] \in \mmn{n}{n}</m>, son déterminant peut être calculé en développant par rapport à n'importe quelle ligne ou n'importe quelle colonne :
+        <md>
+          <mrow>\det{A} =|A| \amp =\underbrace{\sum_{j=1}^n (-1)^{i+j}a_{ij} |A_{ij}| = \sum_{j=1}^na_{ij}C_{ij}}_{\text{le long de la } i^{\text{è}} \text{ligne}} </mrow>
+          <mrow> \amp = \underbrace{\sum_{i=1}^n (-1)^{i+j}a_{ij} |A_{ij}| = \sum_{i=1}^n a_{ij}C_{ij}}_{\text{le long de la } j^{\text{è}} \text{colonne}}</mrow>
+
+        </md>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <statement>
+            <p>
+              Considérons <m>A = \mtt{5}{-3}{2}{1}{0}{2}{3}{-1}{3}</m>, et trouvons son déterminant le long d'autres lignes / colonnes.
+            </p>
+      </statement>
+    </example>
+
+
+
+
+    <example>
+      <statement>
+        <p>
+          Calculer le déterminant de la matrice <m>A=\left[ \begin{array}{rrrr} 7 \amp 3 \amp 0 \amp 1\\ 0 \amp 1 \amp 0 \amp 7\\ 8 \amp 3 \amp9 \amp 4 \\ 0 \amp 7 \amp 0 \amp 2 \end{array}\right].  </m>
+        </p>
+      </statement>
+    </example>
+
+
+
+
+    <proposition xml:id="prop-Det-triangulaire">
+      <statement>
+        <p>
+
+        </p>
+        <p>
+           Si <m>A = [a_{ij}]\in \mmn{n}{n}</m> est une matrice triangulaire, alors son déterminant est le produit des coefficients sur la diagonale
+
+        </p>
+      </statement>
+    </proposition>
+
+    <example>
+      <p>
+        Soit <m>A = \left[\begin{array}{rrrr} 1 \amp -3 \amp 2 \amp -5 \\ 0 \amp 2 \amp-2 \amp-3\\ 0 \amp 0 \amp -3 \amp5\\ 0\amp 0 \amp 0 \amp -1\end{array}\right]</m>. Alors le déterminant de  <m>A</m> est <m>6</m>.
+      </p>
+
+    </example>
+
+    <p>
+      En général, une matrice n'est pas nécessairement triangulaire. Il faut donc se donner d'une méthode plus efficace en général. La résultat suivant est à la base de la méthode requise. Nous ne le prouvons pas, simplement disons que puisque ça fonctionne pour les déterminants <m>2\times 2</m>, étant donnée la définition générale ceci va fonctionner également dans le cas <m>n\times n.</m>
+    </p>
+
+    <theorem xml:id="thm-Dets-Op-Elem">
+      <title>Effet des opérations élémentaires sur le déterminant
+      </title>
+      <statement>
+        <p>
+
+        </p>
+        <p>
+          Soit <m>A\in \mmn{n}{n}</m>, alors :
+        </p>
+        <ol marker = "(a)">
+          <li>
+            <p>
+              Si <m>A\stackrel{R_i \leftrightarrow R_j}{\longrightarrow} B</m> alors <m>|B| = -|A|</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              Si <m>A\stackrel{kR_i}{\longrightarrow}B</m>, alors <m>|B| = k|A|</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              Si <m>A \stackrel{R_i+kR_j}{\longrightarrow}B</m>, alors <m>|B| = |A|.</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Si <m>B =A^T</m>, alors <m>|B| = |A|</m>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </theorem>
+
+    <remark>
+      <p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Le résultat précédent donne la méthode cherchée, puisque
+            <me>
+                A  \underbrace{\rightarrow \cdots  }_{\text{op. élémentaires}}   \underbrace{ \cdots \rightarrow R}_{\text{f. échelonnée}} \text{et } |R| =\text{ produit des coeff. sur la diagonale.}
+            </me>
+
+          </p>
+        </li>
+        <li>
+          <p>
+            On peut également effectuer des opérations sur les colonnes, grâce à  la propriété d) du Théorème.
+          </p>
+        </li>
+      </ol>
+
+      </p>
+    </remark>
+
+    <p>
+      Terminons avec quelques exemples.
+    </p>
+
+
+    <example>
+      <statement>
+        <p>
+          Calculer le déterminant suivant : <m>\left|\begin{array}{rrrr} 0  \amp2 \amp -4 \amp 5\\3\amp 0 \amp-3 \amp 6\\2\amp4\amp5\amp7\\5 \amp -1 \amp -3 \amp 1\end{array}\right|</m>
+
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>
+        Soient <m>a,b,c</m> trois nombres réels distincts et
+        <me>
+          V = \left[\begin{array}{rrr} 1\amp a \amp a^2 \\
+          1\amp b \amp b^2\\ 1\amp c \amp c^2\end{array}\right]
+        </me>
+        Montrer que <m>|V| \ne 0.</m>
+
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>Utiliser les propriétés des déterminants pour montrer que
+          <me>
+            \left|\begin{array}{cccc} a \amp a+1 \amp a+2 \amp e\\
+            b \amp b+1 \amp b+2 \amp f\\
+            c \amp c+1 \amp c+2 \amp g\\
+            d \amp d+1 \amp d+2 \amp h\end{array}\right| = 0.
+          </me>
+
+
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>
+          Sachant que <m>204,\ 527</m> et <m>255</m> sont des multiples de <m>17</m>, montrer que <m>\displaystyle \left|\begin{array}{ccc}2 \amp 0 \amp  4 \\
+          5 \amp 2 \amp 7\\
+          2 \amp 5 \amp 5\end{array}\right|</m> l'est aussi.
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>
+          Trouver les valeurs possibles de <m>x</m> étant donné que
+          <me>
+            \left| \begin{array}{cccc}
+            1 \amp 5-x^2 \amp 2 \amp 2\\
+            2 \amp 2 \amp 3 \amp 3\\
+            3 \amp 3 \amp 5-x^2 \amp 4\\
+            4 \amp 4 \amp 1 \amp 1\end{array}\right| =0
+          </me>
+
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>Sachant que <m>\displaystyle \left| \begin{array}{ccc}
+         a \amp  b \amp c\\
+         d \amp e \amp f\\
+         g \amp h \amp i \end{array}\right| = 4</m>, trouver les valeurs de
+
+        </p>
+        <ol marker = "(a)" cols = "2">
+          <li>
+            <p>
+              <m>\displaystyle \left| \begin{array}{ccc}
+               2a \amp  b/3 \amp c\\
+               2d \amp e/3 \amp f\\
+               2g \amp h/3 \amp i \end{array}\right|</m>.
+
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\displaystyle \left| \begin{array}{ccc}
+               a+2g \amp  b+2h \amp c+2i\\
+               3d +2g \amp 3e +2h\amp 3f + 2i\\
+               g \amp h \amp i \end{array}\right|</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+
+  </paragraphs>
+
+</section>

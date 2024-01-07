@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-5-2-Determinants-Cramer" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Déterminants : propriétés multiplicatives et la règle de Cramer</title>
+
+<introduction>
+    <p>
+       Dans cette section nous établirons le lien entre le déterminant d'une matrice et son inversibilité. Ceci nous permettra de revoir certains faits géométriques sous l'éclairage des déterminants et le lien avec l'indépendance linéaire. Dans un deuxième temps nous verrons comment le déterminant se comporte vis-à-vis du produit matriciel. Comme application nous verrons la règle de Cramer.
+    </p>
+</introduction>
+
+<paragraphs>
+    <title>Déterminants et inversibilité</title>
+    <lemma>
+        <statement>
+            <p>
+              
+            </p>
+            <p>
+            Soit <m>A \in \mmn{n}{n}</m>, et <m>R</m> une forme échelonnée de  <m>A</m>. Alors il existe un réel non nul <m>\d</m> tel que  <m>|A| = \d|R|</m>.
+
+            </p>
+        </statement>
+    </lemma>
+
+    <corollary xml:id="cor-Lin-dep-det-nul">
+        <statement>
+            <p>
+              
+            </p>
+            <p>
+             Si <m>A\in\mmn{n}{n}</m> a des rangées ou des colonnes linéairement dépendantes, alors <m>|A|=0</m>.
+
+            </p>
+        </statement>
+    </corollary>
+
+    <theorem xml:id="thm-A-inv-det">
+        <statement>
+          <p>
+          
+          </p>
+          <p>
+            Soit <m>A \in \mmn{n}{n}</m>, alors <m>A</m> est inversible si et seulement si  <m>|A| \ne 0</m>.
+
+          </p>
+        </statement>
+    </theorem>
+
+    <example>
+        <statement>
+        <p>
+        Trouver les valeurs de  <m>k</m> telles que  <m>A=\mtt{k}{k}{0}{k^2}{2}{k}{0}{k}{k}</m> soit inversible.
+
+        </p>
+         </statement>
+ </example>
+
+<p>
+  Étant donné que la dépendance / indépendance linéaire est caractérisée par la nullité ou pas d'un déterminant, nous pouvons utiliser les déterminants pour établir équations de droites et plans.
+</p>
+
+  <example>
+    <statement>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Trouver l'équation de la droite passant par  <m>A(1,2)</m> et <m>B(3,-1)</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Trouver l'équation du plan  <m>\plan{P}</m> passant par les points <m>A(a,0,0), B(0,b,0)</m> <m>C(0,0,c)</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Soient  <m>\bbm{u} = \rvt{1}{3}{-1}</m> et <m>\bbm{v} = \rvt{-1}{2}{3}</m>. Donner une condition sur  <m>\bbm{x} = \rvt{x_1}{x_2}{x_3}</m> de sorte que  <m>\bbm{x} \in \gen{\bbm{u}, \bbm{v}}</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+    </example>
+
+
+  <p>
+    Les interéprétations géométriques des déterminants font aussi intervenir le calcul d'aires et de volumes. Rappelons (voir la <xref ref="cross-det"/> et la discussion autour de celle-ci) que le produit vectoriel de deux vecteurs de <m>\R^3</m> s'exprime à l'aide de détermninants <m>2\times 2</m>, et un <q> <em>déterminant symbolique  </em></q> <m>3\times 3</m>, à savoir, le produit vectoriel de <m>\vu = \rvt{u_1}{u_2}{u_3}</m> et <m>\vv = \rvt{v_1}{v_2}{v_3}</m> est donné par  
+    <md>
+        <mrow> \vu \times \vv \amp = \begin{vmatrix}\vi \amp u_1 \amp v_1 \\ \vj \amp u_2 \amp v_2\\ \vk \amp u_3 \amp v_3
+      \end{vmatrix} </mrow>
+      <mrow> \amp = \begin{vmatrix}  u_2 \amp v_2 \\ u_3 \amp v_3\end{vmatrix}\vi - \begin{vmatrix}  u_1 \amp v_1 \\ u_3 \amp v_3\end{vmatrix}\vj  + \begin{vmatrix}  u_1 \amp v_1 \\ u_2 \amp v_2\end{vmatrix}\vk</mrow>
+        </md>
+  </p>
+  
+  <corollary xml:id="cor-det-aire-vol">
+    <statement>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Soient <m>\vu, \vv \in \R^2</m>. Alors l'aire du parallélogramme qu'ils déterminent est <m>\left| \det{ \vu, \vv}\right|.</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Soient <m>\vu, \vv, \vw \in \R^3</m>. Alors le volume du parallélépipède qu'ils déterminent est  <m>\left| \det{ \vu, \vv, \vw}\right|.</m>
+          
+        </p>
+      </li>
+    </ol>
+    </statement>
+  </corollary>
+  
+  <example>
+    <statement>
+      <p>Calculer le volume du parallélépipède déterminé par les vecteurs <m>\vu = \rvt{-1}{-2}{1}, \vv= \rvt{4}{3}{2}</m> et <m>\vw = \rvt{0}{-5}{-2}</m>.
+        
+      </p>
+    </statement>
+    
+  </example>
+  
+  
+  <p>
+    Nous nous intéressons maintenant au comportement du déterminant vis-à-vis du produit matriciel, plus précisément, si <m>A,B\in \mmn{n}{n}</m> sont données, peut-on :
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Dire quelque chose au sujet de <m>|AB|</m> connaissant <m>|A|</m> et <m>|B|</m>?
+        </p>
+      </li>
+      <li>
+        <p>
+          Dire quelque chose au sujet de <m>\left|A^{-1}\right|</m> connaissant <m>|A|</m>?
+        </p>
+      </li>
+    </ol>
+    Nous allons voir que les réponses sont celles qu'on voudrait avoir.
+  </p>
+
+  <theorem xml:id="thm-det-prod">
+    <statement>
+      <p>
+        
+      </p>
+      <p>
+        Soient <m>A,B\in \mmn{n}{n}</m>, alors  <m>|AB| = |A|\, |B|</m>, c'est à dire que le déterminant d'un produit est le produit des déterminants.
+      </p>
+    </statement>
+
+  </theorem>
+  <p>
+    Une conséquence de ce résultat est la réponse à la deuxième question posée ci-haut.
+  </p>
+  <corollary xml:id="cor-det-inverse">
+    <statement>
+      <p>
+        
+      </p>
+      <p>
+        Soit <m>A\in \mmn{n}{n}</m>, alors
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            <m>\left|A^n\right| = \left|A\right|^n</m> pour tout <m>n\in \mathbb{N}</m>,
+            
+          </p>
+        </li>
+        <li>
+          <p>
+            Si <m>A</m> est une matrice inversible, alors  <m>\left|A^{-1}\right|= \left|A\right|^{-1}</m>, et la formule de la partie précédente est valable pour tout <m>n</m> entier.
+          </p>
+        </li>
+      
+      </ol>
+      
+    </statement>
+
+  </corollary>
+
+  <example>
+    <statement>
+      <p>
+        Supposez que <m>A,B\in \mmn{n}{n}</m> et que <m>|A|= 3, |B| = -2</m>, trouver les valeurs des déterminants :
+      <ol marker = "(a)" cols = "3">
+        <li>
+          <p><m>|AB|</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|A^2|</m>
+          </p>
+        </li>
+        <li>
+          <p>
+           <m>|B^{-1}A|</m>
+          </p>
+        </li>
+        <li>
+          <p>
+          <m>|2A|</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|3B^T|</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>|AA^T|</m>
+          </p>
+        </li>
+      </ol>
+
+
+      </p>
+
+    </statement>
+
+
+  </example>
+
+  <example>
+    <statement>
+      <p>Supposez que <m>A</m> est une matrice idempotente, c'est à dire que <m>A^2 = A</m>. Quelles sont les valeurs possibles de <m>|A|</m>?
+
+      </p>
+    </statement>
+  </example>
+
+</paragraphs>
+
+<paragraphs xml:id="pars-Cramer">
+  <title>La règle de Cramer</title>
+  <p>
+    La règle de Cramer permet de résoudre des systèmes linéaires en effectuant des quotients de déterminants. Il s'agit d'une méthode efficace pour les systèmes <m>2\times 2</m>, voire <m>3\times 3</m>. Elle fournit cependant une méthode pour le calcul de l'inverse. 
+  </p>
+  <theorem xml:id="thm-Cramer">
+    <statement>
+      <p>
+        
+      </p>
+      <p>
+       Soit <m>A\in \mmn{n}{n}</m> inversible. L'équation  <m>A\bbm{x} = \bbm{b}</m> admet une unique solution donnée par 
+       <me>
+        x_i = \frac{|A_i(\bbm{b})|}{|A|}
+       </me>
+       où <m>A_i(\bbm{b})</m> est la matrice obtenue de  <m>A</m> en remplaçant la  <m>i^{\text{è}}</m> colonne par <m>\bbm{b}</m>.
+        
+      </p>
+    </statement>
+  </theorem>
+  <example>
+    <statement>
+      <p>
+        Utiliser la règle de Cramer pour résoudre les systèmes d'équations suivants.
+
+      </p>
+      <ol marker = "(a)" cols = "2">
+        <li>
+          <p>
+          <m>
+          \left\{
+          \begin{alignedat}{3}
+            2x \amp {} + {} \amp  y \amp {}={} \amp -1\\
+            5x\amp {} + {} \amp  3y \amp ={} \amp 2
+          \end{alignedat}
+          \right.
+          </m>
+          </p>
+        </li>
+        
+        <li>
+          <p>
+          <m>
+          \left\{
+          \begin{alignedat}{4}
+          x \amp {} + {} \amp y \amp {} - {} \amp z \amp {}={} \amp 1\\
+          x \amp {} + {} \amp y \amp {} + {} \amp z \amp {}={} \amp 2\\
+          x \amp {} - {} \amp y \amp {} {} \amp   \amp {}={} \amp 3
+          \end{alignedat}\right.
+          </m>
+            
+          </p>
+        </li>
+      </ol>
+    </statement>
+    
+  </example>
+
+  <remark>
+    <ul>
+      <li>
+        <p>
+        Nous savons que la première colonne de  <m>A^{-1}</m> est solution à  <m>A\bbm{x} = \bbm{e}_1</m> et quelque chose de semblable tient pour les autres colonnes...
+        </p>
+      </li>
+
+      <li>
+        <p>
+        Ainsi, la règle de Cramer devrait fournir une méthode pour le calcul de la matrice inverse!           
+        </p>
+      </li>
+    </ul>    
+  </remark>
+
+  <definition xml:id="def-Adjointe">
+    <statement>
+      <p>
+      
+      </p>
+      <p>
+      Étant donnée <m>A\in \mmn{n}{n}</m>, son  <em>adjointe classique</em>  est    <m>C=  \text{adj}\, A</m>  définie par   <m>c_{ij} = (-1)^{i+j}|A_{ji}|</m>
+      </p>
+      <p>
+        En d'autres termes, la matrice adjointe classique est la transposée de la matrice des cofacteurs.
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        Calculer les adjointes (classiques) des matrices suivantes :
+      </p>
+      <ol marker = "(a)" cols = "2">
+        <li>
+          <p>
+          <m>A = \mdd{a}{b}{c}{d}</m>
+            
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>
+            A = \mtt{2}{1}{3}{1}{-1}{1}{1}{3}{-2}
+            </m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+    
+  </example>
+
+  <theorem xml:id="thm-Adj-inv">
+    <statement>
+      <p>
+        
+      </p>
+      <p>
+        Soit <m>A\in \mmn{n}{n}</m> une matrice inversible, alors 
+        <me>  
+          A^{-1}= \frac{1}{|A|} \text{adj}\, (A)
+        </me>       
+      </p>
+    </statement>
+  </theorem>
+
+  <example>
+    <statement>
+      <p>
+        Calculer le produit <m>A (\text{adj}\, A)</m> avec  <m>A = \mtt{2}{1}{3}{1}{-1}{1}{1}{3}{-2}</m>. Déduire ensuite la valeur du déterminant de <m>A</m> ainsi que son inverse.
+      </p>
+    </statement>
+    
+  </example>
+  
+
+
+
+</paragraphs>
+
+
+
+
+</section>

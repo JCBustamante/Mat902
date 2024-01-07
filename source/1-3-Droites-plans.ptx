@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-1-3-Droites-plans" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Droites et plans</title>
+  <introduction>
+    <p>
+    Dans cette section nous utilisons les notions vues à la section précédente, notamment la colinéarité et l'orthogonalité pour étudier des objets connus et concrets :
+    <ul>
+      <li>
+        <p>
+          Les droites dans le plan,
+        </p>
+      </li>
+      <li>
+        <p>
+          Les plans dans l'espace,
+        </p>
+      </li>
+      <li>
+        <p>
+          Les droites dans l'espace.
+        </p>
+      </li>
+    </ul>
+    </p>
+  </introduction>
+  <paragraphs xml:id="pars-Droite-2d">
+  <title>La droite dans le plan</title>
+
+ 
+    <p> Vous êtes probablement familiers avec la notion de pente ou celle d'abscisse à l'origine pour une droite. Il est souvent enseigné qu'une droite admet une équation de la forme <m>y = mx + p</m> où <m>m</m> est la pente, et <m>p</m> son abscisse à l'origine.
+    </p>
+
+    <p>
+    Dans ce qui suit, nous étudierons les droites d'un point de vue vectoriel, exploitant les notions comme la colinéarité ou l'orthogonalité des vecteurs.
+    </p>
+    
+
+
+  <p>
+    Ceci permettra d'une part de continuer à se familiariser avec ces concepts, mais surtout cette approche servira à mettre la table pour les notions qui seront étudiées dans la suite du cours : les droites dans l'espace, les plans, et les systèmes d'équations linéaires.
+  </p>
+
+  <problem xml:id="Prob-dte-dans-R2">
+    <title>Droites dans le plan : plusieurs points de vue</title>
+
+
+      <p> Pour les problèmes qui suivent, il sera utile de garder à l'esprit la définition de colinéarité  (voir <xref ref="def-Colin-2d"/>) ainsi que celle d'orthogonalité (voir <xref ref="def-Angle"/>). Aussi, pensez que pour un point <m>P</m> quelconque, <m>\vp</m> est le vecteur <m>\vect{OP}</m>.
+      </p>
+      <p>Pour tout ce qui suit on fixe les points <m>A(6,-4)</m> et <m>B(-3,2)</m>. On s'intéressera a la droite <m>\plan{D} </m> passant par ces deux points, de deux façons différentes. Faites une figure.
+      </p>
+
+      <task>
+        <p>
+          Utilisez le critère de colinéarité (<xref ref="prop-Colin-2d"/>) pour caractériser les points <m>M(x,y)</m> appartenant à la droite <m>\plan{D}</m>. En d'autres termes, quelle condition <m>x</m> et <m>y</m> doivent vérifier pour que <m>M\in \plan{D}</m>?
+          </p>
+      </task>
+      <hint>
+        <p>
+          Si <m>A,B</m> et <m>M</m> sont sur la même droite, donnez des vecteurs colinéaires.
+        </p>
+      </hint>
+
+      <task>
+        <p>
+          Donnez un vecteur <m>\vd</m> qui donne la direction de <m>\plan{D}</m>. Donnez également un vecteur <m>\vn</m> orthogonal à <m>\vd</m>.
+        </p>
+      </task>
+      <task>
+          <p>
+            Utilisez le produit scalaire pour caractériser les points <m>M</m> tels que <m>\vn</m> et <m>\vm - \va</m> sont orthognaux.
+          </p>
+
+      </task>
+
+      <task>
+        <p>
+        Utilisez la définition de colinéarité pour caractériser les vecteurs <m>\vm</m> tels que <m>M</m> se trouve sur <m>\plan{D}</m>. Cette fois on cherche une égalité vectorielle, sans faire appel aux coordonnées.
+      </p>
+      </task>
+
+      <task>
+        <p>
+          Utilisez les techniques ci-haut pour trouver les équations de la droite parallèle à <m>AB</m>, passant par le point <m>C(4, 2)</m>.
+        </p>
+      </task>
+      
+  </problem>
+
+
+  <definition xml:id="def-Eqns-droite">
+    <statement>
+        <p></p>
+
+      <p> Une droite dans le plan admet plusieurs équations
+        <ul>
+          <li>
+            <p>
+              <alert>L'équation cartésienne</alert> est de la forme <m>ax+by =c</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Une équation vectorielle </alert> de la forme <m>\vx = \vp_0 + t \vd</m>, où <m>\vp_0</m> correpond à un point quelconque sur la droite, et <m>\vd</m> est un vecteur directeur pour celle-ci.
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>L'équation normale</alert> qui est de la forme <m>\vn \cdot \vx = \vn \cdot \vp_0</m>, où <m>\vn</m> est un vecteur normal pour la droite, et <m>\vp_0</m> correspond à un point sur celle-ci.
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Les équations paramétriques</alert>, de la forme
+              <me>
+                \left\{ \begin{array}{lcl} x\amp= \amp x_0 + t d_x\\ y \amp= \amp  y_0+t d_y\end{array}\right.
+              </me>
+              Elles sont obtenues simplement en exprimant une équation vectorielle par composante.
+            </p>
+          </li>
+          <li>
+            <p>
+              <alert>Pente - ordonnée à l'origine </alert> de la forme <m>y = mx + p</m>, valable seulement pour les droites non verticales.
+            </p>
+          </li>
+        </ul>
+
+      </p>
+    </statement>
+  </definition>
+
+    <warning>
+        <p>
+          L'équation vectorielle d'une droite n'est pas unique! En effet, tout ce dont on a besoin est d'<alert>un point</alert>
+      sur la droite, et <alert>un vecteur directeur</alert>. En gńéral il y a une infinité de choix possibles pour le point, et le vecteur directeur n'est déterminé qu'à multiple près, </p>
+    </warning>
+
+
+    <example>
+      <statement>
+        On a trois droites <m>\plan{D}_1,\plan{D}_2</m> et <m>\plan{D}_3</m> dans le plan.
+        <ol marker = "(a)">
+          <li>
+            <p>
+               On sait que <m>\plan{D}_2</m> est perpendiculaire à <m>\plan{D}_1</m> et qu'en plus elle passe par le point <m>(2,3)</m>. Compléter le tableau ci-bas.
+            </p>
+            <p>
+              <tabular halign="center">
+                  <row header="yes" bottom="major" >
+                    <cell right = "minor">Droite </cell>
+                    <cell right = "minor">Éq. cartésienne</cell>
+                    <cell right = "minor">Vecteur normal</cell>
+                    <cell>Éq. vectorielle</cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell right = "minor"><m>\plan{D}_1</m></cell>
+                    <cell right = "minor"> <m>2x-y=1</m></cell>
+                    <cell right = "minor"> </cell>
+                    <cell> </cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell right = "minor"><m>\plan{D}_2</m></cell>
+                    <cell right = "minor"> </cell>
+                    <cell right = "minor"> </cell>
+                    <cell> </cell>
+                  </row>
+                  <row bottom="minor">
+                    <cell right = "minor"><m>\plan{D}_3</m></cell>
+                    <cell right = "minor"> </cell>
+                    <cell right = "minor"> </cell>
+                    <cell> <m>\vx = \rvd{-4}{-3}+ t \rvd{-6}{3}</m></cell>
+                  </row>
+                </tabular>
+            </p>
+          </li>
+          <li>
+            <p>
+              Que peut-on dire de <m>\plan{D}_3</m> et <m>\plan{D}_2</m>? Justifiez.
+            </p>
+          </li>
+        </ol>
+      </statement>
+
+
+
+    </example>
+
+    <warning xml:id="Att-collision">
+      <title>Collisions et intersections</title>
+
+      <p></p>
+
+      <p>
+      Si on a deux droites données par les équations vectorielles
+        <ul>
+          <li>
+            <p>
+              <m>\vx = \va + t \vd_1</m> et
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vx = \va' + t \vd'</m>
+            </p>
+          </li>
+        </ul>
+        Alors résoudre pour <m>t</m> l'équation  <m>\va + t \vd_1 = \va' + t \vd' </m> ne permet pas de trouver un point commun!
+      </p>
+      <p>
+        En effet, il faut comprendre que chaque équation décrit la position d'un mobile (le vecteur position est <m>\vx</m>) à l'instant <m>t.</m> L'équation <m>\va + t \vd_1 = \va' + t \vd' </m> prétend donc trouver un <em>instant commun</em> ou les deux mobiles se trouvent à la même place. Il s'agit d'une <em>collision</em>.
+      </p>
+      <p>
+        Pour trouver un point commun, peut être correspondant à des moments différents, il faut introduire une nouvelle variable, pour distinguer les paramètres.
+      </p>
+    </warning>
+
+    <example>
+      <statement>
+        <p>
+          Soient <m>A(2, 6), B(1, 3), C(8, 1)</m> et <m>D(4, 6).</m> Ci-après on a un applet qui permet d'illustrer la différence entre un point commun et un point de collision. 
+        </p>
+        <p>
+          La droite <m>AC</m> est paramétrée par le paramètre <m>s</m> : lorsque <m>s</m> varie, le point <m>M</m> parcourt la droite <m>AC.</m> Quelque chose de semblable tient pour la droite <m>BD</m> (le paramétre est <m>t</m>, et le point qui la parcourt est  <m>N</m>). 
+        </p>
+        
+        
+        <ol marker = "(a)">
+          <li>
+            <p>
+              Donnez des équations vectorielles des droites <m>AC</m> et <m>BD</m>.
+              </p>
+          </li>
+          <li>
+            <p>
+              Trouver les équations cartésiennes des droites <m>AC</m> et <m>BD</m>, et trouvez leur point commun en vous servant de celles-ci.
+            </p>
+          </li>
+          <li>
+            <p>
+              Utilisez les équations vectorielles pour trouver ce point commun.
+            </p>
+          </li>
+          </ol>
+
+          <figure xml:id="fig-Coll">
+          <caption>Les droites ont un point commun <m>P</m> qui n'est pas un point de collision.
+          </caption>
+          <interactive xml:id="ia-Coll" iframe = "https://www.geogebra.org/material/iframe/id/mx8zhdaj" width = "100%" aspect = "2:1" preview = "Collision-commun"/>
+        </figure>
+          
+
+      </statement>
+
+    </example>
+
+
+    <example xml:id="ex-imposant">
+    <statement>
+      <p>
+        Soit <m>\plan{D}</m> la droite passant par <m>A(-2,1)</m> et <m>B(6,2)</m>.
+        <ol marker = "(a)">
+          <li>
+            <p>
+            Donner l'équation de la droite  <m>\plan{D}'</m>,  parallèle à <m>\plan{D}</m> et passant par le point <m>D(1,7)</m>. Trouver  <m>C</m> tel que  <m>ABCD</m> est un parallélogramme.
+            </p>
+          </li>
+
+         <li>
+            <p>
+            Donner l'équation de la perpendiculaire à  <m>\plan{D}</m> qui passe par le milieu des diagonales de ce parallélogramme.
+            </p>
+         </li>
+
+        <li>
+          <p>
+          Trouver la distance entre <m>\plan{D}</m> et <m>\plan{D}'</m>, puis trouver l'aire de  <m>ABCD</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+          Trouver l'angle formé par  <m>AB</m> et <m>AC</m>.
+          </p>
+        </li>
+        </ol>
+      </p>
+    </statement>
+    
+
+
+    </example>
+
+
+
+
+
+  </paragraphs>
+
+
+
+  <paragraphs xml:id="pars-Droite-ds-R3">
+    <title>Droites dans l'espace</title>
+    <p>
+      Nous passons maintenant à l'étude des droites dans l'espace.
+    </p>
+    <p>
+      Parmi tous les types d'équations donnés dans la <xref ref="def-Eqns-droite"/> l'équation vectorielle, à savoir
+      <me>
+        \vx = \vp_0 + t\vd
+      </me>
+      est celle qui nous permet d'étudier les droites dans l'espace <m>\R^3</m>.  En effet, dans l'équation ci-haut, rien ne nous dit que nos vecteurs sont des vecteurs à deux ou trois coordonnées : les calculs et l'interprétation restent valables. On peut penser que la droite donnée ci-haut donne la position <m>\vx</m> d'une particule qui part du point <m>\vp_0</m> avec une vitesse <m>\vd</m>.
+    </p>
+    <p>
+      Si on écrit composante à composante, on obtient les équations paramétriques de la droite.
+    </p>
+    <p>
+      Nous verons plus loin qu'une équation de la forme <m>ax+by+cz = d</m> correspond à un plan.
+    </p>
+    <warning xml:id="droites-gauches">
+      <statement>
+        <p></p>
+
+        <p>
+          Rappelons que dans le plan <m>\R^2</m> :
+          <ul>
+            <li>
+              <p>
+                La direction d'une droite  peut être déterminée soit par un vecteur directeur, soit par un vecteur normal.
+              </p>
+            </li>
+            <li>
+              <p>
+                Deux droites sont parallèles si et seulement si leurs vecteurs directeurs respectifs sont colinéaires. Ceci arrive si et seulement si leurs vecteurs normaux sont colinéaires.
+              </p>
+            </li>
+            <li>
+              <p>
+                si deux droites ne sont pas parallèles, elles sont forcément sécantes, c'est à dire que'elles auront un point commun.
+              </p>
+            </li>
+            <li>
+              <p>
+                si les vecteurs directeurs sont orthogonaux, les droites sont perpendiculaires : elles sont orthogonales (ceci est une question de direction), et en plus elles ont un point commun.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Dans l'espace, les choses sont un peu différentes. Puisqu'il y a beaucoup plus de place, plusieurs choses peuvent arriver.
+          <ul>
+            <li>
+              <p>
+                Deux droites non parallèles peuvent ne pas se couper,
+              </p>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <p>
+                Une droite dans <m>\R^3</m> <alert>n'a pas de vecteur normal</alert>.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </warning>
+    <example>
+      <statement>
+        <p>On considère la situation de l'applet ci-bas. Vous pouvez le bouger pour mieux visualiser.
+
+        </p>
+        <figure>
+          <caption>Trois droites dans <m>\R^3</m>. Deux droites non parallèles qui n'ont pas de point commun sont dites être des <em> droites gauches</em>.</caption>
+          <interactive xml:id="Droites-gauches" platform="geogebra" width =" 100%" aspect = "5:4">
+          <slate surface="geogebra" source = "Geogebra/Positions-relatives-droites.ggb" aspect = "5:4" preview = "Droites-Gauches.png"/>
+          </interactive>
+          </figure>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  Les droites <m>\plan{D}_1</m> et <m>\plan{D}_2</m> sont parallèles. Rien d'étonnant, leurs vecteurs directeurs sont colinéaires.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Les droites <m>\plan{D}_1</m> et <m>\plan{D}_3</m> sont sécantes, elles ont un point commun. Elles sont en fait perpendiculaires.
+                </p>
+              </li>
+              <li>
+                <p>Les droites <m>\plan{D}_2</m> et <m>\plan{D}_3</m> sont des <alert>droites gauches</alert> : sans être parallèles, elles ne se coupent pas. En fait, il s'agit de droites orthogonales (mais non perpendiculaires).
+
+                </p>
+              </li>
+            </ul>
+
+          </p>
+
+
+
+
+      </statement>
+    </example>
+
+<example xml:id="exple-dtes-gauches">
+  <statement>
+    <p>
+      Soient <m>\plan{D}_1</m> la droite passant par <m>(3,2,5)</m> et de vecteur directeur <m>\vd = \vi + 4 \vj +\vk</m> et <m>\plan{D}_2</m> la droite passant par les points <m>(5,1,7)</m> et <m>(8,1,4)</m>.
+      <ol marker = "(a)">
+        <li>
+        <p>
+          Donnez les équations vectorielles des droites <m>\plan{D}_1</m> et <m>\plan{D}_2</m>.
+        </p>
+        </li>
+        <li>
+          <p>
+          Montrer que <m>\plan{D}_1</m> et <m>\plan{D}_2</m> sont des droites gauches.
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculer la distance entre les droites <m>\plan{D}_1</m> et <m>\plan{D}_2.</m>
+          </p>
+        </li>
+      </ol>
+      </p>
+  </statement>
+  
+</example>
+
+
+
+<example xml:id="Ex-dist-pt-dte-R3">
+      <statement>
+        <p>
+          Soit <m>\plan{D}_1</m> la droite <m>\vx =\rvt{-3}{5}{6} +t \rvt{3}{0}{-4}</m> et <m>R(-2,7,-12)</m>.
+          <ol marker = "(a)">
+            <li>
+              <p>
+              Trouver le point sur <m>\plan{D}_1</m> qui est le plus près de <m>R</m> et calculer la distance de <m>R</m> à <m>\plan{D}_1</m>.
+            </p>
+
+            <hint>
+            <p>
+              Projetez sur le vecteur directeur!
+            </p>
+            </hint>
+
+            <answer>
+            <p>
+              Le point le plus près est <m>(6,5,-6)</m>. La distance est <m>2\sqrt{26}</m>.
+            </p>
+            </answer>
+
+            </li>
+            <li>
+              <p>
+              Soit <m>\plan{D}_2</m> la droite passant par <m>Q(4,3,-4)</m> avec vecteur directeur <m>\vv = \rvt{-1}{2}{2}</m>. Trouver le point d'intersection des deux droites.
+              </p>
+
+              <hint>
+              <p>
+              Il faut résoudre un système d'équations. Il faudra faire attention à distinguer un point commun d'un point de collision (voir <xref ref="Att-collision"/>).
+              </p>
+              </hint>
+
+              <answer>
+              <p>
+              <m>(3,5,-2)</m>
+              </p>
+              </answer>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      
+    </example>
+
+
+
+
+  </paragraphs>
+
+  <paragraphs xml:id="pars-Plans-3d">
+    <title>Les plans dans l'espace</title>
+    <p>
+      Nous nous attardons maintenant aux plans dans l'espace, c'est l'évolution naturelle des droites dans le plan. Rappelons, de la <xref ref="def-Eqns-droite"/> qu'une droite a plusieurs équations différentes :
+      <ul>
+        <li>
+          <p>
+            <alert>Équation cartésienne (générale)</alert> <m>ax+by = c</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>Équation normale</alert> <m>\vn \cdot \vx = \vn \cdot \vp_0</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>Équation vectorielle</alert> <m>\vx = \vp_0 + t \vd</m>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <problem xml:id="Prob-plans-de-R3">
+      <title>Plans dans l'espace : l'ajout d'une dimension</title>
+
+
+
+      <statement>
+        <p>Pour tout ce qui suit on considère les points <m>P(1,3,1), \, Q(4,-2,2)</m> et <m>R(3,5,-1)</m>. Ces trois points déterminent un plan <m>\plan{P}</m> dans <m>\R^3</m>
+        </p>
+        <task>
+          <p>
+
+          Soit <m>M(x,y,z)</m>. Exprimer le fait que <m>M</m> appartient au plan <m>\plan{P}</m> en termes de combinaisons linéaires.
+
+          </p>
+        </task>
+
+        <task xml:id = "Normal-plan">
+          <p>
+            Trouvez un vecteur <m>\vn = a\vi + b\vj + c\vk</m> qui soit orthogonal aux vecteurs se trouvant sur <m>\plan{P}</m>.
+          </p>
+        </task>
+
+        <task>
+          <p>
+
+          Utilisez le produit scalaire pour caractériser les points <m>X(x,y,z)</m> tels que <m>\vn</m> et <m>\vx - \vp</m> sont orthognaux. Quelle relation doivent vérifier les quantités <m>x,y</m> et <m>z</m>?
+
+        </p>
+
+        </task>
+
+      </statement>
+      
+
+    </problem>
+    <definition xml:id="def-Eqns-plan">
+      <statement>
+         <p></p>
+
+
+
+        <p> Un plan dan l'espace admet plusieurs équations
+          <ul>
+            <li>
+              <p>
+                <alert>L'équation cartésienne</alert> est de la forme <m>ax+by +cz = d</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert>Une équation vectorielle </alert> de la forme <m>\vx = \vp_0 + t \vu + s \vv</m>, où <m>\vp_0</m> correpond à un point quelconque sur la droite, et <m>\vu, \vv</m> sont deux vecteurs non colinéaires qui sont parallèles au plan.
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert>L'équation normale</alert> qui est de la forme <m>\vn \cdot \vx = \vn \cdot \vp_0</m>, où <m>\vn</m> est un vecteur normal pour le plan, et <m>\vp_0</m> correspond à un point sur celui-ci
+              </p>
+            </li>
+            <li>
+              <p>
+                <alert>Les équations paramétriques</alert>, de la forme
+                <me>
+                  \left\{ \begin{array}{lcl} x\amp=x_0 + t u_x + s v_x\\ y \amp= y_0+t u_y + sv_y\\
+                  z \amp= z_0 + tu_z + sv_z  \end{array}\right.
+                </me>
+                Elles sont obtenues simplement en exprimant une équation vectorielle composante par composante.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+    </definition>
+
+
+  <example>
+    <statement>
+      <p>
+        Soit <m>\plan{P}</m> le plan d'équation <m>2x+y-z=-7</m>. Trouver, s'ils existent, les points d'intersection de <m>\plan{P}</m> avec :
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            La droite <m>\vx = \rvt{1}{2}{-1} + t \rvt{-2}{1}{3}</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            La droite <m>\vx = \rvt{1}{2}{-1} + t \rvt{1}{0}{2}</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+    
+  </example>
+
+
+
+    <example>
+      <statement>
+      <p>
+      On reprend le contexte de l'exemple <xref ref="Ex-dist-pt-dte-R3"/>. Trouver l'équation cartésienne et une équation vectorielle du plan contenant las droites <m>\plan{D}_1</m> et <m>\plan{D}_2</m>.
+      </p>
+      </statement>
+      <answer>
+          <p>
+            <ul>
+              <li>
+                <p>
+                  Équation vectorielle <m>\vx = \rvt{3}{5}{-2} + s \rvt{3}{0}{-4} + t\rvt{-1}{2}{2}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Équation cartésienne <m>4x-y+3z = 1</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+          </answer>
+      
+    </example>
+
+  </paragraphs>
+
+
+  <paragraphs xml:id="pars-Prod-Vectoriel">
+    <title>Le produit vectoriel : en quête de la normalité</title>
+    <p>
+      Considérons les problèmes suivants :
+      <ol>
+        <li>
+          <p>
+            Étant donnés trois points  dans un plan, trouver un vecteur <m>\vn</m> qui soit orthogonal aux vecteurs de ce plan,  c'était la <xref ref="Prob-plans-de-R3" text = "custom"> partie b du problème 1.3.14</xref>,
+          </p>
+        </li>
+        <li>
+          <p>Trouver la distance entre deux droites gauches dans l'espace, ça aurait pu être un ajout à l'exemple <xref ref="exple-dtes-gauches" text = "custom"> 1.3.12</xref>
+          </p>
+        </li>
+      </ol>
+      Dans les deux cas, une solution peut être obtenue en trouvant d'abord un vecteur <m>\vn</m> qui soit orthogonal simulatanément à deux vecteurs données (deux vecteur sur le plan dans le premier cas, ou les deux vecteurs des directeurs des droites, dans le second). Nous avons trouvé ceci de façon plutôt artisanale, dans ce qui suit nous verrons une construction qui permet de faire ceci directement, et bien plus, il s'agit du <em>produit vectoriel</em>.
+      </p>
+      <p>
+      Il importe de dire que cette opération n'est définie que pour les vecteurs dans <m>\R^3</m><fn>Et il y a une façon de l'adapter aux problèmes dans le plan.</fn>, à différence du produit scalaire qui est défini dans <m>\R^n</m>.
+    </p>
+
+
+    <definition xml:id="def-prod-vecto">
+        <statement>
+
+            <p></p>
+            <p>Soient <m>\vu = \rvt{u_1}{u_2}{u_3}</m> et <m>\vv = \rvt{v_1}{v_2}{v_3} \in \R^3</m>. Leur  <terms><em>produit vectoriel</em></terms> est le vecteur de <m>\R^3</m> défini par <me> \vu\times \vv = \begin{bmatrix}u_2 v_3 - u_3 v_2\\ u_3 v_1 - u_1 v_3\\ u_1 v_2 - u_2v_1 \end{bmatrix}</me>
+
+            </p>
+        </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Calculer les produits vectoriels suivants
+          <ol marker = "(a)">
+            <li>
+              <p><m> \rvt{1}{0}{0} \times \rvt{0}{1}{0}</m>.
+              </p>
+            </li>
+            <li>
+              <p> <m> \rvt{0}{1}{0} \times \rvt{1}{0}{0}</m>.
+
+              </p>
+            </li>
+            <li>
+              <p><m> \rvt{-1}{2}{3}\times \rvt{2}{-4}{-6}</m>.
+              </p>
+            </li>
+            <li>
+              <p><m> \rvt{-1}{2}{3} \times \rvt{1}{1}{1}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      
+    </example>
+
+    <remark xml:id ="cross-det">
+      <p>
+        La définition fournit une façon concise d'écrire le produit vectoriel comme un <em>déterminant symbolique</em><fn><em>symbolique</em> car il ne s'agit pas, à proprement parler d'un déterminant, les éléments apparaissant dans la première colonne sont des vecteurs, pas des nombres. Le dernier chapitre du cours sera consacré aux déterminants proprement dits. Pour l'instant disons seulement que cei est une astuce de calcul.</fn>
+        <md>
+        <mrow> \vu \times \vv \amp = \begin{vmatrix}\vi \amp u_1 \amp v_1 \\ \vj \amp u_2 \amp v_2\\ \vk \amp u_3 \amp v_3
+      \end{vmatrix} </mrow>
+      <mrow> \amp = \begin{vmatrix}  u_2 \amp v_2 \\ u_3 \amp v_3\end{vmatrix}\vi - \begin{vmatrix}  u_1 \amp v_1 \\ u_3 \amp v_3\end{vmatrix}\vj  + \begin{vmatrix}  u_1 \amp v_1 \\ u_2 \amp v_2\end{vmatrix}\vk</mrow>
+        </md>
+      </p>
+    </remark>
+
+
+
+    <p>
+      Voyons maintenant quelques propriétés du produit vectoriel.
+    </p>
+
+    <theorem xml:id="thm-Prop-vecto">
+        <statement>
+            <p></p>
+            <p> Soient <m>\vu, \vv, \vw \in \R^3</m> et <m>\a \in \R</m>, alors :
+            <ol marker = "(a)">
+              <li>
+                <p><m>\vu \times \vv</m> est orthogonal à <m>\vu</m> et à  <m>\vv</m>.
+
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\vu\times \vv = - \vv\times \vu</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\vu\times\vu = \bbm{0}</m>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <m>\vu \times (\a \vv) = (\a \vu)\times\vv = \a (\vu \times \vv)</m>
+                </p>
+            </li>
+            <li>
+              <p>
+                  <m>\vu\times (\vv+ \vw) = (\vu \times \vv) +( \vu \times \vw)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\nrm{\vu \times \vv} ^2 = \nrm{\vu}^2 \, \nrm{\vv}^2 - (\vu\cdot \vv)^2</m>
+              </p>
+            </li>
+            </ol>
+
+            </p>
+        </statement>
+    </theorem>
+
+
+
+    <p>
+        Les propriété <em>a</em> du <xref ref = "thm-Prop-vecto"/> nous dit que si <m>\vu</m>  et <m>\vv </m> ne sont pas colinéaires alors <m>\vu \times \vv</m> est orthogonal au plan engendré par <m>\vu</m> et <m>\vv</m>. Par ailleurs, la propriété <em>f</em> nous donne la norme du produit vectoriel. Ceci laisse encore deux choix pour le produit vectoriel. Si on commence avec deux vecteurs <m>\va</m> et <m>\vb</m> dans la figure de gauche, ci-bas, on les vecteurs <m>\vc</m>  et <m>\vd</m> sont des candidats potentiels. Lequel des deux choisir? La <term>règle de la main droite</term> fournit la réponse : lorsque vos doigts de la main droite tournent d'un angle <m>\theta</m> de <m>\va</m> jusqu'à <m>\vb</m>, (avec <m>\theta</m> compris entre <m>0</m> et <m>\pi</m>) alors votre pouce indique la direcion de <m>\va \times \vb</m>
+    </p>
+
+    <figure>
+        <caption>Pour le produit vectoriel l'ordre des facteurs est important. À droite, la règle de la main droite. </caption>
+        <sidebyside  widths="25% 22% 20%" valign="middle">
+            <image source="crossLL"/>
+            <image source="crossRR"/>
+            <image source="RHR"/>
+        </sidebyside>
+    </figure>
+
+    <example>
+      <statement>
+        <p>
+          Soit <m>\plan{D}_1</m> la droite passant par <m>P_1(1,1,0),</m> dirigée par le vecteur  <m>\bbm{d}_1 = \rvt{1}{-1}{2}</m> et <m>\plan{D}_2</m> passant par  <m>P_2(2,0,2)</m> avec vecteur directeur <m>\bbm{d}_2 = \rvt{-1}{1}{0}</m>. Montrer que   <m>\plan{D}_1</m> et <m>\plan{D}_2</m> se trouvent dans un même plan, duquel on trouvera une équation vectorielle et une équation cartésienne.
+        </p>
+      </statement>
+      
+    </example>
+
+    <example>
+      <statement>
+        <p>
+          Soit <m>\plan{P}</m> le plan  <m> \rvt{x}{y}{z} = \rvt{-3}{-5}{2} + s \rvt{6}{5}{-2} + t \rvt{3}{10}{2}</m>.
+          <ol marker = "(a)">
+            <li>
+              <p>
+                Donner deux points différents de  <m>\plan{P}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+              Donner trois vecteurs non colinéaires deux à deux, mais tous les trois parallèles au plan <m>\plan{P}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+              Trouver un vecteur normal à <m>\plan{P}</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+              Est-ce que le point <m>A(-1,1,3)</m> appartient à  <m>\plan{P}</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+              Trouver les points oú <m>\plan{P}</m> coupe les axes de coordonnées.
+              </p>
+            </li>
+            <li>
+              <p>
+              Trouver l'équation cartésienne de  <m>\plan{P}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      
+    </example>
+
+
+
+
+
+
+
+    <corollary xml:id="cor-Aire-cross">
+      <statement>
+        <p>
+
+        </p>
+        <ol marker = "(a)">
+          <li>
+            <p>Étant donnés <m>\vu, \vv \in \R^3</m> qui forment un angle  <m>\theta\in [0,\pi],</m> alors <m>\nrm{ \vu \times \vv }  = \nrm{\vu} \, \nrm{\vv} \  \sin \theta, </m> et cette valeur est précisément l'aire du parallélogramme que ces vecteurs déterminent.
+            </p>
+          </li>
+          <li>
+            <p>
+            Si <m>\vu, \vv\in \R^2</m> forment un angle <m>\theta</m>, alors l'aire du parallélogramme qu'ils déterminent est <m>\left|\det{\vu, \vv} \right|.</m>
+          </p>
+
+          </li>
+        </ol>
+
+
+
+
+      </statement>
+
+    </corollary>
+
+    <example>
+      <title>Autre regard à l'<xref ref="Ex-aire-projection"/></title>
+
+
+      <statement>
+          <p>
+            Trouver l'aire du triangle de sommets <m>A(1,-1), B(2,2)</m> et <m>C(4,0)</m>.
+          </p>
+        </statement>
+        
+    </example>
+    <p>
+      Étant donné que le produit vectoriel sert à calculer des aires, il peut servir aussi en partir à calculer un volume.
+    </p>
+    <sidebyside widths="75% 25%">
+        <p>
+          Un parallélépipède est un solide dont les six faces sont des parallélogrammes, ce solide est au parallélogramme ce que le cube est au carré. Dans l'espace <m>\R^3,</m> trois vecteurs déterminent un parallélépipède, c'est l'analogue tridimensionnel du parallélogramme.
+        </p>
+
+
+            <image source = "piped">
+            </image>
+
+
+    </sidebyside>
+
+
+
+    <corollary xml:id="Produit-mixte-vol">
+      <title>Volume d'un parallélépipède</title>
+      <statement>
+        <p></p>
+
+
+        <p>Soient <m>\vu, \vv, \vw</m> trois vecteurs de <m>\R^3</m>. Alors le volume du parallélépipède qu'ils déterminent est <m>V = |\vu \cdot (\vv\times \vw)|</m>
+
+
+        </p>
+      </statement>
+    </corollary>
+
+
+
+
+
+
+
+
+
+
+
+  </paragraphs>
+
+
+
+
+
+
+
+
+  <paragraphs xml:id="Dts-Plans-complement">
+    <title>Quelques compléments</title>
+    <p>
+      Finalisons cette section avec quelques problèmes et observations complémentaires faisant intervenir simultanémant des droites et des plans dans l'espace.
+    </p>
+
+    <p>
+      <alert>Distance d'un point à un plan.</alert> Soit <m>\plan{P}</m> un plan pasant par le point <m>P_0</m> et de vecteur normal <m>\vn</m>, et <m>M</m> un point quelconque. On s'intéresse à la distance de <m>M</m> à <m>\plan{P}</m>.
+    </p>
+    
+    <p>
+    <sidebyside widths="50% 45%">
+      <figure xml:id="fig-dist-plan-point">
+        <caption>Distance point - plan.</caption>
+          <image xml:id="img-dist-plan-point" source = "distance-point-plan.jpg">
+          </image>
+      </figure>
+      
+      <p>
+        La distance cherchée peut être calculée au moyen de la projection du vecteur <m>\vect{P_0M}</m> sur le vecteur normal <m>\vn.</m> En effet, le point sur <m>\plan{P}</m>, nommons-le <m>H</m>, qui est le plus près de <m>M</m> vérifie
+               
+          <me>
+            \vect{HM} =  \proj{\vect{P_0M}}{\vn}
+          </me>
+               
+        Une fois ce vecteur connu, comme <m>P_0</m> et <m>M</m> sont connus on peut aussi facilement trouver <m>H</m>.
+
+
+      </p>
+
+    </sidebyside>
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Soit <m>Q(2,2,2)</m> et <m>\plan{P}</m> le plan d'équation <m>x+y-z=0</m>. Parmi tous les points du plan <m>\plan{P}</m>, trouver celui qui est le plus près de <m>Q</m>, et calculez la distance du point <m>Q</m> à <m>\plan{P}</m>
+        </p>
+      </statement>
+      
+    </example>
+
+
+    <example>
+      <statement>
+        <p>Soit  <m>\plan{P}</m> le plan passant par les points <m>P(2,1,5), Q(-1,3,4)</m> et <m>R(3,0,6)</m>.
+        <ol marker = "(a)">
+          <li>
+            <p> Trouver une équation du plan <m>\plan{P}</m>,
+
+            </p>
+          </li>
+          <li>
+            <p>
+              Soit <m>S(1,7,6)</m>. Calculer la distance de <m>S</m> à <m>\plan{P}</m> puis trouver le point de <m>\plan{P}</m> qui est le plus près de <m>S</m>.
+            </p>
+          </li>
+        </ol>
+
+        </p>
+      </statement>
+      
+    </example>
+
+    <p>
+      <alert>Angle entre deux plans.</alert> Soient <m>\plan{P}_1</m> et <m>\plan{P}_2</m> deux plans avec vecteurs normaux respectifs <m>\vn_1</m> et <m>\vn_2</m>.
+
+      <sidebyside widths="60% 35%">
+        <figure xml:id="fig-angles-plans">
+          <caption>Angle formé par deux plans.</caption>
+            <image xml:id="img-angle-plans" source = "angle-plan-plan.jpg">
+            </image>
+        </figure>
+
+        <p>        
+          Les plans sont parallèles si les vecteurs <m>\vn_1</m> et <m>\vn_2</m> sont colinéaires. De même, si les vecteurs normaux sont orthogonaux, les plans sont perpendiculaires. Dans tous les cas, l'angle formé par les deux plans est celui formé par les deux vecteurs normaux respectifs.
+        </p>
+
+      </sidebyside>
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Soit <m>\plan{P}</m> le plan d'équation <m>x+2y+2z=0</m>. Trouver les angles que <m>\plan{P}</m> forme avec les plans :
+          <ol marker = "(a)">
+            <li>
+              <p><m>\plan{P}_1</m> d'équation <m>x-y+z=3</m>;
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\plan{P}_2</m> d'équation <m>\rvt{x}{y}{z} = \rvt{1}{0}{1} + s \rvt{-1}{0}{1} + t \rvt{0}{1}{1}</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      
+    </example>
+
+    <p><alert>Position relative d'une droite et un plan.</alert> Soient maintenant <m>\plan{D}</m> une droite de vecteur directeur <m>\vd</m> et <m>\plan{P}</m> un plan de normale <m>\vn</m>.
+    <sidebyside widths="55% 40%">
+        <figure xml:id="fig-plan-dte">
+            <caption>Droite - plan dans l'espace.</caption>
+            <image xml:id="img-plan-dte" source = "angle-droite-plan.jpg">
+            </image>
+        </figure>
+        <p>
+          Si les vecteurs <m>\vn</m> et <m>\vd</m> sont colinéaires, alors la droite <m>\plan{D}</m> est perpendiculaire au plan. De même, si les vecteurs sont orthogonaux, la droite a pour direction la normale du plan. Elle est donc parallèle au plan. Si <m>\vd</m> et <m>\vn</m> forment un angle <m>\a</m>, alors l'angle <m>\theta</m> formé par le plan et la droite est <m>\frac{\pi}{2} - \a.</m> En particulier ceci donne que <m>\sin \theta = \cos \a </m>.
+        </p>
+
+    </sidebyside>
+
+    </p>
+    <example>
+      <statement>
+        <p>
+          Trouver l'angle formé par la droite <m>\plan{D}</m> passant par <m>(7,7,4)</m> et dirigée par <m>\vd = 7\vi - 5\vj +\vk</m>, et le plan <m>\plan{P}</m> d'équation <m>6x-8y-5z = 17</m>.
+        </p>
+      </statement>
+      
+    </example>
+
+
+
+
+
+
+  </paragraphs>
+
+
+
+</section>

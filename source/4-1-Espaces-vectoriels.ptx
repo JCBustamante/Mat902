@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-4-1-Espaces-vectoriels" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Espaces et sous-espaces vectoriels</title>
+  <introduction>
+    <p>
+      Nous avons rencontré des ensembles de vecteurs, <m>\R^n</m>, ou de matrices <m>\mmn{m}{n}</m> où les calculs avec des combinaisons linéaires s'effectuent en suivant les règles usuelles. Les caractéristiques qui permettent ceci se retrouvent aussi dans d'autres ensembles d'objets mathématiques. Ce dont on a besoin est une opération interne (l'addition) et une multiplication externe (la multiplication par un scalaire). Dans ce qui suit on étudie ceci de façon plus générale, c'est la notion d'espace vectoriel. 
+    </p>
+  </introduction>
+  
+  <paragraphs>
+    <title>Espaces vectoriels</title>
+  
+    <definition xml:id="def-esp-vect">
+      <statement>
+        <p>
+          
+        </p>
+      
+        <p>Un <term>espace vectoriel</term> sur les réels est un ensemble <m>\plan{E}</m> dont les éléments sont appelés vecteurs, muni de deux opérations, soit l'addition de deux vecteurs, et la multiplication par des scalaires telles que pour tous <m>\vu,\vv,\vw \in \plan{E}</m> et tous <m>\a,\be \in \R</m> on a     
+        </p>
+        <p>
+          <ol marker = "(a)" cols = "1">
+            <li>
+              <p>
+                <m>\vu + \vv \in \plan{E}</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\vu + \vv = \vv + \vu</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\vu + \vv ) + \vw = \vu + (\vv + \vw)</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                Il existe un vecteur <m>\vZero \in \plan{E}</m> qui est neutre pour l'addition, c'est à dire tel que <m>\vZero + \vu = \vu</m> pour tout <m>\vu \in \plan{E},</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                Pour tout <m>\vu \in \plan{E}</m> il existe un vecteur, <m>-\vu\in \plan{E}</m> tel que <m>\vu + (-\vu) = \vZero</m> 
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\a \vu \in \plan{E}</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>(\a\be)\vu = \a(\be \vu)</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\left(\a + \be \right) \vu = \a \vu + \be \vv</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\a \left( \vu + \vv \right) = \a \vu + \a \vv</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>1\vu = \vu.</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <p>
+        Les ensembles suivants sont des espaces vectoriels :
+        <ol marker = "(a)">
+          <li>
+            <p>
+              L'ensemble des vecteurs colonne d'une taille donnée, <m>\R^n</m>, 
+            </p>
+          </li>
+          <li>
+            <p>
+              L'ensemble des matrices d'une taille donnée, <m>\mmn{m}{n}</m>, 
+            </p>
+          </li>
+          <li>
+            <p>
+              L'ensemble des polynomes en une indéterminée, noté <m>\R[x]</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              L'ensemble des fonctions définies sur un intervalle <m>[a,b]</m> qui sont continues, habituellement noté <m>C[a,b].</m>
+            </p>
+          </li>
+        </ol> 
+      </p>
+    </example>
+
+    <remark>
+      <p>
+        
+      </p>
+      
+      <p>
+        Si dans un espace vectoriel on trouve un vecteur non nul <m>\vu</m>, alors cet espace vectoriel doit contenir au moins tous les multiples de <m>\vu</m>, de sorte qu'il ne sera jamais fini.
+      </p>
+    </remark>
+      
+  </paragraphs>
+
+  <paragraphs>
+    <title>Sous-espaces vectoriels</title>
+    
+      <p>
+      Dans la pratique on s'intéresse à des sous ensembles des espaces vectoriels qui se comportent bien par rapport aux combinaisons linéaires. On comparera la définition ci-bas avec le <xref ref="thm-Prop-Esp-Vect"/>, donnant les propriétés des opérations avec les vecteurs.
+    </p>
+
+    <definition xml:id="def-sous-esp">
+      <statement>
+        <p>
+          
+        </p>
+
+        <p>Soit <m>\plan{E}</m> un espace vectoriel donné. Un sous-ensemble <m>\plan{S} \subseteq \plan{E}</m> est un <em>sous-espace vectoriel</em> de  <m>\plan{E}</m> si <m>\plan{S}</m> est lui-même un espace vectoriel (avec les opérations héritées de <m>\plan{E}</m>).
+          
+        </p>
+      </statement>
+    </definition>
+
+    <p>
+      Comme il n'est pas pratique de vérifier toutes les propriétés à chaque fois, on aimerait bien avoir un critère plus facile à utiliser. Le résultat suivant nous donne exactement ceci, en plus de bien illustrer l'idée de base, à savoir le bon comportement par rapport aux combinaisons linéaires.
+    </p>
+
+    <proposition xml:id="prop-caract-sesp">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Soit <m>\plan{E}</m> un espace vectoriel donné. Une partie non vide <m>\plan{S} \subseteq \plan{E}</m> est un sous-espace vectoriel si et seulement si <m>\plan{S}</m> est stable pour les combinaisons linéaires, c'est à dire si et seulement si <m>\a \vu + \be \vv  \in \plan{S}</m> pour tous <m>\vu, \vv \in  \plan{S}</m> et tous <m>\a, \be\in \R.</m>
+        </p>
+      </statement>
+    </proposition>
+
+    <remark>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Le vecteur nul, <m>\vZero</m> se trouve dans tout sous-espace vectoriel. C'est une conséquence de la définition (et de la proposition précédente). 
+          </p>
+        </li>
+        
+        <li>
+          <p>La condition donnée ci-haut est, pour ainsi dire, <q>condensée</q>. Il est fréquent de scinder cet énoncée en deux (voire trois) énoncés : un sous ensemble non vide <m>\plan{S}</m> est un sous-espace si et seulement si 
+          <ul>
+            <li>
+              <p>
+                <m>\vu + \vv \in  \plan{S}</m> lorsque <m>\vu, \vv \in  \plan{S}</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\a \vu \in \plan{S}</m> lorsque <m>\vu \in  \plan{S}, \a \in \R.</m>
+              </p>
+            </li>
+          </ul>
+            
+          </p>
+        </li>
+        
+      </ol>
+    </remark>
+
+    <p>
+      Voyons quelques exemples
+    </p>
+
+    <example xml:id = "Ex-sesp">
+      <ol marker = "(a)">
+        <li>
+          <p>Une droite passant par l'origine est un sous-espace vectoriel de <m>\R^2</m> (ou de <m>\R^3</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Un plan passant par l'origine est un sous-espace de <m>\R^3</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            L'ensemble de toutes les matrices carrées, <m>\mmn{n}{n}</m> est un espace vectoriel. L'ensemble des matrices symétriques est un sous-espace vectoriel. Il en va de même pour l'ensemble des matrices anti-symétriques.
+          </p>
+        </li>
+        <li>
+          <p>
+            L'ensemble de tous les polynomes en <m>x</m> dont le degré est inférieur ou égal à un entier <m>n</m> fixé est un sous-espace vectoriel de <m>\R[x]</m>, on le note souvent <m>\R_{\leqslant n}[x].</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Fixons trois rééls <m>\a,\be,\g.</m> L'ensemble <m> \{ f \in C[a,b]| \a f'' + \be f' + \g f = 0\}</m> est un sous-espace vectoriel de l'ensemble <m>C[a,b].</m>
+          </p>
+        </li>
+      </ol>
+    </example>
+    
+    <p>Par ailleurs, voyons quelques exemples de sous-ensembles qui ne sont pas des sous-espaces vectoriels.      
+    </p>
+
+    <example>
+      <ol marker = "(a)">
+        <li>
+          <p>Une droite ou un plan qui ne passe pas par l'origine dans <m>\R^3</m> n'est pas un sous-espace vectoriel.            
+          </p>
+        </li>
+        <li>
+          <p>
+            Dans le plan <m>\R^2</m>, l'ensemble des vecteurs dont une des deux composantes est nulle n'est pas un sous-espace vectoriel.
+          </p>
+        </li>
+        <li>
+          <p>
+            Dans le plan <m>\R^2</m> l'ensemble des vecteurs tels que <m>x+2y \geqslant 2</m> n'est pas un sous-espace vectoriel.
+          </p>
+        </li>
+        <li>
+          <p>
+            Dans l'ensemble <m>\R[x]</m>, l'ensemble des polynomes de degré exactement égal à <m>n</m> n'est pas un sous-espace vectoriel.
+          </p>
+        </li>
+      </ol>
+    </example>
+    
+    <p>
+      Les deux premiers items de <xref ref="Ex-sesp"/> sont des cas particuliers d'espaces engendrés par une famille de vecteurs (voir la <xref ref="def-Esp-engendre"/>). Ceci n'est pas une coïncidence.
+    </p>
+
+    <proposition xml:id="prop-Gen-sesp">
+
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+           Soient  <m>\bbm{v}_1, \bbm{v}_2,\ldots,\bbm{v}_k\in \R^n</m>, alors <m>\gen{\bbm{v}_1, \bbm{v}_2,\ldots,\bbm{v}_k}</m> est un sous-espace vectoriel de  <m>\R^n</m>.
+        </p>
+      </statement>
+    </proposition>
+
+  </paragraphs>
+
+  <paragraphs>
+    <title>Sous-espaces associés aux matrices</title>
+    <p>
+      Nous voyons ici trois exemples génériques de sous-espaces vectoriels associés à une matrice.
+    </p>
+    
+    <proposition xml:id="prop-noyau-matrice">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Soit <m>A\in \mmn{m}{n}</m>. Alors l'ensemble  <m>\{\bbm{x} \in \R^n \text{ tels que } A\bbm{x} = \bbm{0}\}</m> est un sous-espace de <m>\R^n</m>.
+        </p>
+      </statement>
+    </proposition>
+
+    <definition xml:id="def-noyau">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Donnée <m>A \in \mmn{m}{n}</m>, son <em>noyau</em> est le sous-espace <m>\ker{A} = \{\bbm{x} \in \R^n\, \text{tel que }\, A\bbm{x} = \bbm{0}\}</m>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Nous avons vu que les espaces engendrés par une famille de vecteurs sont des sous-espaces vectoriels. Ceci fournit les deux autres sous-espaces vectoriels associés à une matrice que nous considérons ici.
+    </p>
+
+    <definition xml:id="def-sesp-matrice">
+      <statement>
+        <p>
+          
+        </p>
+        <p>Soit <m>A\in \mmn{m}{n}</m> une matrice fixée. Alors 
+        <ol marker = "(a)">
+          <li>
+            <p>
+            Son <em>espace colonne</em>, noté <m>\col{A}</m>, est le sous-espace de <m>\R^m</m> engendré par ses vecteurs colonnes. Si les colonnes de <m>A</m> sont les vecteurs <m>\va_1, \ldots, \va_n</m> de <m>\R^m</m>, alors <m>\col{A} = \gen{\va_1,\ldots, \va_n}.</m>
+              
+            </p>
+          </li>
+
+          <li>
+            <p>
+            Son <em>espace ligne</em>, noté <m>\lin{A}</m>, est le sous-espace de <m>\mmn{1}{n}</m> engendré par ses vecteurs rangées. Si les rangées de <m>A</m> sont les vecteurs <m>\bbm{A}_1, \ldots, \bbm{A}_m</m> de <m>\mmn{1}{n}</m>, alors <m>\lin{A} = \gen{\bbm{A}_1,\ldots, \bbm{A}_n}.</m>
+              
+            </p>
+          </li>
+        </ol>
+          
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>Soit <m>A = \mtd{1}{-1}{0}{1}{3}{-3}.</m> Déterminer si :
+          <ol maker = "a">
+            <li>
+              <p>
+                <m>\Rvt{1}{2}{3}</m> appartient à <m>\col{A}.</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\left[ \begin{array}{cc} 4\amp 5\end{array}\right]</m> appartient à <m>\lin{A}.</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\Rvd{6}{7}</m> appartient à <m>\ker{A}</m>
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+        
+
+
+  </paragraphs>
+  
+  
+</section>

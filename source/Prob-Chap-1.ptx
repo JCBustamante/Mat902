@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises>
+
+<exercise>
+  <statement>
+    <p>
+		  Dans le plan <m>\R^2</m> on considère <m>\bbm{u} = \rvd{2}{1}</m> et <m>\bbm{v}=-\rvd{1}{3}</m>. 
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Dessinez la grille standard <m>xy</m> ainsi que la grille <m>\bbm{u}-\bbm{v}</m> et dessinez le vecteur <m>\bbm{w}=-2\bbm{u}-\bbm{v}</m> en position standard.        
+        </p>
+      </li>
+      <li>
+        <p>
+			    Soit <m>P(-4,-3)</m>. Trouver le point <m>Q</m> tel que <m>\overrightarrow{PQ}=\bbm{u}-2\bbm{v}</m> (donner les coordonnées de <m>Q</m>). 
+        </p>
+      </li>
+      <li>
+        <p>
+        Dessiner <m>\overrightarrow{PQ}</m> et l'exprimer comme combinaison linéaire de <m>\bbm{u}</m> et <m>\bbm{v}</m> (donner une solution algébrique)
+        </p>
+      </li>
+    </ol>
+  </statement>
+  
+  <answer>
+    <p>
+      <ol marker = "(a)">
+        <li>
+          <p>Omise.        
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>Q=(0,4)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\overrightarrow{PQ} = \bbm{u} - 2 \bbm{v}</m>. Ceci s'obtient après résolution de <m>\overrightarrow{PQ} = c_1 \bbm{u} +c_2 \bbm{v}</m> pour <m>c_1</m> et <m>c_2</m>, mais c'est déjà donné dans le problème.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </answer>
+</exercise>
+
+<exercise>
+  <title>Le Théorème de Varignon</title>
+  <statement>
+    <p>
+      Soit <m>PQRS</m> un quadrilatère quelconque dans le plan. Montrez que les milieux de ces côtés forment un parallélogramme
+    </p>
+    <sidebyside width = "75%">
+    <figure>
+      <image>
+        <latex-image>
+        \begin{tikzpicture}
+         \coordinate (A) at (0,0);
+         \coordinate (B) at (-2,2);
+         \coordinate (C) at (2,4);
+         \coordinate (D) at (8,2);
+         \coordinate (P) at (-1,1);
+         \coordinate (Q) at (0,3);
+         \coordinate (R) at (5,3);
+         \coordinate (S) at (4,1);
+         
+ 
+         \draw [myblue, thick] (A)--(B)--(C)--(D)--(A);
+         \draw [myred, thick] (P)--(Q)--(R)--(S)--(P);
+         \tkzMarkSegment[mark=s||, myblue](A,P);
+         \tkzMarkSegment[mark=s||, myblue](P,B);
+         \tkzMarkSegment[mark=s|, myblue](B,Q);
+         \tkzMarkSegment[mark=s|, myblue](Q,C);
+         \tkzMarkSegment[mark=s|||, myblue](C,R);
+         \tkzMarkSegment[mark=s|||, myblue](R,D);
+         \tkzMarkSegment[mark=|||, myblue](D,S);
+         \tkzMarkSegment[mark=|||, myblue](A,S);
+         
+ 
+         \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+                  (C) circle [radius=2pt] node[above] {$C$}
+                  (B) circle [radius=2pt] node[left] {$B$}
+                  (D) circle [radius=2pt] node[right] {$D$};
+        \filldraw [myred]
+                  (P) circle [radius=2pt] node[below left] {$P$}
+                  (Q) circle [radius=2pt] node[above left] {$Q$}
+                  (S) circle [radius=2pt] node[below right] {$S$}
+                  (R) circle [radius=2pt] node[above right] {$R$};
+        
+        \end{tikzpicture}
+        </latex-image>
+      </image>  
+    </figure>
+    </sidebyside>
+  </statement>
+  
+  
+</exercise>
+
+
+<exercise>
+  <statement>
+    <p>
+		  Soit <m>ABCD</m> un parallélogramme et soit <m>M</m> le point tel que <m>2\overrightarrow{AM} = \overrightarrow{AC}</m>. Montrer que <m>2\overrightarrow{BM} = \overrightarrow{BD}</m>. Conclure que les diagonales d'un parallélogramme se coupent en leurs milieux.
+    </p>
+  </statement>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Soient <m>P,X,Y</m> trois points, <m>I</m> le milieu de <m>XY</m> et <m>Q</m> le point tel que <m>I</m> est le milieu de <m>PQ</m>. Montrer que <m>XPYQ</m> est un parallélogramme.
+		</p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soit <m>ABC</m> un traingle et <m>P,Q, R</m> les milieux des côtés <m>BC</m>, <m>CA</m> et <m>AB</m>, respectivement. Montrer que <m>\overrightarrow{AP} + \overrightarrow{BQ} + \overrightarrow{CR} = \bbm{0}</m>.
+      
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Soit <m>ABCD</m> un quadrilatère quelconque, et <m>M</m> un point du plan. Soient par ailleurs <m>P,Q,R</m> et <m>S</m> les symétriques de <m>M</m> par rapport aux mileux de <m>ABCD</m>. Montrer que <m>PQRS</m> est un parallélogramme.
+		</p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Soient <m>A(1,5)</m> et <m>B(5,2)</m>. Trouver les points <m>C</m> et <m>D</m> tels que <m>ABCD</m> est un carré se trouvant dans le premier quadrant.
+		</p>
+    
+  </statement>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Soit <m>\bbm{u} =\rvd{\hfill 1}{-1}</m> et <m>\bbm{v} = \rvd{1}{1}</m>. Montrer que tout vecteur de <m>\R^2</m> peut être obtenu comme combinaison linéaire de <m>\bbm{u}</m> et <m>\bbm{v}</m>.
+		</p>
+  </statement>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>\bbm{u} = \rvt{1}{2}{3}</m> et <m>\bbm{v} = \rvt{-1}{3}{1}</m>.       
+    </p>
+    <p>
+      
+    </p>
+    <p>    
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Soit <m>\bbm{x} = \rvt{5}{k}{3}</m>. Sous quelles contitions au sujet de <m>k</m>, le vecteur <m>\bbm{x}</m> est une combinaison linéaire de <m>\bbm{u}</m> et <m>\bbm{v}</m>? Dans ce cas, exprimer <m>\bbm{x}</m> sous la forme <m>\bbm{x} = c\bbm{u} +d\bbm{v}</m>.
+        </p>
+      </li>
+      
+      <li>
+        <p>
+          Même question pour le vecteur <m>\bbm{x} = \rvt{-1}{k_1}{k_2}</m>   
+        </p>
+      </li>
+    </ol>
+
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soit <m>\bbm{p}=\rvd{2}{k}</m> et <m>\bbm{q}=\rvd{3}{5}</m>. Trouver les valeurs de <m>k</m> (si elles existent) telles que:
+      <ol marker = "(a)">
+        <li>
+          <p>
+            <m>\bbm{p}</m> et <m>\bbm{q}</m> sont orthogonaux.           
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\bbm{p}</m> sont <m>\bbm{q}</m> colinéaires.            
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\bbm{p}</m> et <m>\bbm{q}</m> ont même norme.            
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\bbm{p}</m> et <m>\bbm{q}</m> forment un angle de <m>\pi/3</m>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+
+  <answer>
+    <ol marker = "(a)" cols = "2">
+      <li>
+        <p>
+          <m>k=-6/5</m>.           
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>k=10/3</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>k=\pm \sqrt{30}</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>k = \frac{-34}{33}\sqrt{3} \pm \frac{20}{11}</m>
+        </p>
+      </li>
+    </ol>
+  </answer>
+</exercise>
+
+<exercise>
+  <statement>
+    <ol marker = "(a)">
+      <li>
+        <p>
+			    Trouver la valeur de <m>r</m> telle que <m>\rvt{3}{3}{-2}</m> et <m>\rvt{5}{-1}{r}</m> soient orthogonaux.
+		    </p>
+      </li>
+      <li>
+        <p>
+           Trouver les valeurs de <m>r</m> et <m>s</m> telles que <m>\rvt{10}{r}{s}</m> soit orthogonal à <m>\rvt{1}{3}{2}</m> et <m>\rvt{-2}{1}{4}</m> simultanément.          
+        </p>
+      </li>
+    </ol>
+    
+  </statement>
+</exercise>
+
+<exercise> <!-- Audin -->
+  <statement>
+    <p>
+      Soit <m>ABC</m> un triangle et <m>M_0</m> un point sur <m>AB</m>. La droite parallèle à <m>BC</m> qui passe par <m>M_0</m> coupe <m>AC</m> en <m>M_1</m>. La parallèle à <m>AB</m> par <m>M_1</m> coupe <m>BC</m> en <m>M_2</m>, et ainsi de suite. Le but de cet exercice est de montrer que <m>M_6 = M_0</m>.
+		</p>
+    <image source="Exo-Audin" width="85%">
+      <description>(for accessibility)</description>
+    </image>
+
+    <ol marker = "(a)">
+      <li>
+          <p>
+			      Utilisez le fait que <m>AM_4M_5M_6</m> et <m>AM_1M_2M_3</m> sont des parallelogrammes pour montrer, grâce à la relation de Chasles, que <m>\overrightarrow{M_6M_1} = \overrightarrow{M_5M_4} + \overrightarrow{M_3M_2}</m>.
+		      </p>
+      </li>
+      <li>
+        <p>
+           Utilisez le fait que <m>BM_3M_4M_5</m> est un parallélogramme, ainsi que la relation de Chasles pour montrer que <m>\overrightarrow{M_6M_1} = \overrightarrow{M_0M_1}</m>.
+        </p>
+      </li>
+    </ol>    
+  </statement>
+</exercise>
+
+<exercise> <!--Amyotte -->
+  <statement>
+    <p>
+    Soient <m>A(2,8),\ B(b,-1),\, C(-8,-5)</m> et <m>D(-5,d)</m> tels que <m>ABCD</m> est un parallélogramme. Trouver les valeurs de <m>b</m> et <m>d</m>.
+  
+      
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>\bbm{u}</m> et <m>\bbm{v}</m> des vecteurs de <m>\R^3</m>.
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Donnez un exemple concret montrant qu'il n'est généralement pas vrai que <m>\nrm{ \bbm{u} + \bbm{v} }   = \nrm{ \bbm{u}}  + \nrm{ \bbm{v}}</m>.          
+          </p>
+        </li>
+        <li>
+          <p>
+            Sous quelles conditions au sujet de <m>\bbm{u}</m> et <m>\bbm{v}</m> l'égalité de la partie précédente est-elle vraie?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  <answer>
+    <p>
+      L'égalité tient si et seulement si <m>\vu = c \vv</m> pour une constante <m>c \gt 0</m>.
+    </p>
+  </answer>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Montrez que <m>\bbm{u} \cdot \bbm{v} = \frac{1}{4} \nrm{  \bbm{u} + \bbm{v}} ^2 - \frac{1}{4} \nrm{ \bbm{u} - \bbm{v} } ^2</m>
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+      <p>
+        Un losange est un parallélogramme dont les côtés ont tous la même longueur. Montrez, en utilisant le produit scalaire, que dans un losange les diagonales coïncident avec les bissectrices.
+      </p>
+  </statement>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>\bbm{u}, \bbm{v}</m> deux vecteurs de <m>\R^2</m>.
+      <ol marker = "(a)">
+        <li>
+          <p>
+           On définit <m>\bbm{w} = |\bbm{u}|\, \bbm{v} + |\bbm{v}|\, \bbm{u}</m>. Montrez que l'angle formé par <m>\bbm{u}</m> et <m>\bbm{v}</m> est la moitié de celui formé par <m>\bbm{u}</m> et <m>\bbm{w}</m>.            
+          </p>
+        </li>
+        <li>
+          <p>
+			      On définit <m>\bbm{z} = |\bbm{u}|\, \bbm{v} - |\bbm{v}|\, \bbm{u}</m>. Que peut-on dire que <m>\bbm{w}</m> et <m>\bbm{z}</m>?
+		      </p></li>
+      </ol>
+      
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Considérer un quadrilatère ayant deux côtés parallèles (mais pas nécerssairement de même longueur).
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Montrer que le segment joignant les milieux de ses diagonales est parallèle aux deux côtés qui sont parallèles.
+          </p>
+        </li>
+        <li>
+          <p>
+            Montrer que la longueur du segment de (a) est la moitié de la différence des longueurs des côtés parallèles.
+          </p>
+        </li>
+      </ol>
+		</p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soit <m>A(0,0,0), B(3,-2,4)</m> et <m>C=(-3,2-1)</m>. Utilisez le produit scalaire pour calculer les angles du triangle <m>ABC</m>.
+    </p>
+  </statement>
+</exercise>
+
+
+
+
+<exercise> <!--Papillon--> 
+  <statement>
+    <p>
+      Soit <m>A=(1,0,0)</m>, <m>B=(0,2,0)</m> et <m>C=(0,0,c)</m>. Trouver la valeur de <m>c</m> si l'angle <m>\hat{C}</m> du triangle <m>ABC</m> est <m>\pi / 3</m>.      
+    </p>
+  </statement>
+  <answer>
+    <p>
+      <m>c = \pm \sqrt{\frac{5+\sqrt{73}}{6}}</m>      
+    </p>
+  </answer>
+</exercise>
+
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>\bbm{u}</m> et <m>\bbm{v}</m> deux vecteurs non nuls dans <m>\R^n</m>. Est-ce vrai que <m>\proj{\bbm{u}}{\bbm{v}} = \proj{\bbm{v}}{\bbm{u}} </m>? Quand est-ce que cette égalité est vérifiée?      
+    </p>
+  </statement>
+  <answer>
+    <p>
+      Ça arrive si et seulement si <m>\vu = \vb</m> ou si les deux vecteurs sont orthogonaux.
+    </p>
+  </answer>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>P(1,-3,2), Q(2,0,-4)</m> et <m>R=(6,-2,-5)</m>.  
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Trouver le point <m>S</m> tel que <m>PQRS</m> soit un parallélogramme. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Est-ce que <m>PQRS</m> est un rectangle? Un losange?          
+        </p>
+      </li>
+      <li>
+        <p>
+           Soit <m>\plan{P}</m> le plan déterminé par <m>P,Q</m> et <m>R</m>. Donner l'équation cartésienne de <m>\plan{P}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Donner une équation vectorielle de <m>\plan{P}</m>.
+        </p>
+      </li>
+    </ol>
+      
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      La figure ci-après est formée par des cubes, tous ayant des côtés de longueur <m>1</m>.
+    </p>
+    <p>
+    <image source="Fig-cubes" width="70%">
+      <description>(for accessibility)</description>
+    </image>
+    </p>
+    <p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Dessinez un vecteur <m>\bbm{u}</m> tel que <m>\bbm{u} = \overrightarrow{PS}\times \overrightarrow{PR}</m>. Expliquez sommairement votre construction.          
+        </p>
+      </li>
+      <li>
+        <p>
+          Que vaut <m>\overrightarrow{PQ} \cdot \overrightarrow{PS}</m>? Justifiez.
+        </p>
+      </li>
+      <li>
+        <p>
+          Dessinez un vecteur <m>\bbm{v}</m> tel que <m>\overrightarrow{PR} \cdot \overrightarrow{PS} = \bbm{v} \cdot \overrightarrow{PS}</m> (avec, bien entendu, <m>\bbm{v} \ne \overrightarrow{PR}</m>). Justifiez.          
+        </p>
+      </li>
+    </ol>
+    </p>
+  </statement>
+</exercise>
+
+
+<exercise> <!-- Barycenteres -->
+  <statement>
+    <p>
+      Étant donnés des points <m>P_1,P_2, \ldots,P_n</m>, un point <m>P</m> est dit être un <em>barycentre</em> de <m>P_1,\ldots, P_n</m> si <m>\overrightarrow{PP_1}+\overrightarrow{PP_2}+\cdots+\overrightarrow{PP_n}=\bbm{0}.</m>
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Montrer que si <m>P</m> est un barycentre de <m>P_1,\ldots, P_n</m>, alors pour tout point <m>O</m> on a<me>\overrightarrow{OP}=\frac{1}{n}\left(\overrightarrow{OP_1}+\overrightarrow{OP_2}+\cdots+\overrightarrow{OP_n}\right).</me> Concluez que le barycentre est unique.          
+        </p>
+      </li>
+      <li>
+        <p>
+          Soit <m>k\leqslant n</m> et <m>G</m> le barycentre de <m>k</m> points distincs parmi les <m>n</m> points donnés. Soit par ailleurs <m>Q</m> le barycentre des <m>n-k</m> points restants. Montrer que pour chaque point <m>O</m> on a <me>\overrightarrow{OP}=\frac{k}{n}\overrightarrow{OG}+\frac{n-k}{n}\overrightarrow{OQ}</me>
+        </p>
+      </li>
+      <li>
+        <p>
+          Montrer que <m>P</m> se trouve sur le segment joignant <m>Q</m> et <m>G</m>. Pour ceci écrivez <m>\overrightarrow{GP}</m> comme multiple de <m>\overrightarrow{GQ}</m>. En quelle proportion le point <m>P</m> divise-t-il le segment <m>GQ</m>?          
+        </p>
+      </li>
+      <li>
+        <p>
+          Soit <m>ABC</m> un triangle. Utilisez les résultats précédents pour montrer que le barycentre des points <m>A</m>,<m>B</m> et <m>C</m> se trouve sur chacune des médianes du triangle <m>ABC</m> à <m>2/3</m> de la distance d'un sommet au milieu du côté opposé.
+        </p>
+      </li>
+    </ol>
+  </statement>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient les points <m>P(-2,-4),\ Q=(-4,2)</m> et <m>V=(3,-3)</m>. Faites une figure montrant les éléments importants pour ce problème.      
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Donner l'équation vectorielle et cartésienne de la droite qui passe par <m>V</m> et qui est perpendiculaire à la droite par <m>P</m> et <m>Q</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+           Trouver le point <m>U</m> tel que <m>PQUV</m> est un parallélogramme. Trouver l'aire ce celui-ci.          
+        </p>
+      </li>
+      <li>
+        <p>
+          Est-ce que <m>PQUV</m> est un rectangle? Un losange? Justifiez.
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+
+<exercise>
+  <statement>
+    <p>
+      Soit <m>\plan{D}_1</m> la droite <m>\bbm{x} = \rvt{-3}{5}{6} + t \rvt{3}{0}{-4}</m> et <m>R(-2,7,-12)</m>.
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Trouver le point sur <m>\plan{D}_1</m> qui est le plus près de <m>R</m>, et calculer la distance de <m>R</m> à <m>\plan{D}_1</m>.          
+        </p>
+      </li>
+      <li>
+        <p>
+          Soit <m>\plan{D}_2</m> la droite passant par <m>Q(4,3,-4)</m> avec vecteur directeur <m>\bbm{v} = \rvt{-1}{2}{2}</m>. Trouver le point d'intersection des deux droites.
+        </p>
+      </li>
+      <li>
+        <p>
+          Trouver l'équation cartésienne et vectorielle du plan contenant les droites <m>\plan{D}_1</m> et <m>\plan{D}_2</m>.
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>P(2,1,5), Q(-1,3,4)</m> et <m>R(3,0,6)</m>.
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+         Donnez une équation vectorielle du plan <m>\plan{P}</m> passant par <m>P,Q</m> et <m>R</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Trouver l'équation cartésienne (générale) de <m>\plan{P}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Trouver l'aire du triangle <m>PQR</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Soit <m>S(1,7,6)</m>. Calculer la distance de <m>S</m> au plan <m>\plan{P}</m>, et trouver le point de <m>\plan{P}</m> qui est le plus près de <m>S</m>.
+          
+        </p>
+      </li>
+    </ol>
+  </statement>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p> 
+      Soit <m>\plan{P}</m> le plan d'équation <m>x+2y+2z =0</m>. Trouver les cosinus (ou les sinus) des angles que  <m>\plan{P}</m> forme avec :      
+    </p>
+    <ol marjker = "a">
+      <li>
+        <p>
+          Le plan <m>\plan{P}_1</m> d'équation <m>x-y+z=3</m>.    
+        </p>
+      </li>
+      <li>
+        <p>
+          Le plan <m>\plan{P}_2</m> d'équation <m>\rvt{x}{y}{z} = \rvt{1}{0}{1} + s \rvt{-1}{0}{1} + t \rvt{0}{1}{1}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+        La droite <m>\plan{D}</m> d'équation <m>\rvt{x}{y}{z} = \rvt{1}{-1}{1} + t \rvt{-1}{2}{2}</m>          
+        </p>
+      </li>
+    </ol>
+  </statement>
+  <answer>
+    <p>
+      <ol marker = "(a)" cols= "3">
+        <li>
+          <p>
+            <m>\theta = \arccos \frac{\sqrt{3}}{9}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\theta_1 = \arccos \frac{\sqrt{3}}{9}</m>. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\theta_2 = \frac{\pi}{2} - \arccos \frac{7}{9}</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </answer>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soit <m>\plan{D}_1</m> la droite <m>\bbm{x} = \rvt{-7}{-4}{1} + s\rvt{-5}{-3}{0}</m>, et <m>\plan{D}_2</m> la droite passant par <m>Q(8,5,0)</m> et dirigée par <m>\bbm{v} = \rvt{-10}{-6}{1}</m>.
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+           Trouver le point d'intersection des deux droites.        
+        </p>
+      </li>
+      <li>
+        <p>
+          Trouver l'angle formé par les deux droites. Trouver l'équation cartésienne du plan contenant <m>\plan{D}_1</m> et <m>\plan{D}_2</m>.             
+        </p>
+      </li>
+      <li>
+        <p>
+          Trouver l'équation cartésienne du plan contenant <m>\plan{D}_1</m> et <m>\plan{D}_2</m>.   
+        </p>
+      </li>
+    </ol>
+  </statement>
+  <answer>
+    <ol marker = "(a)" cols = "2">
+      <li>
+        <p>Point commun <m>(-2,-1,1)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+           L'angle est <m>\arccos\left(\frac{2\sqrt{137\times 34}}{137}\right)</m>. 
+        </p>
+      </li>
+      <li>
+        <p><m>-3x+5y=1</m>.
+          
+        </p>
+      </li>
+    </ol>  </answer>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Soit <m>\plan{P}</m> le plan <m>\rvt{x}{y}{z} = \rvt{-3}{-5}{2} + s \rvt{6}{5}{-2} + t \rvt{3}{10}{2}</m>.
+		</p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Donner deux points différents de <m>\plan{P}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+           Donner trois vecteurs non colinéaires deux à deux, mais tous les trois parallèles au plan <m>\plan{P}</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Trouver un vecteur normal à <m>\plan{P}</m>. Est-ce que le point <m>A(-1,1,3)</m> appartient à <m>\plan{P}</m>? 
+        </p>
+      </li>
+      <li>
+        <p>
+          Est-ce que le point <m>A(-1,1,3)</m> appartient à <m>\plan{P}</m>? 
+        </p>
+      </li>
+      <li>
+        <p>
+          Est-ce que <m>\bbm{v} = \rvt{1}{1}{-1}</m> est parallèle à <m>\plan{P}</m>?
+        </p>
+      </li>
+      <li>
+        <p>
+           Trouver les points où <m>\plan{P}</m> coupe les axes de coordonnées.
+        </p>
+      </li>
+      <li>
+        <p>
+           Trouver l'équation cartésienne de <m>\plan{P}</m>.
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+      <p>
+        Soit <m>\plan{L}_1</m> et <m>\plan{L}_2</m> les droites d'équations <me>\plan{L}_1 : \rvt{x}{y}{z} = \rvt{1}{4}{-2} + t \rvt{-1}{1}{3} \text{ et } \plan{L}_2 : \rvt{x}{y}{z} = \rvt{-1}{2}{4} + t \rvt{1}{2}{3}.</me>
+      </p>
+      <p>
+        Trouver une équation d'un plan qui est parallèle simultanément à <m>\plan{L}_1</m> et <m>\plan{L}_2</m>.          
+      </p>
+  </statement>
+  <answer>
+    <p>
+      Tout plan d'équation de la forme <m>x-2y+z = d</m>.
+    </p>
+  </answer>  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Montrer que dans <m>\R^2</m> la distance entre deux droites parallèles d'équations <m>\bbm{n} \cdot \bbm{x} = c_1</m> et <m>\bbm{n} \cdot \bbm{x} = c_2</m> est donnée par <m>\frac{|c_1 - c_2|}{\nrm{ \bbm{n} }}</m>.            
+          </p>
+        </li>
+        <li>
+          <p>
+          Montrer que dans <m>\R^3</m> la distance entre deux plans parallèles d'équations <m>\bbm{n} \cdot \bbm{x} = d_1</m> et <m>\bbm{n} \cdot \bbm{x} = d_2</m> est donnée par <m>\frac{|d_1 - d_2|}{ \nrm{ \bbm{n} }}</m>.
+            
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</exercise>
+
+</exercises>

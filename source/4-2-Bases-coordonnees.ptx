@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-4-2-Bases-coordonnes" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Bases et coordonnées</title>
+  <introduction>
+    <p>
+     Nous nous intéressons maintenant aux notions de  <em>bases</em> et de <em>coordonnées</em>. Comme il arrive souvent, on peut s'en faire une intuition gémétrique, puis on peut formuler en général algébriquement. La notion de  <em>dimension</em> n'est pas tellement loin.
+       
+    </p>
+      
+    <p> 
+     Pour commencer, pensons à un plan dans <m>\R^3</m>. Même si ce plan est fait de vecteurs à trois composantes, il ressemble énormément à <m>\R^2</m> . On peut convenir que le plan a dimension deux (mais on doit définir ceci!), et qu'il devrait exister un système de repérage avec des nombres, c'est ce qu'on appele un système de  <em>coordonnéees</em>.  
+    </p>
+  </introduction>
+
+  <problem xml:id="Motivation-bases">
+    <statement>
+      <p>
+        
+      </p>
+      <p>Soit <m>A = \mtt{1}{-2}{4}{-1}{3}{-2}{-2}{11}{6}.</m></p>
+
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Commençons par établir quelques faits au sujet de <m>\col{A}.</m>
+            <ol marker = "i">
+              <li>
+                <p>
+                Trouver des conditions sur <m>\bbm{x}</m> de sorte qu'il se trouve dans <m>\col{A}</m>.Exprimer ceci au moyen d'une équation cartésienne.  Donner une description géométrique de <m>\col{A}</m>.                
+                </p>
+              </li>
+              <li>
+                <p>
+                  Donner une équation vectorielle de la forme  <m>\bbm{x} = s\bbm{u}_1 + t\bbm{u}_2</m>, déduite de l'équation cartésienne.
+                </p>
+                <hint>
+                  <p>
+                  Isoler <m>x_3</m> en termes de  <m>x_1</m> et <m>x_2.</m>
+                </p>             
+                </hint>
+              </li>
+              <li>
+                <p>
+                Est-ce que les colonnes de <m>A</m> sont linéairement dépendantes ou indépendantes?  
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Soit <m>Z(2,-1,3)</m>, et <m>\bbm{z} = \overrightarrow{OZ}</m>.
+            <ol marker = "i">
+              <li>
+                <p>
+                  Exprimer <m>\bbm{z}</m> comme combinaison linéaire des colonnes de <m>A</m>. De combien de façons est-il possible de le faire?                  
+                </p>
+              </li>
+              <li>
+                <p>
+                  Exprimer <m>\bbm{z}</m> comme combinaison linéaire des vecteurs  <m>\bbm{u}_1</m> et <m>\bbm{u}_2</m> de la partie 1c. De combien de façons est-ce possible de le faire?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Exprimer <m>\bbm{z}</m> comme combinaison linéaire de  <m>\bbm{a}_1</m> et <m>\bbm{a}_2</m>. De combien de façons est-il possible de le faire?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+        <li>
+          <p>
+            Supposons maintenant qu'Alice a besoin de communiquer à Bob des instructions pour aller de l'origine au point <m>Z</m>. Elle doit simplement transmettre des paires ou des triplets de nombres.
+            <ol marker = "i">
+              <li>
+                <p>
+                  S'ils utilisent le repère usuel <m>\bbm{i},\bbm{j}, \bbm{k}</m> quels sont les nombres qu'Alice doit transmettre?
+                </p>
+              </li>
+              <li>
+                <p>
+                  S'ils utilisent le repère associé aux vecteurs  <m>\bbm{u}_1,\bbm{u_2}</m> quels sont les nombres qu'Alice doit transmettre?
+                </p>
+              </li>
+              <li>
+                <p>
+                  S'ils utilisent le repère associé aux vecteurs <m>\bbm{a}_1,\bbm{a_2}</m> quels sont les nombres qu'Alice doit transmettre?
+                </p>
+              </li>
+            </ol>
+          </p>
+        </li>
+
+      </ol>
+        
+
+
+
+    </statement>
+    
+  </problem>
+  
+  <paragraphs>
+    <title>Bases et dimension</title>
+    
+    <p>
+      Dans le problème précédent nous avons vu qu'il est possible de repérer un vecteur d'un espace ou sous-espace vectoriel par rapport à plusieurs repères différents. Ceci mène à l'idée de <alert>base</alert> d'un espace ou sous-espace vectoriel.
+    </p>
+
+    <definition xml:id="def-Base">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Soit <m>\plan{E}</m> un espace vectoriel (non réduit au vecteur <m>\bbm{0}</m>).  Une <alert>base </alert>  de <m>\plan{E}</m> est un ensemble <m>\plan{B}</m> tel que :
+          <ol marker = "(a)">
+            <li>
+              <p>
+                <m>\gen{\plan{B}} = \plan{E}</m>, et          
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\plan{B}</m> est linéairement indépendant.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <ol  marker = "(a)">
+        <li>
+          <p>
+            La famille de vecteurs <m>\bbm{e}_1,\ldots,\bbm{e}_n</m> forme la <em>base canonique</em>  de  <m>\R^n</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Toute paire de vecteurs non colinéaires fournit une base de <m>\R^2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Étant donné  un plan <m>\plan{P}</m> d'équation <m>ax + by + cz = 0</m> dans <m>\R^3,</m> trouvons une base pour <m>\plan{P}.</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Soit <m>A= \mtt{1}{1}{5}{-1}{2}{1}{-2}{3}{0}</m>. Montrer que <m>\bbm{a}_3 \in \gen{\bbm{a}_1,\bbm{a}_2}</m>. Déduire alors que  <m>\{\bbm{a}_1,\bbm{a}_2\}</m> forme une base pour  <m>\col{A}</m>. Il y en a plusieurs autres.
+          </p>
+        </li>
+        <li>
+          <p>
+            Soit <m>\plan{S} = \R_{\leqslant 1}[x]</m> et <m>p_1(x) = 1+x, p_2(x)=1-x.</m> Alors l'ensemble <m>\{p_1(x), p_2(x) \}</m> est une base de <m>\plan{S}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            Soit <m>\plan{E} = \mmn{2}{2}</m> et <m>\plan{S} =\{ M \in  \plan{E} \text{ telle que } M^T = M \},</m> c'est à dire l'ensemble des matrices symétriques <m>2\times 2.</m> Trouvons une base de <m>\plan{S}.</m>
+          </p>
+        </li>
+      </ol>
+    </example>
+
+    <remark>
+      <dl>
+        <li>
+          <title>Quelques souvenirs</title>
+          <p>
+            Nous avons étudié les plans, que nous <em>concevons facilement</em> comme étant des objets de  <em>dimension</em> 2, quoique <q><em>dimension</em></q>  veuille dire.                  
+          </p>
+          <p>
+             De la même façon, la  <em>dimension</em> d'une droite est, selon notre intuition, 1.
+           </p>
+        </li>
+
+        <li>
+          <title>Coïncidence?</title>
+          <p>
+             Il s'avère que toutes les bases d'un plan donné (passant par l'origine) ont exactement deux éléments, et que toutes les bases d'une droite donnée (passant par l'origine) ont exactement un élément (le vecteur directeur).             
+          </p>
+        </li>
+        <li>
+          <title>Vers une définition</title>
+          <p>
+            Il est alors naturel de penser que la <em>dimension</em> d'un sous-espace devrait être le nombre de vecteurs dans une base quelconque de ce sous-espace.            
+          </p>
+        </li>
+        <li>
+        <title>Une question cruciale</title>
+          <p>
+            Est-il possible qu'un sous-espace donné ait deux bases ayant un nombre différent de vecteurs?
+            
+          </p>
+        </li>
+      </dl>
+    </remark>
+
+    <p>
+      La réponse à dernière question est <q><alert>non</alert></q>. Afin de le montrer, établissons un résultat auxiliaire.
+    </p>
+
+    <lemma>
+      <statement>
+        <p>
+          
+        </p>
+        <p> Soit <m>\plan{S}</m> un espace vectoriel et <m>\plan{B}</m> une base de <m>\plan{S}.</m> Alors tout ensemble de vecteurs de <m>\plan{S}</m> qui comporte plus d'éléments que <m>\plan{B}</m> est linéairement dépendant. 
+          
+        </p>
+      </statement>
+    </lemma>
+    <p>
+      Voici donc le résultat (et définition) attendu.
+    </p>
+
+
+    <theorem xml:id="thm-Dim-invariante">
+      <statement>
+        <p>
+          
+        </p>
+        <p>Soit  <m>\plan{S}</m> un sous-espace de  <m>\plan{E}</m>. Alors toutes les bases de  <m>\plan{S}</m> ont le même nombre d'éléments, ce nombre est la  <em>dimension</em> de <m>\plan{S}</m>, qu'on note <m>\dim{\plan{S}}</m>
+        </p>
+      </statement>
+    </theorem>
+
+    <example>
+      <statement>
+        <p>
+          Trouver une base et donner la dimension de chacun des espaces vectoriels suivants :
+        </p>
+        <ol marker = "(a)">
+          <li>
+            <p>
+              <m>\plan{E} = \R^n</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\plan{E} = \mmn{2}{2}</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\plan{E} = \R_{\leqslant 3}[x]</m>;
+            </p>
+          </li>
+        </ol>
+
+      </statement>
+    </example>
+        
+  </paragraphs>
+      
+
+  <paragraphs>
+    <title>Bases pour les espaces associés aux matrices</title>
+    <p>
+      Voyons maintenant comment trouver des bases pour les sous-espaces vectoriels associés aux matrices, à savoir le noyau <m>\ker{A}</m>, l'espace colonne <m>\col{A}</m> et l'espace ligne <m>\lin{A}.</m> Nous avons en réalité pratiquement tous les outils conceptuels dont nous avons besoin, il suffit d'organiser convenablement le tout.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Soit  <m>A= \left[\begin{array}{rrrrr}
+              1 \amp -3 \amp -2 \amp -4 \amp 3\\
+              2 \amp -1 \amp 1 \amp 2 \amp -4\\
+              1 \amp -2 \amp -1 \amp -2 \amp 1 \end{array}\right].</m> Trouver une base pour <m>\ker{A}.</m> 
+        </p>
+      </statement>
+    </example>
+
+    <p>
+      La procédure de l'exemple précédent fonctionnera toujours!
+    </p>
+
+    <proposition xml:id="prop-base-ker">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+           Soit  <m>A\in \mmn{n}{m}</m>. Afin de trouver une base pour <m>\ker{A}</m> on peut procéder comme suit : Résoudre <m>A\bbm{x} = \bbm{0}</m>
+           <ol marker = "(a)">
+            <li>
+              <p>
+                Trouver la forme échelonnée réduite de <m>A</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                Exprimer les variables pivot en termes des variables libres. Si <m>t_1,\ldots, t_r</m> sont les variables libre,  la solution générale s'écrit sous forme vectorielle comme   <m>\bbm{x} = t_1 \bbm{f}_1 + t_2 \bbm{f}_2+\cdots +t_r\bbm{f}_r</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                L'ensemble de vecteurs <m>\{ \bbm{f}_1,\bbm{f}_2, \ldots, \bbm{f}_r\}</m> est une base de <m>\ker{A}</m>.
+              </p>
+            </li>
+           </ol>
+        </p>
+      </statement>
+    </proposition>
+
+    <p>
+      Comme on s'en doute, la forme échelonnée ou la forme échelonnée réduite vont aussi être utiles pour trouver les bases des autres espaces associés à une matrice. Commençons par l'espace ligne.
+    </p>
+
+    <example>
+      <statement>
+        <p>Soit  <m>A= \left[\begin{array}{rrrrr}
+          1 \amp -3 \amp -2 \amp -4 \amp 3\\
+          2 \amp -1 \amp 1 \amp 2 \amp -4\\
+          1 \amp -2 \amp -1 \amp -2 \amp 1 \end{array}\right].</m> Trouver une base pour <m>\lin{A}.</m> 
+        </p>
+      </statement>
+    </example>
+    
+    <p>
+      À nouveau, la procédure de l'exemple marchera toujours, puisque faire des opérations élémentaires sur les rangées de <m>A</m> revient à faire des combinaisons linéaires sur ces rangées.
+    </p>
+
+    <proposition xml:id="prop-base-ligne">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+           Soit  <m>A\in \mmn{n}{m}</m>. Afin de trouver une base pour <m>\lin{A}</m> on peut procéder comme suit : 
+           <ol marker = "(a)">
+            <li>
+              <p>
+                Trouver une forme échelonnée <m>A</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                Les lignes non nulles de cette forme échelonnée forment une base pour <m>\lin{A}.</m>
+              </p>
+            </li>
+           </ol>
+        </p>
+          
+        
+      </statement>
+    </proposition>
+
+    <p>
+      Pour nous attaquer à <m>\col{A}</m>, l'espace colonne de <m>A</m>,  nous devons travailler un peu plus. La forme échelonnée de <m>A</m> sera encore utile, mais quelque chose de plus est nécessaire. Nous devons établir un résultat intermédiaire.
+    </p>
+
+    <lemma xml:id="lem-base-col">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Soit <m>A\in \mmn{m}{n}</m> et soit <m>R</m> une forme échelonnée de <m>A.</m> Alors toute relation de dépendance linéaire vérifiée par les colonnes de <m>R</m> est aussi vérifiée par les colonnes de <m>A</m> et réciproquement. 
+        </p>
+      </statement>
+    </lemma>
+
+    <p>
+      Nous avons ce qu'il faut pour trouver une base de <m>\col{A}.</m>
+    </p>
+
+    <proposition xml:id="prop-base-col">
+      <statement>
+      <p>
+        
+      </p>
+        <p>
+         Soit  <m>A\in \mmn{n}{m}</m>. Afin de trouver une base pour <m>\col{A}</m> on peut procéder comme suit : 
+           
+           <ol marker = "(a)">
+            <li>
+              <p>
+                Trouver une forme échelonnée <m>A</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                Les colonnes de <m>A</m> correspondant aux positions pivot de la forme échelonnée forment une base de <m>\col{A}.</m>
+              </p>
+            </li>
+           </ol>
+          </p>         
+      </statement>
+    </proposition>
+
+    <p>
+      Nous pouvons, presque sans effort supplémentaire énoncer le résultat connu sous le nom du <q><em>Théorème du rang</em></q>. 
+    </p>
+
+    <theorem xml:id="thm-du-rang">
+      <statement>
+      <p>
+        
+      </p>
+        <p>Soit <m>A\in \mmn{m}{n}.</m> Alors :
+        <ol marker = "(a)">
+          <li>
+            <p>
+              <m>\dim{\lin{A}} = \dim{\col{A}} = \rg{A}.</m>
+              
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\dim{\ker{A}} + \rg{A} = n.</m>
+            </p>
+          </li>
+        </ol>
+          
+        </p>
+      </statement>
+    </theorem>
+
+
+    <example>
+      <statement>
+        <p>
+          Ci-après on trouve une matrice  <m>A</m>, dont les colonnes sont  <m>\bbm{a}_1,\bbm{a}_2,\ldots,\bbm{a}_5</m>. On trouve également <m>R</m>,  une forme échelonnée de <m>A</m> :  
+          <me>
+            A=\left[\begin{array}{rrrrr}
+            -2 \amp 3 \amp -4 \amp -2 \amp -5 \\
+            1 \amp -1 \amp 2 \amp 1 \amp 2 \\
+            3 \amp -2 \amp 6 \amp 4 \amp 4 \\
+            -1 \amp 2 \amp -2 \amp 1 \amp -5
+            \end{array}\right] \text { et } R = \left[\begin{array}{rrrrr}
+            1 \amp -1 \amp 2 \amp 1 \amp 2 \\
+            0 \amp 1 \amp 0 \amp 0 \amp -1 \\
+            0 \amp 0 \amp 0 \amp 1 \amp -1 \\
+            0 \amp 0 \amp 0 \amp 0 \amp 0
+            \end{array}\right].
+          </me>          
+        </p>
+        <ol marker = "(a)">
+          <li>
+            <p>
+              Noter qu'il existe une relation évidente entre les colonnees <m>\bbm{a}_1</m> et  <m>\bbm{a}_3</m>. À partir de cette observation, sans aucun calcul supplémentaire, donnez une solution à l'équation  <m>A \bbm{x} = \bbm{0}.</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            Donner une base pour le noyau de  <m>A</m>.  
+            </p>
+          </li>
+          <li>
+            <p>
+              Donner une base pour l'espace colonne de  <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Soit <m>\bbm{w} = \left[ \begin{array}{rrrr} -7\amp 3\amp 9\amp -2 \end{array}\right]^T</m>. Noter qu'il s'agit d'un vecteur colonne, il a été écrit en rangée simplement pour des questions d'espace. Montrer que <m>\bbm w</m> appartient à l'espace colonne de   <m>A</m>. 
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+
+    
+    <p>
+      On peut se demander pourquoi on s'intéresse aux bases d'un espace vectoriel. La réponse est qu'elles permettent de parler de coordonnées.
+    </p>
+     
+  </paragraphs>
+
+  <paragraphs>
+    <title>Coordonnées</title>
+    <p>
+      
+    </p>
+    
+    <p>
+      Commençons par la propriété clé des bases.
+    </p>
+
+    <proposition xml:id="prop-bases-unicite">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+        Soit  <m>\plan{B} = \{ \bbm{v}_1,\bbm{v}_2, \ldots, \bbm{v}_r\}</m> une base d'un espace vectoriel <m>\plan{S}.</m>  Alors tout vecteur  <m>\bbm{u}\in \plan{S}</m> s'exprime de façon unique comme combinaison linéaire des vecteurs de <m>\plan{B},</m> c'est à dire, pour tout <m>\bbm{u}\in\plan{S},</m> il existe une unique famille de scalaires  <m>c_1, c_2, \ldots, c_r</m> vérifiant <m>\bbm{u} = \sum_{i=1}^r c_i \bbm{v}_i</m>.   
+        </p>
+      </statement>
+    </proposition>
+
+    <p>
+      Ceci dit qu'il n'y a pas d'ambiguïté possible dans les scalaires, une fois la base choisie.
+    </p>
+
+    <definition xml:id="def-coords">
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Avec les notations de la proposition précédente, les scalaires <m>c_1,\ldots, c_r</m> sont appelés les <term>coordonnées</term> du vecteur <m>\vu</m> par rapport à la base <m>\plan{B}.</m>
+        </p>
+        <p>
+          Le <term>vecteur de coordonnées</term> de <m>\vu</m> par rapport à <m>\plan{B}</m> est le vecteur 
+          <me>
+             \left[\vu\right]_{\plan{B}} =\left[ \begin{array}{c}c_1 \\ \vdots \\ c_r\end{array}\right]
+          </me>
+          
+        </p>
+      </statement>
+    </definition>
+
+    <example>
+      <statement>
+        <p>
+          Soit <m>A= \mtt{1}{1}{5}{-1}{2}{1}{-2}{3}{0}</m>. Il a été montré que  <m>\{\bbm{a}_1,\bbm{a}_2\}</m> est une base de  <m>\col{A}</m>. Donner les coordonnées de <m>\va_3</m> par rapport à cette base.
+          
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>
+          Il a été montré que le vecteur <m>\bbm{w} = \left[ \begin{array}{rrrr} -7\amp 3\amp 9\amp -2 \end{array}\right]^T</m> appartient à l'espace colonne de la matrice <m>A</m> dont une forme échelonnée <m>R</m> sont :
+          <me>
+            A=\left[\begin{array}{rrrrr}
+            -2 \amp 3 \amp -4 \amp -2 \amp -5 \\
+            1 \amp -1 \amp 2 \amp 1 \amp 2 \\
+            3 \amp -2 \amp 6 \amp 4 \amp 4 \\
+            -1 \amp 2 \amp -2 \amp 1 \amp -5
+            \end{array}\right] \text { et } R = \left[\begin{array}{rrrrr}
+            1 \amp -1 \amp 2 \amp 1 \amp 2 \\
+            0 \amp 1 \amp 0 \amp 0 \amp -1 \\
+            0 \amp 0 \amp 0 \amp 1 \amp -1 \\
+            0 \amp 0 \amp 0 \amp 0 \amp 0
+            \end{array}\right].
+          </me>
+          Donner le vecteur de coordonnées de <m>\vw</m> par rapport à la base de <m>\col{A}</m> déduite de <m>R.</m>
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+        <p>
+          
+        </p>
+        <p>
+          Les matrices <m>E_1 = \mdd{1}{0}{0}{0}, S = \mdd{0}{1}{1}{0}, E_2=\mdd{0}{0}{0}{1}</m> forment une base de l'espace des matrices symétriques. Trouver le vecteur de coordonnées de <m>\mdd{1}{\pi}{\pi}{-1}</m> par rapport à cette base.
+        </p>
+      </statement>
+    </example>
+
+
+    
+  </paragraphs>
+
+  
+</section>

@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-1-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Algèbre et Géométrie vectorielle</title>
+
+  <paragraphs xml:id="par-1-1-a-Course">
+    <title>La course de vecteurs </title>
+    <p>
+        Le jeu se joue sur du papier quadrillé. Une piste, avec une ligne de départ et une ligne d'arrivée est dessinée, elle peut être de longueur et forme variable, pourvu qu'elle soit assez large pour accueillir tous les joueurs. Pour expliquer les règles nous prenons un exemple avec deux joueurs, disons  Anne et Ben. Ils devront utiliser des couleurs différentes pour représenter leurs pion (qu'on peut penser comme des vélos ou des autos).
+    </p>
+    <figure>
+      <caption>La piste pour la course de vecteurs</caption>
+      <image source="Racetrack-fr.png" width="90%">
+        <description>La piste pour la course de vecteurs.</description>
+      </image>
+    </figure>
+    <p>
+      Voici les règles su jeu :
+      <ol>
+        <li>
+          <p>
+            Chaque nouveau point ainsi que le segment le joignant au point précédent doivent être à l'intérieur de la piste,
+          </p>
+        </li>
+        <li>
+          <p>
+            Il n'est pas possible d'avoir deux joueurs à la même place au même moment,
+          </p>
+        </li>
+        <li>
+          <p>
+            Chaque mouvement est déduit du précédent comme suit : Si un joueur bouge de <m>a</m> unités horizontallement et  <m>b</m> unités verticalement lors d'un tour donné, pour le tour suivant il devra bouger de <m>c</m> unités horizontalement et <m>d</m> unités verticalement, où  <m>|a -c| \leqslant 1</m> et <m>|b - d| \leqslant 1</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </paragraphs>
+
+
+
+<paragraphs xml:id="pars-Vecteurs-plan">
+  <title>Vecteurs dans le plan : algèbre et géométrie </title>
+    <p>
+      Supposons pour commencer que nous avons un plan <m>\plan{P}</m>, dans lequel pour l'instant il n'y a rien de plus.
+    <ul>
+      <li>
+        <p>
+        Étant donnés deux points <m>A</m> et <m>B</m>, nous avons un <em>vecteur</em> <m>\vect{AB}</m>. On le <em>représente</em> par une flèche allant de <m>A</m> à <m>B</m>, mais il faut le comprendre comme étant le <em>déplacement</em> nécessaire pour aller de <m>A</m> à <m>B</m>. Il s'agit de la <em>position relative</em> de <m>B</m> par rapport à <m>A</m>. On dit que le point <m>A</m> est la <em>source</em> ou le <em>point initial</em> du vecteur, tandis que <m>B</m> est son <em>but</em> ou <em>point final</em>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Il est important de noter que quatre points <m>A,B,C</m> et <m>D</m> peuvent être tels que <m>\vect{AB} = \vect{CD}</m> sans que les segments soient égaux (en tant qu'ensembles de points). Il se peut parfaitement que l'on aboutisse à <m>D</m> si on part de <m>C</m> et on effectue le déplacement nécessaire pour aller de <m>A</m> à <m>B</m>. La flèche allant de <m>A</m> à <m>B</m>, et celle allant de <m>C</m> à <m>D</m> sont des <em>représentants différents</em> du même vecteur <m>\vect{AB}</m>. Dans cette situation on dit que le quadrilatère <m>ABDC</m> est un parallélogramme (bien noter l'ordre des points!)
+        </p>
+      </li>
+      <li>
+        <p>
+          Si on se donne un point arbitraire, disons <m>O\in \plan{P}</m> pour <em>origine </em>, alors à un point <m>A\in \plan{P}</m> correspond son <em>vecteur position</em>, à savoir <m>\vect{OA}</m>. On écrira <m>\va</m> pour le vecteur <m>\vect{OA}</m>. Les lettres minuscules en caractères gras serviront donc toujours à désigner un <em>vecteur</em>, tandis que les lettres majuscules en caractères italiques désigneront les points.
+        </p>
+      </li>
+    </ul>
+    </p>
+    <p>
+          Notons que ces notions ont du sens sans même parler de coordonnées.
+    </p>
+    <sidebyside widths="45% 45%">
+      <figure>
+        <caption>Les deux flèches dessinées dans <alert>représentent le même vecteur</alert>.</caption>
+          <image xml:id="Deplacement">
+          <latex-image>
+            \begin{tikzpicture}[line cap = round, scale =1.2]
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (1,3);
+            \coordinate (C) at (4,1);
+            \coordinate (D) at ($(B)+(C)-(A)$);
+
+            \draw[vector,myblue] (A) -- (B) node[midway,left] {$\overrightarrow{AB}$};
+            \draw[vector, myblue] (C) -- (D)node[midway,right] {$\overrightarrow{CD}$};
+            \draw[gray, dashed] (A) -- (C);
+            \draw[gray, dashed] (B) -- (D);
+
+            \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+                     (B) circle [radius=2pt] node[left] {$B$}
+                     (C) circle [radius=2pt] node[right] {$C$}
+                     (D) circle [radius=2pt] node[right] {$D$};
+            \end{tikzpicture}
+          </latex-image>
+          </image>
+      </figure>
+      <figure>
+        <caption>Une convention d'écriture utile : le nom et l'emplacement du point <q>origine</q> n'a pas d'importance.</caption>
+        <image xml:id="Deplacement-b">
+        <latex-image>
+          \begin{tikzpicture}[line cap = round, scale = 1.2]
+          \coordinate (O) at (0,0);
+          \coordinate (A) at (1,3);
+          \coordinate (B) at (4,1);
+          \draw[vector, myblue] (O) -- (A) node[midway,left]{\(\va = \overrightarrow{OA} \) };
+          \draw[vector,gray] (A) -- (B) node[midway,above] {\(\overrightarrow{AB}\)};
+          \draw[vector, myblue] (O) -- (B) node[midway,below] {\(\vb = \overrightarrow{OB}\)};
+          \filldraw [myblue] (O) circle [radius=2pt] node[left] {$O$}
+                   (B) circle [radius=2pt] node[right] {$B$}
+                   (A) circle [radius=2pt] node[above] {$A$};
+          \end{tikzpicture}
+        </latex-image>
+        </image>
+
+
+      </figure>
+
+    </sidebyside>
+
+
+
+
+
+    <p>
+        Supposons maintenant que dans notre plan <m>\plan{P}</m> on choisit deux droites perpendiculaires passant par l'origine : l'axe des abscisses <m>Ox</m> et l'axe des ordonnées <m>Oy</m>. Chaque point <m>A</m> du plan est alors déterminé par ses coordonnées <m>(x_A,y_A)</m>, et on écrira <m>A(x_A, y_A)</m>.
+      <ul>
+        <li>
+          <p>Si on a deux points <m>A(x_A, y_A)</m> et <m>B(x_B, y_B)</m>, alors le <em>déplacement nécessaire</em> pour aller de <m>A</m> à <m>B</m> est de <m>x_B - x_A</m> unités selon l'axe des <m>x</m> et <m>y_B - y_A</m> unités selon l'axe des <m>y</m>. On écrira pour cette raison <m>\vect{AB} = \rvd{x_B - x_A}{y_B -y_A}</m>, et les nombres <m>x_B-x_A</m> ainsi que <m>y_B - y_A</m> sont les <em>composantes du vecteur</em>. En particulier, pour un point <m>A</m> choisi, nous avons <m>\va = \rvd{x_A}{y_A}</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Lorsqu'un vecteur est représenté par une flèche ayant sa source à l'origine, on dit qu'il est <em>dessiné en position standard.</em>
+          </p>
+        </li>
+        <li>
+          
+        </li>
+      </ul>
+    </p>
+    <figure>
+      <caption>Le vecteur <m>\overrightarrow{AB}</m> et ses composantes. Plusieurs représentants, le rouge est en <em>position standard.</em></caption>
+      <image xml:id="Vect-comp-std" width = "60%">
+        <latex-image>
+          \begin{tikzpicture}[line cap = round, scale= 0.8]
+          \coordinate (O) at (0,0);
+          \coordinate (A) at (2,0.5);
+          \coordinate (B) at (5,3);
+          \coordinate (C) at ($(B)+(O)-(A)$);
+          \coordinate (D) at (-2,-3);
+          \coordinate (E) at ($(D) + (B) - (A)$);
+          \coordinate (F) at (-3.5,1);
+          \coordinate (G) at ($(F) + (B) - (A)$);
+          \coordinate (H) at (1,3);
+          \coordinate (I) at ($(H) + (B) - (A)$);
+
+          \draw[vector, black] (-1,0) -- (6,0) node[below] {$x$};
+          \draw[vector, black] (0,-1) -- (0,5) node[left] {$y$};
+          \draw[vector, myblue] (A) -- (B) node[midway, above] {\( \overrightarrow{AB}\ \  \)};
+          \draw[vector, myred] (O) -- (C);
+          \draw[vector, myblue] (D) -- (E);
+          \draw[vector, myblue] (F) -- (G);
+          \draw[vector, myblue] (H) -- (I);
+
+          \draw[dashed, gray] (A) -- (2,0) node[below] {$x_A$};
+          \draw[dashed, gray] (A) -- (0,0.5) node[left] {$y_A$};
+          \draw[dashed, gray] (B) -- (0,3) node[left] {$y_B$};
+          \draw[dashed, gray] (5,0.5) -- (5,0) node[below] {$x_B$};
+
+          \draw[->, dashed, gray] (A) -- (5,0.5) node[midway, below] {$x_B - x_A$};
+          \draw[->, dashed, gray] (5,0.5) -- (B) node[midway, right] {$y_B - y_A$};
+
+          \filldraw [myblue]
+          (B) circle [radius=2pt] node[right] {$B$}
+          (A) circle [radius=2pt] node[above] {$A$};
+
+          \filldraw [black] (O) circle [radius=2pt] node[below left] {$O$};
+
+          \end{tikzpicture}
+        </latex-image>
+
+      </image>
+    </figure>
+
+
+    <example>
+      <statement>
+        <p>Soit <m>A(-2,1)</m> et <m>B(4,3)</m>.
+        <ol marker = "(a)">
+          <li>
+            <p>Trouver les composantes de <m>\vect{AB}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              Dessiner le vecteur <m>\vect{AB}</m> en position standard.
+            </p>
+          </li>
+          <li>
+            <p>
+              Soit <m>P(2,-1)</m>. Trouver le point <m>Q</m> tel que <m>ABPQ</m> soit un parallélogramme.
+            </p>
+          </li>
+        </ol>
+
+        </p>
+      </statement>
+    </example>
+
+    <p>
+      Avant de poursuivre, notons que plusieurs autres notations sont usuelles pour les vecteurs. Parmi les plus fréquentes on trouve l'utilisation des symboles <m>\langle</m> et <m>\rangle</m> pour délimiter les composantes d'un vecteur. Avec cette notation on écrirait <m>\overrightarrow{AB} =\langle x_B - x_A, y_B - y_A\rangle</m>. Cette notation est notamment dans plusieurs des exercices WeBWork (comme celui ici bas).
+    </p>
+
+    
+
+
+
+    
+
+    <exercise>
+    <webwork source = "local/Library/Hope/Multi1/01-01-Vectors-in-Rn/Vectors-11.pg"/>
+    </exercise>
+
+
+    <exercise>
+    <webwork source = "local/Library/Hope/Multi1/01-01-Vectors-in-Rn/Vectors-15b.pg"/>
+    </exercise>
+
+
+
+  </paragraphs>
+
+<paragraphs xml:id="pars-Operations-vecteurs">
+  <title>Opérations avec les vecteurs du plan</title>
+  <p>
+    Comme nous l'avons vu dans le jeu de la <q><em>course de vecteurs</em></q> on pense naturellement à l'addition des déplacements comme l'effet cumulé  de deux déplacements.
+  </p>
+
+  <proposition xml:id="prop-Chasles">
+    <title>Relation de Chasles</title>
+
+    <statement>
+      <sidebyside widths="40% 40%">
+        <p>Pour tous <m>A,B,C\in \plan{P}</m> nous avons
+        <me>
+          \vect{AB} + \vect{BC} = \vect{AC}
+        </me>
+        </p>
+        <figure>
+          <caption>La relation de Chasles : aller de <m>A</m> à <m>B</m> puis de <m>B</m> à <m>C</m> revient à aller de <m>A</m> à <m>C</m>.</caption>
+          <image xml:id="img-chasles" width = "50%">
+            <latex-image>
+              \begin{tikzpicture}[line cap = round]
+              \coordinate (A) at (0,0);
+              \coordinate (B) at (1,3);
+              \coordinate (C) at (4,1);
+
+              \draw[vector,myblue] (A) -- (B) node[midway,left] {\( \overrightarrow{AB}\)};
+              \draw[vector,myred] (A) -- (C) node[midway, below] {\( \overrightarrow{AC} \)};
+              \draw[vector,myblue] (B) -- (C) node[midway, right] {\, \(\overrightarrow{BC}\)};
+
+              \filldraw [myblue] (C) circle [radius=2pt] node[right] {\(C\)}
+                     (B) circle [radius=2pt] node[above] {\(B\)}
+                     (A) circle [radius=2pt] node[left] {\(A\)};
+              \end{tikzpicture}
+            </latex-image>
+
+          </image>
+        </figure>
+      </sidebyside>
+    </statement>
+  </proposition>
+
+  <p>
+    Plus précisément, faisant appel aux coordonnées, si <m>\vu = \rvd{u_1}{u_2}</m> et <m>\vv = \rvd{v_1}{v_2}</m> sont donnés, alors on définit leur addition par la formule naturelle
+    <me>
+    \vu + \vv = \Rvd{u_1}{u_2} + \Rvd{v_1}{v_2} =   \Rvd{u_1 + v_2}{u_2 + v_2}
+    </me>
+    L'addition des vecteurs se fait donc composante à composante. En particulier, nous avons le <em><q>vecteur nul</q></em>, à savoir <m>\vZero = \rvd{0}{0}</m>.
+  </p>
+
+  <proof>
+    <title>Preuve de la Relation de Chasles (<xref ref="prop-Chasles"/>)</title>
+    <p>
+      Soient <m>A(x_A,y_A),\ B(x_B,y_B)</m> et <m>C(x_C,y_C)</m> donnés. Alors nous avons
+      <md>
+        <mrow>\vect{AB} + \vect{BC} \amp =  \Rvd{x_B - x_A}{y_B - y_A} + \Rvd{x_C - x_B}{y_C - y_B} </mrow>
+        <mrow> \amp  = \Rvd{(x_B - x_A) +  (x_C - x_B)}{(y_B - y_A) + (y_C - y_B)} = \Rvd{x_C - x_A}{y_C - y_A} = \vect{AC} </mrow>
+      </md>
+    </p>
+  </proof>
+
+  <p>
+    Notons que si <m>\vu</m> et <m>\vv</m> sont donnés, afin de dessiner un représentant de <m>\vu + \vv</m> il suffit de représenter <m>\vu</m> puis dessiner un représentant de <m>\vv</m> ayant comme source le but du représentant de <m>\vu</m>. Le vecteur <m>\vu + \vv </m> est alors représenté par le segment partant de la source de <m>\vu</m> au but de <m>\vv</m>.
+  </p>
+  <p>
+    Une autre interprétation importante de l'addition de vecteurs est la suivante. Les vecteurs <m>\vu</m> et <m>\vv</m> étant donnés, on se donne une source commune, disons <m>O</m>. Soient alors <m>U</m> et <m>V</m> les points tels que <m>\vect{OU} = \vu</m> et <m>\vect{OV} = \vv</m>. La somme <m>\vw = \vu + \vv</m> correspond au point <m>W</m>, qui complète le parallélogramme <m>OVWU</m>.
+  </p>
+  <p>
+    En particulier, <m>\vw</m> correspond à l'une des diagonales du parallélogramme. Nous reviendrons sur la deuxième diagonale.
+  </p>
+  <figure xml:id = "Fig-add-vects">
+    <caption>À gauche, la <q>loi du triangle</q> : on déplace <m>\vv</m> (son représentant bleu) jusqu'au but de <m>\vu</m> (le représentant gris de <m>\vv</m>). À droite, la <q>loi du parallélogramme</q> cette fois les deux vecteurs ont la même source.</caption>
+    <sidebyside widths="40% 50%">
+      <image xml:id="Add-triangle">
+        <latex-image>
+          \begin{tikzpicture}
+          \coordinate (A) at (1,1);
+          \coordinate (B) at (2,4);
+          \coordinate (C) at (5,2);
+          \coordinate (D) at (0,0);
+          \coordinate (E) at ($(D) + (C) - (B)$);
+
+          \draw[vector, myblue] (A) -- (B) node[midway, left] {\(\vu\)};
+          \draw[vector, myblue] (D) -- (E) node[midway, below] {\(\vv\)};
+          \draw[vector, gray] (B) -- (C) node[midway, above] {\(\vv\)};
+          \draw[vector, myred] (A) -- (C) node[midway, below] {\(\vv + \vu \)};
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+      <image xml:id="Add-Parallelog">
+        <latex-image>
+          \begin{tikzpicture}[line cap=round]
+	         \coordinate (O) at (0,0);
+           \coordinate (U) at (4,-1);
+           \coordinate (V) at (2,3);
+           \coordinate (W) at ($(U) + (V)$);
+
+	          \draw[vector, myblue] (O) -- (U) node[midway, below] {\(\vu\)};
+	          \draw[vector, myblue] (O) -- (V) node[midway, left] {\(\vv\)};
+	          \draw[vector, myred] (O) -- (W) node[midway, above] {\(\vw\)};
+	          \draw[vector, myblue!40] (V) -- (W) node[midway, above] {\(\vu\)};
+	          \draw[vector, myblue!40] (U) -- (W) node[midway, right] {\(\vv\)};
+
+	          \filldraw [myblue] (O) circle [radius=2pt] node[left] { \(O\)}
+            (U) circle [radius=2pt] node[right] {$U$}
+            (V) circle [radius=2pt] node[left] {$V$}
+            (W) circle [radius=2pt] node[right] {$W$};
+
+\end{tikzpicture}
+
+        </latex-image>
+
+
+      </image>
+
+    </sidebyside>
+
+  </figure>
+
+  <p>
+    L'autre opération de base avec les vecteurs est la <em><q>multiplication par un scalaire</q></em>. Si on convient que <m>2\vu </m> doit signifier la même chose que <m>\vu + \vu</m>, alors il devient naturel de définir, pour un scalaire <m>c\in \R</m> et un vecteur <m>\vu = \rvd{u_1}{u_2}</m>, la multiplication de <m>\vu</m> par <m>c</m> comme
+    <me>
+      c\vu = c \Rvd{u_1}{u_2} = \Rvd{cu_1}{cu_2}
+    </me>
+    Dans la fenêtre ci-dessous, faites varier la valeur de <m>c</m> avec le curseur afin de visualiser la multiplication d'un vecteur par un scalaire.  Vous pouvez aussi faire bouger les points pour modifier le vecteur.    En particulier, si on fait <m>c=-1</m>, on obtient le vecteur <m>-\vu</m> qui est représenté par la flèche correspondant à <m>\vu</m> mais dans le sens opposé. 
+  </p>
+
+
+ <sidebyside widths="55% 40%" valign = "middle">
+ <p>
+    <figure width = "100%">
+    <caption>La multiplication d'un vecteur <m>\vu</m> par un scalaire <m>c</m>. 
+    </caption>
+    <interactive xml:id="Vecteur-scalaire" iframe= "https://www.geogebra.org/material/iframe/id/ukcqcezd" width="100%" aspect="1:1" preview = "Scalaire-Vecteur"/>  
+    </figure>
+  </p>
+  
+  <p>
+      En somme, multiplier un vecteur <m>\vu</m> par un scalaire <m>c</m> fait en sorte que le vecteur est:
+      <ul>
+        <li>
+          <p>
+            étiré d'un facteur <m>c</m> lorsque <m>1\leqslant c</m>;
+          </p>
+        </li>
+        <li>
+          <p> raccourci d'un facteur <m>c</m> lorsque <m>0\leqslant c\lt 1</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            renversé, et raccourci d'un facteur <m>|c|</m> lorsque <m>-1 \leqslant c \lt 0</m>;
+          </p>
+        </li>
+        <li>
+          <p>
+            renversé et étiré d'un facteur <m>|c|</m> lorsque <m>c\leqslant -1</m>.
+          </p>
+        </li>
+      </ul>
+    </p>
+
+  
+ </sidebyside>  
+
+
+
+    <remark>
+      <p>
+          Nous verrons plus loin que les propriétés usuelles des opérations avec les vecteurs sont valables. Mais ceci sera fait dans un cadre plus général. Pour l'instant, contentons nous dire que l'arithmétique usuelle fonctionne bien.
+      </p>
+    </remark>
+
+
+    <definition xml:id="def-Colin-2d">
+      <statement>
+      <p>
+        
+      </p>
+        <p>Deux vecteurs non nuls <m>\vu,\vv</m> de <m>\R^2</m> sont <em><terms>colinéaires</terms></em> s'il existe un scalaire <m>\l</m> tel que <m>\vu = \l \vv</m>.
+        </p>
+        <p>
+          Il est aussi usuel de dire que deux vecteurs colinéaires  sont <em>parallèles</em>.
+        </p>
+      </statement>
+    </definition>
+    <proposition xml:id="prop-Colin-2d">
+      <statement>
+        <p>
+          
+        </p>
+        <p>Deux vecteurs <m>\vu = \rvd{u_1}{u_2},\ \vv = \rvd{v_1}{v_2}</m> sont colinéaires si et seulement si <m>u_1v_2 = u_2 v_1</m>.
+        </p>
+      </statement>
+
+
+
+    </proposition>
+    <definition xml:id="def-Det2x2">
+      <statement>
+        <p>
+          
+        </p>
+        <p>Étant donnés deux vecteurs <m>\vu = \rvd{u_1}{u_2},\ \vv = \rvd{v_1}{v_2}</m>, leur <em><terms>déterminant</terms></em> est le nombre
+        <me>
+          \det{\vu,\vv} = \Ddet{u_1}{v_1}{u_2}{v_2} = u_1 v_2 - u_2 v_1
+        </me>
+        </p>
+      </statement>
+    </definition>
+
+
+
+
+  <remark>
+    <p>
+      <ul>
+        <li>
+          <p>
+            À la lumière de la <xref ref="def-Det2x2"/>, la colinéarité de deux vecteurs est caractérisée par le fait que leur déterminant est nul. En effet, c'est simplement ce que la <xref ref="prop-Colin-2d"/> dit.
+          </p>
+        </li>
+        <li>
+          <p>
+            Les déterminants sont un outil très puissant, nous reviendrons dans le dernier chapitre.
+          </p>
+        </li>
+      </ul>
+    </p>
+      </remark>
+
+<example>
+  <statement>
+    <p>
+      <ol marker ="(a)">
+        <li>
+          <p>
+            Quand est-ce que les vecteurs <m>\rvd{2}{5}</m> et <m>\rvd{k+1}{k-1}</m> sont colinéaires?
+          </p>
+        </li>
+        <li>
+          <p>
+            Quand est-ce que les vecteurs <m>\rvd{1}{a}</m> et <m>\rvd{-a}{1}</m> sont colinéaires?
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  <answer>
+    <ol marker="a">
+      <li>
+        <p>
+          Pour <m>k=-7/3</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Jamais.
+        </p>
+      </li>
+    </ol>
+
+  </answer>
+</example>
+
+  <p>
+    La proposition suivante peut être démontrée directement en travaillant avec les coordonnées. Nous donnons une preuve qui met l'accent sur l'idée géométrique qui consiste à penser les vecteurs comme des déplacements.
+  </p>
+  <proposition xml:id="prop-Parallelog">
+    <statement>
+      <p>Soient <m>A,B,C,D</m> quatre points du plan, alors
+      <ol>
+        <li>
+          <p><m>\vect{AB} = \vZero \iff A = B</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            <m>\vect{AB} = - \vect{BA}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\vect{AB} = \vect{CD} \iff \vect{AC} = \vect{BD}</m>. Dans cette situation, le quadrilatère <m>ABDC</m> est un parallélogramme. <alert> L'ordre des points est important! </alert>
+          </p>
+        </li>
+      </ol>
+
+
+      </p>
+    </statement>
+  </proposition>
+
+  <exercise>
+  <webwork source = "local/Library/Hope/Multi1/01-02-Vector-operations/Graphical_vector_ops_02.pg"/>
+  </exercise>
+
+</paragraphs>
+
+<paragraphs xml:id="pars-Vecteurs-3d-">
+  <title>Vecteurs dans l'espace à <m>3</m> dimensions</title>
+  <p>
+    Ce que nous avons fait dans le plan tient exactement dans l'espace à trois dimensions. L'espace est muni d'un point distingué, l'origine, et de trois axes deux à deux orthogonaux. Une subtilité est à noter cependant : tout comme dans le plan on convient l'on passe du demi-axe positif <m>Ox</m> au demi-axe positif <m>Oy</m> dans le sens antihoraire (ce qui impose une orientation au plan), nous faisons une convention pour l'orientation de l'espace. Les axes <m>Ox\, Oy</m> et <m>Oz</m> sont orientés de façon à ce qu'ils obéissent à la <em><q>loi de la main droite</q></em>, à savoir : si l'index de la main droite pointe dans la direction de <m>Ox</m> et le majeur dans la direction de l'axe <m>Oy</m>, alors le pouce pointe dans la direction de l'axe <m>Oz</m>.
+  </p>
+  <figure>
+    <caption>L'espace tridimensionnel muni d'un repère obéissant a la loi de la main droite. Dans la colonne de gauche les vecteurs et les points. Vous pouvez faire bouger les points, pour voir comment les coordonnées varient. Vous pouvez aussi faire tourner le repère pour changer le point de vue.</caption>
+    <interactive xml:id="Repere-3D" platform="geogebra" width =" 100%" aspect = "2:1" preview = "Repere-3D.png">
+    <slate surface="geogebra" source = "Geogebra/Repere-3D.ggb" aspect = "2:1"/>
+    </interactive>
+    </figure>
+
+
+
+
+
+
+
+</paragraphs>
+
+
+  <paragraphs xml:id="pars-Vecteurs-Gral">
+    <title>Opérations avec les vecteurs :  le cas général</title>
+    <p>
+      Nous voyons maintenant comment les opérations avec les vecteurs sont définies dans le cas général, c'est à dire sans nous restreindre aux vecteurs dans le plan.
+    </p>
+
+    <definition xml:id="def-Op-Vect-Gral">
+      <title>L'ensemble <m>\R^n</m></title>
+      <statement>
+        <p>
+          Par <m>\R^n</m> on dénote l'ensemble de tous les  <m>n-</m>uplets de nombres réels, qu'on écrit sous forme de vecteurs colonne, c'est à dire
+          <me>
+          \R^n = \left\{ \vx = \begin{bmatrix}x_1\\ \vdots \\ x_n\end{bmatrix} \text{ où } x_i\in \R \right\}
+          </me>
+        </p>
+        <p>
+           Pour  <m>{x} = \rvt{x_1}{\vdots}{x_n},\ \vy = \rvt{y_1}{\vdots}{y_n} \in \R^n</m>, et <m>c\in \R</m>, on définit    <me>\vx + \vy = \Rvt{x_1 + y_1}{ \vdots}{ x_n + y_ n}  \text{ et } c\vx = \Rvt{cx_1}{\vdots}{cx_n}</me>.
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Tel que nous l'avons mentionné plus, tôt, ces opérations vérifient un certain nombre de propriétés.
+    </p>
+
+    <theorem xml:id="thm-Prop-Esp-Vect">
+      <title>Propriétés de l'addition des vecteurs et la multiplication par un scalaire</title>
+      <statement>
+        <p>Soient <m>\vu, \vv</m> et <m>\vw\in \R^n</m>, et <m>c,d\in \R</m>, Alors les égalités suivantes sont vérifiées.
+        <ol marker = "(1)" cols = "2">
+          <li>
+            <p>
+              <m>\vu + \vv = \vv +\vu</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(\vu +\vv)+ \vw = \vu + (\vv + \vw)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vu + \vZero = \vu</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vu + (-\vu) = \vZero</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            <m>c(\vu + \vv) = c\vu +c\vv</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(c+d)\vu = c\vu + d\vu</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>c(d\vu) = (cd) \vu</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>1\vu  = \vu</m>
+            </p>
+          </li>
+
+
+        </ol>
+        </p>
+      </statement>
+      
+    </theorem>
+    <example>
+      <statement>
+        <p>
+          Soient <m>\vu = \rvt{1}{2}{1}</m> et <m>\vv = \rvt{0}{4}{7}</m>. Calculer <m>\vu + \vv</m>, <m>2\vu</m> et <m>-3\vu</m>
+        </p>
+      </statement>
+    </example>
+    <example xml:id="exp-Parallelog-2d">
+      <statement>
+        <p>Soit <m>P(1, -3, 2),\, Q(2, 0, -4)</m> et <m>R(6, -2, -5)</m> trois points. Trouver les coordonnées <m>S</m> de sorte que <m>PQRS</m> soit un parallélogramme.
+
+        </p>
+      </statement>
+      
+    </example>
+    <example>
+      <statement>
+        <p>Exprimer <m>\vx</m> en termes de  <m>\va</m> et <m>\vb</m> lorsque  <m>\vx + 2\va - \vb = 3(\vx + \va) - 2 (2\va-\vb)</m>. Trouver  <m>\vx</m> lorsque  <m>\va= \rvd{1}{2}</m> et <m>\vb = \rvd{-2}{3}</m>
+
+        </p>
+      </statement>
+      
+    </example>
+
+
+    <exercise>
+    <webwork source = "local/BPL/CCDMD-EN/setLinearVectorsIntroduction/vectors_317.pg"/>
+    </exercise>
+
+    <definition xml:id="def-comb-lin">
+      <statement>
+        <p>
+          Étant donnée une famille de vecteurs dans <m>\R^n</m>, disons <m>\{ \vu_1,\ldots , \vu_k\}</m>, une <alert><em>combinaison linéaire</em></alert> de ces derniers est tout vecteur qui peut être écrit comme somme de multiples des vecteurs donnés. Plus formellement,  <m>\vv</m> est combinaison linéaire de <m>\{ \vu_1, \ldots \vu_k\}</m> s'il existe des scalaires <m>c_i</m> tels que
+          <me>
+                      \vv = \sum_{i=1}^k c_i \vu_i
+          </me>
+        </p>
+      </statement>
+    </definition>
+    
+    <example xml:id="ex-nouv-grille">
+      <statement>
+        <p>Soient les vecteurs <m>\vu = \rvd{2}{1}, \vv = \rvd{1}{-3}</m> et <m>\vw = \rvd{8}{-3}</m>.
+        </p>
+        <task>
+          <p>
+            Exprimez <m>\vw</m> comme combinaison linéaire des vecteurs <m>\vu</m> et <m>\vv</m>. Utilisez la grille ci-bas pour vous faire une idée et illustrer la situation.
+            <image source = "Nouvelle-grille.png">
+            </image>
+
+          </p>
+
+        </task>
+
+        <task>
+          <p>
+            Trouvez la solution au système d'équations
+          <me>
+            \left\{\begin{array}{lr}2x+y \amp=8\\ x-3y \amp =-3
+              \end{array}\right.
+          </me>
+          Faites une figure.</p>
+        </task>
+      </statement>
+      
+    </example>
+
+  </paragraphs>
+
+
+
+<paragraphs xml:id="pars-affine">
+  <title>Géométrie avec des vecteurs, sans coordonnées</title>
+  <p>
+    S'il est vrai qu'on travaille souvent avec des coordonnées, les vecteurs sans coordonnées (penser aux déplacements) peuvent être très utiles dans l'étude de la géométrie.
+  </p>
+
+<problem>
+  <title>Quelques explorations</title>
+
+  <p>
+    Le choix de l'origine n'est pas important en soi, mais il est utile de penser qu'on a un point distingué, <m>O</m> à quelque part, et pour un point donné <m>A</m> on écrira  <m>\va = \vect{OA}</m>, <m>\vx = \vect{OX}</m> et ainsi de suite...
+  </p>
+
+
+        <task>
+            <p>
+
+      <sidebyside widths="55% 45%">
+        <p>
+          Soit <m>AB</m> un segment. Donnez une caractérisation vectorielle du point <m>M</m> qui est le milieu du segment <m>AB</m>.
+      </p>
+        <image>
+        <latex-image>
+        \begin{tikzpicture}
+        \coordinate (A) at (0,0);
+        \coordinate (M) at (3,1);
+        \coordinate (B) at (6,2);
+        \draw [myblue, thick] (A)--(M)--(B);
+        \tkzMarkSegment[mark=s||, myblue](A,M);
+        \tkzMarkSegment[mark=s||, myblue](M,B);
+        \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+                 (M) circle [radius=2pt] node[above] {$M$}
+                 (B) circle [radius=2pt] node[right] {$B$};
+        \end{tikzpicture}
+      </latex-image>
+      </image>
+
+    </sidebyside>
+      </p>
+    </task>
+    <hint>
+      <p>
+        Essayez de décrire le chemin qu'il faut pour se rendre de <m>A</m> à <m>M</m>, puis comparez-le à celui nécessaire pour se rendre de <m>A</m> à <m>B</m>
+      </p>
+    </hint>
+    <task>
+    <sidebyside widths="55% 45%">
+      <p>
+        Donnez une description vectorielle du point  <m>P</m> qui se trouve à un tiers du chemin de  <m>A</m> à <m>B</m>. Généralisez, pour une proportion quelconque <m>r\in[0,1]</m>.
+      </p>
+      <image>
+      <latex-image>
+      \begin{tikzpicture}
+      \coordinate (A) at (0,0);
+      \coordinate (P) at (2,0.66);
+      \coordinate (B) at (6,2);
+      \draw [myblue, thick] (A)--(P)--(B);
+      \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+               (P) circle [radius=2pt] node[above] {$P$}
+               (B) circle [radius=2pt] node[right] {$B$};
+      \end{tikzpicture}
+    </latex-image>
+    </image>
+    </sidebyside>
+    </task>
+
+    <hint>
+      <p>
+        Procédez comme dans la partie précédente!
+      </p>
+    </hint>
+
+    <task>
+      <sidebyside widths="55% 45%">
+      <p>
+      Utilisez la relation de Chasles pour démontrer que le segment joignant les milieux de deux côtés d'un triangle est parallèle au troisième côté.
+    </p>
+    <image>
+      <latex-image>
+        \begin{tikzpicture}
+        \coordinate (A) at (0,2);
+        \coordinate (B) at (6,0);
+        \coordinate (C) at (2,6);
+        \coordinate (Q) at (1,4);
+        \coordinate (P) at (4,3);
+
+        \draw [myblue, thick] (A)--(B)--(C)--(A);
+        \draw [myred, thick] (P)--(Q);
+        \tkzMarkSegment[mark=s||, myblue](A,Q);
+        \tkzMarkSegment[mark=s||, myblue](Q,C);
+        \tkzMarkSegment[mark=s|, myblue](B,P);
+        \tkzMarkSegment[mark=s|, myblue](P,C);
+
+        \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+                 (C) circle [radius=2pt] node[above] {$C$}
+                 (B) circle [radius=2pt] node[right] {$B$};
+                 \filldraw [myred]
+                 (P) circle [radius=2pt] node[right] {$P$}
+                 (Q) circle [radius=2pt] node[left] {$Q$};
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+    </sidebyside>
+    </task>
+    <hint>
+      <p>
+        La caractérisation du milieu de la première partie serait être utile ici! Dans la situation de la figure, pensez à aller de <m>P</m> à <m>Q</m> en passant par <m>C</m>.
+      </p>
+    </hint>
+
+    <task>
+      <sidebyside widths="55% 45%">
+
+
+      <p>
+        Dans un triangle, une <em>mediane</em> est un segment joignant un sommet au milieu du côté opposé. Prouvez que les trois médianes d'un triangle sont concourantes, est à dire qu'elles ont un point commun) en un point  <m>G</m> qui se trouve à deux-tiers du chemin entre un sommet et le milieu du côté opposé.
+      </p>
+      <image>
+        <latex-image>
+          \begin{tikzpicture}
+          \coordinate (A) at (0,2);
+      \coordinate (B) at (6,0);
+      \coordinate (C) at (2,6);
+      \coordinate (Q) at (1,4);
+      \coordinate (P) at (4,3);
+      \coordinate (R) at (3,1);
+      \coordinate (G) at (2.666,2.666);
+
+
+      \draw [myblue, thick] (A)--(B)--(C)--(A);
+      \draw [myred, thick] (A) -- (P);
+      \draw [myred, thick, dashed] (B) -- (Q);
+      \draw [myred, thick, dashed ] (C) -- (R);
+
+
+      \tkzMarkSegment[mark=s||, myblue](A,Q);
+      \tkzMarkSegment[mark=s||, myblue](Q,C);
+      \tkzMarkSegment[mark=s|, myblue](B,P);
+      \tkzMarkSegment[mark=s|, myblue](P,C);
+      \tkzMarkSegment[mark=s|||, myblue](B,R);
+      \tkzMarkSegment[mark=s|||, myblue](R,A);
+
+      \filldraw [myblue] (A) circle [radius=2pt] node[left] {$A$}
+               (C) circle [radius=2pt] node[above] {$C$}
+               (B) circle [radius=2pt] node[right] {$B$};
+               \filldraw [myred]
+               (P) circle [radius=2pt] node[right] {$P$}
+               (R) circle [radius=2pt] node[below] {$R$}
+               (G) circle [radius=2pt] node[below left] {$G$}
+               (Q) circle [radius=2pt] node[left] {$Q$};
+
+          \end{tikzpicture}
+        </latex-image>
+      </image>
+      </sidebyside>
+    </task>
+    <hint>
+      <p>
+         Considérer la figure ci-contre. Montrez que le point qui se trouve à <m>2/3</m> du chemin de <m>A</m> à <m>P</m> est donné par <m>\frac{1}{3}(\va + \vb + \vc)</m>. Montrez par la suite que <m>\frac{1}{3}(\va + \vb +\vc) </m> se trouve aussi à <m>2/3</m> de <m>B</m> à <m>Q</m>.
+      </p>
+    </hint>
+    
+
+</problem>
+
+
+<!--
+
+
+
+<p>
+  12 x 18
+  <sidebyside width="100%">
+  <image source="Grille-12x18">
+    <caption>La 12 x 18</caption>
+   </image>
+   </sidebyside>
+</p>
+
+<p>
+    12 x 9
+  <image xml:id = "Grille-12x9">
+    <latex-image>
+      \begin{tikzpicture}
+      \draw[step=0.5cm, lightgray, thin] (0,0) grid (12,9);
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+</p>
+
+
+<p>
+  12 x 12
+
+  <image xml:id = "Grille-12x12">
+    <latex-image>
+      \begin{tikzpicture}
+      \draw[step=0.5cm, lightgray, thin] (0,0) grid (12,12);
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+  </p>
+
+<p>
+  24 x 9
+  <image xml:id = "Grille-24x9">
+    <latex-image>
+      \begin{tikzpicture}
+      \draw[step=0.5cm, lightgray, thin] (0,0) grid (24,9);
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+
+</p>
+
+
+<p>
+  24 x 12
+  <image xml:id = "Grille-24x12">
+    <latex-image>
+      \begin{tikzpicture}
+      \draw[step=0.5cm, lightgray, thin] (0,0) grid (24,12);
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+</p>
+
+<p>
+  24 x 18
+  <sidebyside width="100%">
+  <image xml:id = "Grille-24x18">
+    <latex-image>
+      \begin{tikzpicture}
+      \draw[step=0.5cm, lightgray, thin] (0,0) grid (24,18);
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+    </sidebyside>
+  </p>
+
+<p>
+  24 x 22
+  <image xml:id = "Grille-24x22">
+    <latex-image>
+      \begin{tikzpicture}
+      \draw[step=0.5cm, lightgray, thin] (0,0) grid (24,22);
+      \end{tikzpicture}
+    </latex-image>
+  </image>
+  </p>
+
+
+-->
+</paragraphs>
+
+
+
+</section>

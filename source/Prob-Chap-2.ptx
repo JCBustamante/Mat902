@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises>
+
+<exercise>
+<p>
+	Lors du 75<m>^{\text{ème}}</m> (1937-1939), la Chambre des représentants des États-Unis était composée de 333 démocrates, 89 républicains et 13 d’autres partis. Supposons qu’un projet de loi soit adopté par la Chambre avec 31 voix de plus en faveur qu’en défaveur, avec 10 fois plus de démocrates votant pour le projet de loi que de républicains, et avec 36 plus de non-démocrates ayant voté contre le projet de loi que pour le projet. Si chaque membre a voté soit pour, soit contre le projet de loi, combien de démocrates, combien de républicains, et combien de membres d’autres partis ont voté en faveur du projet de loi ?
+</p>
+
+<answer>
+  <p>
+			Votes pour : 200 democrates, 20 republicains, 13 membres d’autres partis.
+	</p>
+</answer>
+  
+</exercise>
+
+<exercise>
+  <p>
+	  Un épicier vend des sacs de trois tailles de noix mélangées (noix de cajou, amandes, noix de pécan). Le petit sac contient 50g. de noix de cajou, 60g. d’amandes et 40g. de noix de pécan. Le sac moyen contient 120g. de noix de cajou, 100g. d’amandes et 80g. de noix de pécan. Le grand sac contient 150g. de noix de cajou, 150g. d’amandes et 200g. de noix de pécan. Le marchand a un total de 16000g. de noix de cajou, 14500g. d’amandes et 12000g. de noix de pécan. S’il souhaite utiliser toutes les noix, combien de sacs de chaque taille peut-il fabriquer? Mettez en place et résolvez un système d’équations linéaires approprié et utiliser la méthode de votre choix pour le résoudre.
+	</p>
+  <answer>
+    <p>
+			<m>50</m> petits, <m>100</m> moyens, <m>10</m> grands.
+		</p>
+    
+  </answer>  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Résoudre les systèmes d’équations suivants. 
+			<ol marker = "(a)">
+				<li>
+					<p>
+						<m>\displaystyle \left\{\begin{array}{rcrcrcr}\frac1x&amp;- &amp;\frac1y&amp; +&amp;\frac1z&amp;= &amp;4\\[0.5em] \frac2x&amp;-&amp;\frac1y&amp;-&amp;\frac3z&amp;=&amp;2\\[0.5em] \frac1x&amp;+ &amp;\frac2y&amp;+&amp;\frac2z&amp; = &amp;2 \end{array} \right.</m>						
+					</p>
+				</li>
+				<li>
+					<p>
+						<m>\displaystyle \left\{\begin{array}{rcrcrcr}\frac{1}{x^2}&amp;- &amp;\frac{1}{y^2}&amp; +&amp;\frac{1}{z^2}&amp;= &amp;4\\[0.5em] \frac2{x^2}&amp;-&amp;\frac{1}{y^2}&amp;-&amp;\frac{3}{z^2}&amp;=&amp;2\\[0.5em] \frac{1}{x^2}&amp;+ &amp;\frac2{y^2}&amp;+&amp;\frac2{z^2}&amp; = &amp;2 \end{array} \right.</m>
+					</p>
+				</li>
+			</ol>
+		</p>      
+  </statement>
+	<answer>
+		<p>
+			<ol marker = "(a)">
+				<li>
+					<p>
+						<m>x= \frac{1}{2}, y = -1, z=1</m>. Le système n’est pas un système linéaire en <m>x,y,z</m> cependant. 
+					</p>
+				</li>
+				<li>
+					<p>
+						Aucune solution.
+						
+					</p>
+				</li>
+			</ol>
+		</p>
+	</answer>
+</exercise>
+  
+<exercise>
+	<statement>
+		<p>
+			Considérer le système d’équations <me>\left \{\begin{matrix} \frac{2}{x^2} &amp; + &amp; \frac{1}{y^2} &amp; = &amp; 17\\[0.3em] \frac{5}{x^2} &amp; - &amp; \frac{2}{y^2} &amp; = &amp; 2\\[0.3em] \end{matrix}\right.</me> S’agit-il d’un système linéaire?
+		</p>
+		<ol marker = "(a)">
+			<li>
+				<p>
+					S'agit-il d'un système linéaire?
+				</p>
+			</li>
+			<li>
+				<p>
+					Donner l'ensemble solution.					
+				</p>
+			</li>
+			
+		</ol>
+</statement>
+
+	
+	
+</exercise>	
+
+<exercise>
+	<statement>
+		<p>
+			Pour les systèmes d’équations suivants, déterminez les condition sur <m>k</m> (s’il y en a) de sorte à ce que le système n’ait aucune solution, une unique solution ou une infinité de solutions.
+		</p>
+		<ol marker = "(a)">
+			<li>
+				<p>
+					<m>\displaystyle \left\{ \begin{array}{lcl} 
+                               x-2y+3z &amp; = &amp; 2\\
+                               x+y+z&amp;=&amp;k\\
+                               2x-y+4z &amp; = &amp;k^2
+                              \end{array}\right.</m>
+				</p>
+			</li>
+			<li>
+				<p>
+					<m>\displaystyle \left\{ \begin{array}{lcr} 
+                               x+y+kz &amp; = &amp; 1\\
+                               x+ky+z&amp;=&amp;1\\
+                               kx+y+z&amp; = &amp;-2
+                              \end{array}\right.</m>					
+				</p>
+			</li>
+		</ol>
+		<p>
+			Pour chaque système, produisez une table comme celle-ci pour donner vos résultats.
+		</p>
+			<tabular>
+			<row header="yes" bottom="minor">
+				<cell halign="left" right = "minor">Solutions</cell>
+				<cell halign="left" right = "minor">Aucune</cell>
+				<cell halign="left" right = "minor">Unique</cell>
+				<cell halign="left" right = "minor">Infinité</cell>
+			</row>
+			<row class="odd">
+				<cell halign="left" right = "minor">Valeur de <m>k</m></cell>
+				<cell halign="left" right = "minor"></cell>
+				<cell halign="left" right = "minor"></cell>
+				<cell halign="left" right = "minor"></cell>
+			</row>
+			</tabular>
+	</statement>
+
+	
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			L’équation générale de degré <m>2</m> est <m>ax^2 + bxy+cy^2 +dx+fy+e=0</m>. L’ensemble de solutions d’une telle équation est une courbe <em>conique</em> sur le plan. Considérez les points <m>(2,2), (3,2), (3,1), (1,1)</m> et <m>(1,0)</m>. Trouver l’équaation d’une conique passant par ces points.
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<m>x^2 -xy+y^2 -3x +2=0</m>			
+		</p>
+	</answer>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Trouver les valeurs de <m>a</m> et <m>b</m> telles que l’intersection des plans dont les équations sont données soit une droite. Donnez de plus l’équation de la droite. 
+			<me>\begin{array}{lrlrlrcr}
+			\mathcal{P}_1 :&amp; -2x    &amp; + &amp;  y    &amp; +  &amp; az &amp; = &amp;-5\\ 
+			\mathcal{P}_2 :&amp;     x  &amp; - &amp; 2y    &amp;    &amp;    &amp; = &amp;1\\
+			\mathcal{P}_3 :&amp;        &amp; - &amp; y &amp; + &amp;   z &amp; = &amp;b
+			\end{array}</me>
+		</p>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Trouver un polynôme du degré spécifié (<m>n</m>) tel que sa courbe passe par les points donnés. 
+			<ol marker = "(a)">
+				<li>
+					<p>
+						<m>n=2, (0,-3), (1,0), (2,5)</m>. 						
+					</p>
+				</li>
+				<li>
+					<p>
+						<m>n=3, (0,-1), (1,-1), (2,3), (3,17)</m>.						
+					</p>
+				</li>
+				<li>
+					<p>
+						<m>n=4, (0,-3), (1,-9), (2,-3), (3,87), (4,381)</m>.
+					</p>
+				</li>
+			</ol> 
+		</p>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Soit <m>a</m> un nombre réel et considérons le système d’équations <me>\left\{ \begin{array}{rlrlrcr}
+				 x   &amp; + &amp; a y   &amp; - &amp; z &amp; = &amp;1\\
+				-x  &amp; + &amp;(a-2)y     &amp; + &amp; z &amp; = &amp;-1\\
+				2x &amp; + &amp; 2y &amp; + &amp;(a-2)z &amp; = &amp;1
+				\end{array} \right.
+			</me> 
+
+			<ol>
+				<li>
+					<p>
+						Sous quelle(s) conditions pour <m>a</m> le sysyème admet une infinité de solutions, une unique solution ou n'admet aucune solution.
+					</p>
+				</li>
+				<li>
+					<p>
+						 Dans les cas où le système admet au moins une solution, donner l’ensemble solution du système.
+					</p>
+				</li>
+			</ol>
+
+
+		</p>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Considérer le système d’équations 
+			<me>\left\{\begin{array}{rcrcrcrcrcr}
+			x_1     &amp; -     &amp; 3x_2  &amp; +     &amp; x_3   &amp; - &amp; x_4   &amp;   &amp;   &amp; =     &amp;-1\\
+			-x_1    &amp;+  &amp; 3x_2  &amp;   &amp;   &amp;+  &amp; 3x_4  &amp; - &amp; x_5   &amp; =     &amp; 3\\        
+			2x_1    &amp;-  &amp; 6x_2  &amp;+  &amp; 3x_3  &amp;   &amp;   &amp; - &amp; x_5   &amp; =     &amp; 0\\
+			-x_1    &amp;+  &amp; 3x_2  &amp;+  &amp; x_3   &amp;+  &amp; 5x_4  &amp; + &amp; x_5   &amp; =     &amp; 6\\
+    \end{array} \right.</me>
+		</p>
+		<ol marker = "(a)">
+			<li>
+				<p>
+					Écrire la matrice augmentée, et donner une forme échelonnée. Quel est le rang? 
+				</p>
+			</li>
+			<li>
+				<p>
+					Donner une forme échelonnée reduite de la matrice trouvée en a. et utilisez-la pour donner l’ensemble solution du système.
+				</p>
+			</li>
+		</ol>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Soient <m>\{\bbm{v}_1,\bbm{v}_2,\ldots ,\bbm{v}_m\}</m>des vecteurs linéairement indépendants dans <m>\R^p</m>. Soient de plus <m>\bbm{u}_1 = c_1 \bbm{v}_1, \bbm{u}_2 = c_2 \bbm{v}_2, \ldots</m>, <m>\bbm{u}_m = c_m \bbm{v}_m</m> avec <m>c_1, \ c_2,\ldots, c_m</m> non nuls.
+			<ol marker = "(a)">
+				<li>
+					<p>
+						Montrer que <m>\bbm{u}_1,\bbm{u}_2,\ldots ,\bbm{u}_m</m> sont linéairement indépendants. 
+					</p>
+				</li>
+				<li>
+					<p>
+						Parmi les énoncés suivants, il y a exactement un qui ne peut pas être vrai. Lequel? Justifiez?
+						<ol marker = "i">
+							<li>
+								<p>
+									<m>m&gt;p</m>.									
+								</p>
+							</li>
+							<li>
+								<p>
+									<m>m= p</m>.
+								</p>
+							</li>
+							<li>
+								<p>
+									<m>m&lt;p</m>									
+								</p>
+							</li>
+						</ol>			
+					</p>
+				</li>
+			</ol>
+		</p>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			La figure ci-après montre un réseau routier, avec des rues à sens unique, avec les traffics moyens sur les portions de rue.
+			<image source="Reseau-ABCD" width="60%">
+				<description>Un réseau routier</description>
+			</image>
+			<ol marker = "(a)">
+				<li>
+					<p>
+					Écrivez un système d’équations lineaires dont la solution permet de calculer les flux inconnus.					
+					</p>
+				</li>
+				<li>
+					<p>
+						Résoudre le système.
+					</p>
+				</li>
+				<li>
+					<p>
+						Si la rue de <m>A</m> a <m>B</m> doit être partiellement fermée pour des travaux, quel est le flux minimum qui doit passer à travers ce tronçon pour maintenir un traffic fluide dans les autres chemins.					
+					</p>
+				</li>
+			</ol>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<ol marker = "(a)">
+				<li>
+					<p>
+						On obtient: 
+						<me>\left\{\begin{array}{rrrrcr}
+										&amp;   &amp; x_3 &amp; -x_4 &amp; = &amp; -500\\
+								x_1 &amp;   &amp;   &amp; -x_4 &amp; = &amp; -100\\
+								x_1 &amp; -x_2 &amp;   &amp;   &amp; = &amp; 300\\
+									&amp; x_2 &amp; -x_3 &amp;   &amp; =&amp;100   
+													\end{array}
+								\right.
+						</me>
+					</p>
+				</li>
+				<li>
+					<p>
+						<me>\left[\begin{array}{c} x_1 \\ x_2 \\ x_3\\x_4 \end{array}\right]  = \left[\begin{array}{c} -100\\-400\\-500\\0 \end{array}\right] + t\left[\begin{array}{c}1\\1\\1\\1 \end{array}\right]</me>
+					</p>
+				</li>
+				<li>
+					<p>
+						On doit avoir<m>t\geqslant 500</m> pour avoir des valeurs positives.
+					</p>
+				</li>
+			</ol>
+			
+		</p>
+	</answer>
+</exercise>
+
+
+<exercise>
+	<statement>
+		<p>
+			Ci-après vous trouverez un réseau routier (des rues de sens unique)
+			<image source="Reseau-2" width="60%">
+				<description>Un réeseau routrier</description>
+			</image>
+
+		</p>
+		<ol marker = "(a)">
+			<li>
+				<p>
+					Trouver les valeurs de tous les flux.					
+				</p>
+			</li>
+			<li>
+				<p>
+					Supposons que la rue de <m>D</m> à <m>C</m> est fermée pour des réparations est fermée. Est-il possible d’avoir le traffic sur ces rues en respectant les sens uniques?					
+				</p>
+			</li>
+		</ol>
+	
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Blancer les équations chimiques suivantes :
+		</p>
+		<ol marker = "(a)">
+			<li>
+				<p>
+					<m>CO_2 + H_2O \longrightarrow C_6 H_{12} O_6 + O_2</m>. 
+				</p>
+			</li>
+			<li>
+				<p>
+					<m>H Cl O_4 + P_4 O_{10} \longrightarrow H_3 PO_4 + Cl_2 O_7</m>. 					
+				</p>
+			</li>
+			<li>
+				<p>
+					<m>C_2H_2 Cl_4 + Ca(OH)_2 \longrightarrow C_2HCl_3 + Ca Cl_2 + H_2O</m>.					
+				</p>
+			</li>
+		</ol>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Soient <m>\bbm{u}_1,\bbm{u}_2</m> et <m>\bbm{u}_3</m> trois vecteurs linéairement indépendants dans <m>\R^5</m>. Définissons aussi <m>\bbm{w}_1 = \bbm{u}_2+\bbm{u}_3,\, \bbm{w}_2= \bbm{u}_1 + \bbm{u}_3</m> et <m>\bbm{w}_3 = \bbm{u}_1 + \bbm{u}_2</m>. Est-ce que la famille <m>\{ \bbm{w}_1,\bbm{w}_2,\bbm{w}_3\}</m> est linéairement dépendante ou indépendante? Justifier.
+		</p>
+	</statement>
+</exercise>
+
+
+<exercise>
+	<statement>
+		<p>
+			Soient <m>\bbm{u}_1,\bbm{u}_2,\bbm{u}_3</m> et <m>\bbm{u}_4</m> quatre vecteurs linéairement indépendants (de la mème taille, bien entendu!). 
+			<ol marker = "(a)">
+				<li>
+					<p>
+						Que peut-on dire du nombre de composantes que chaque <m>\bbm{u}_i</m> a?						
+					</p>
+				</li>
+				<li>
+					<p>
+						Soient <m>\bbm{w}_1 = \bbm{u}_1,\ \bbm{w}_2 = \bbm{u}_1+\bbm{u}_2,\ \bbm{w}_3 =  \bbm{u}_1+\bbm{u}_2 + \bbm{u}_3</m> et <m>\bbm{w}_4 = \bbm{u}_1+\bbm{u}_2 + \bbm{u}_3+ \bbm{u}_4.</m>  Déterminer si les vecteurs <m>\bbm{w}_1,\bbm{w}_2,\bbm{w}_3,\bbm{w}_4</m> sont linéairement dépendants ou indépendants.						
+					</p>
+				</li>
+			</ol>
+			
+			 
+		</p>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Soit <m>\{\bbm{u},\bbm{v},\bbm{w}\}</m> une famille de vecteurs linéairement indépendants dans <m>\R^n</m> (avec <m>n\geqslant 25</m>), et <m>a,b,c</m> trois réels non nuls. Déterminer si l’ensemble de vecteurs <m>\{a\bbm{u} - b\bbm{v}, c\bbm{v}-a\bbm{w}, -c\bbm{u} + b\bbm{w} \}</m> est linéairement dépendant ou indépendant. Justifier.
+		</p>
+	</statement>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Soient <m>\bbm{u}_1= \rvt{1}{-1}{3}, \bbm{u}_2= \rvt{2}{1}{4}</m> et  <m>\bbm{u}_3= \rvt{-1}{-5}{1}</m>.
+			<ol>
+				<li>
+					<p>
+						Donner une description complète de <m>\gen{\bbm{u}_1,\bbm{u}_2,\bbm{u}_3}</m>, c’est à dire une description algèbrique et géométrique.						
+					</p>
+				</li>
+				<li>
+					<p>
+						Est-ce que les vecteurs <m>\bbm{u}_1,\bbm{u}_2</m> et <m>\bbm{u}_3</m> sont linéairement dépendants ou indépendants? Justifiez.
+		</p>
+				</li>
+			</ol>
+		</p>
+		
+	</statement>
+	
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			La figure ci-après représente un parallélépipède. Dans ce qui suit, utilisez des arguments géométriques, il n’est pas question de coordonnées ici.
+			<image source="Parallellepipede-gen" width="50%">
+				<description>(for accessibility)</description>
+			</image>
+		</p>
+		<p>
+		<ol marker = "(a)">
+			<li>
+					Donnez une description géométrique de <m>\gen{ \overrightarrow{DB}, \overrightarrow{HG}, \overrightarrow{CD}}.</m> 				
+			</li>
+			<li>
+				<p>
+					Écrivez <m>\overrightarrow{CD}</m> comme combinaison linéaire de <m>\overrightarrow{BC}, \overrightarrow{EH}</m> et <m>\overrightarrow{EF}</m>. .					
+				</p>
+			</li>
+			<li>
+				<p>
+					Est-ce que la famille <m>\left\{ \overrightarrow{DC}, \overrightarrow{DB}, \overrightarrow{BF},\overrightarrow{AG} \right\}</m> est linéairement dépendante ou indépendante? Justifiez
+				</p>
+			</li>
+			<li>
+				<p>
+					Est-ce que la famille <m>\left\{\smash{\overrightarrow{\strut DC}},
+   \smash{\overrightarrow{\strut DB}},
+   \smash{\overrightarrow{\strut BF}},
+   \smash{\overrightarrow{\strut AG}}\right\}</m> est linéairement dépendante ou indépendante? Justifiez
+				</p>
+			</li>
+		</ol>
+		</p>
+	</statement>
+	<answer>
+		<p>
+			<ol marker = "(a)">
+				<li>
+					<p>
+						<m>\gen{\overrightarrow{DB}, \overrightarrow{HG}, \overrightarrow{CD}}</m> est un plan parallèle au plan contenant le quadrilatère <m>ABCD</m>
+					</p>
+				</li>
+				<li>
+					<p>
+						<m>\overrightarrow{CD} = -\overrightarrow{FE}</m>, par exemple (plusieurs réponses valables).						
+					</p>
+				</li>
+				<li>
+					<p>
+						Linéairement dépendantes, puisque quatre vecteurs dans <m>\R^3</m> ne peuvent pas être linéairement indépendants.						
+					</p>
+				</li>
+			</ol>
+		</p>
+	</answer>
+</exercise>
+
+<exercise>
+	<statement>
+		<p>
+			Soit <m>\plan{V} = \{\bbm{v}_1,\ldots , \bbm{v}_m\}</m> une famille de vecteurs linéairement independante dans un certain <m>\R^n</m> (ce qui force <m>n\geqslant m</m>). Soit <m>V = \gen{\plan{V}}</m>. Montrer que <m>\{\bbm{v}_2,\ldots , \bbm{v}_m\}</m> n’engendre pas <m>V</m>.
+		</p>
+	</statement>
+</exercise>
+
+</exercises>

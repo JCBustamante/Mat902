@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This frontmatter division will contain all content before the -->
+<!-- first chapter.  Fill in and comment/uncomment to see how this -->
+<!-- works.                                                        -->
+
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="meta_frontmatter" xml:lang="fr-CA">
+  <titlepage>
+    <author>
+      <personname>Juan Carlos Bustamante</personname>
+      <department>Département de mathématiques</department>
+      <institution>Université de Sherbrooke</institution>
+    </author>
+    <date> Janvier 2024 </date>
+  </titlepage>
+
+
+</frontmatter>

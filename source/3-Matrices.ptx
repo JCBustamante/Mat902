@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+<chapter xml:id="C-3" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!-- Change title when you have one: -->
+  <title>Algèbre matricielle</title>
+  <!-- If the chapter has sections, there may be an introduction -->
+  <!-- before those sections. Note the <p> tags around content.  -->
+  <introduction>
+  <p> Jusqu'à présent, les matrices ont été utilisées comme un outil pour résudre des sytèmes linéaires, une sorte de <q> gadget</q> calculatoire qui permet d'écrire de façon concise les systèmes linéaires.
+  </p>
+
+  <p> Nous verrons maintenant qu'elles sont en réalité un outil extrêmement puissant qui mérite d'être étudié en soi, pas seulement en tant que gadget calculatoire. Les matrices et l'algèbre matricielle sont des éléments essentiels du langage scientifique moderne.
+  </p>
+  <p>Dans ce chapitre on étudie dans un premier temps  l'algèbre matricielle : l'addition et multiplication par un scalaire (ce qui donne lieu aux combinaisons linéaires de matrices, puis la transposition. On considère aussi la multiplication matricielle, ainsi que la question de l'inversibilité des matrices. 
+  </p>
+  <p>
+    Le chapitre se termine avec quelques applications. 
+  </p>
+
+  </introduction>
+
+  <!-- Sections can be written directly here, but it might help  -->
+  <!-- with organization to include them as separate files.      -->
+  <!-- That way it is easy to include the section in a different -->
+  <!-- chapter later if you change your mind about the order.    -->
+  <xi:include href="./3-1-Op-matricielles.ptx" />
+
+  <xi:include href="./3-2-Inverse.ptx" />
+   
+  <xi:include href="./3-3-Applications.ptx" />
+
+  <xi:include href="./Prob-Chap-3.ptx"/>
+</chapter>

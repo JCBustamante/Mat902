@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises>
+  <exercise>
+    <p>
+			Une matrice <m>A</m> est dite <em>antisymétrique</em> si <m>A^T = -A</m>. Par exemple 
+      <me>M = \begin{bmatrix} 0&amp;3\\-3&amp;0\end{bmatrix} \text{ et }  N= \begin{bmatrix}0&amp;\alpha&amp;\beta\\-\alpha&amp;0&amp;\gamma\\-\beta&amp;-\gamma&amp;0\end{bmatrix}</me> sont toutes les deux des matrices antisymétriques. 
+      <ol marker = "(a)">
+        <li>
+          <p>
+            À l'aide des propriétés des déterminants, montrer qu’une matrice antisymétrique avec un nombre impair de rangées ne peut pas être inversible.
+          </p>
+        </li>
+        <li>
+          <p>
+            On a trois vecteurs <m>\bbm{u}_1,\bbm{u}_2,\bbm{u}_3</m> dans <m>\R^6</m>, et on sait qu’ils sont linéairement indépendants. De plus on a trois nombres réels <m>a,b,c</m> non nuls et on définit <m>\bbm{w}_1 = -a\bbm{u}_2 + b\bbm{u}_3,\ \bbm{w}_2 = a\bbm{u}_1 - c\bbm{u}_3</m> et <m>\bbm{w}_3=-b\bbm{u}_1 +c\bbm{u}_2</m>. Est-ce que les vecteurs <m>\bbm{w}_1,\bbm{w}_2,\bbm{w}_3</m> sont linéairement dépendants ou indépendants? Vous pouvez utiliser la partie (a).
+            
+          </p>
+        </li>
+      </ol>
+      
+       
+		</p>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        Pour chacun des énoncés suivants, dites s’il est Vrai <term>V</term> ou Faux <term>F</term>
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Si <m>A</m> est une matrice carrée, on a <m>\det{(-A)} = -\det{A}</m>
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Si <m>A</m> et <m>B</m> sont des matrices carrées <m>n\times n</m> alors on a <m>\det{AB} = \det{BA}</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Si <m>A</m> et <m>B</m> sont des matrices dont les colonnes sont les mêmes mais dans un ordre différent, alors <m>\det{A} = -\det{B}</m>.
+          </p>
+        </li>
+
+        <li>
+          <p>
+            Si <m>A</m> est inversible, alors <m>\det{\left(A^{-1}\right)} = \det{\left(A^T\right)}</m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+    <answer>
+      <p>
+        Vrais : b seulement.
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        Sachant que <m>\displaystyle \begin{vmatrix}a&amp;b&amp;c\\d&amp;e&amp;f\\ g&amp;h&amp;i\end{vmatrix} = 4</m>, trouver les valeurs de :
+        <ol marker = "(a)" cols = "2">
+          <li>
+            <p>
+              <m>\displaystyle \begin{vmatrix}2a&amp;b&amp;c\\2d&amp;e&amp;f\\2g&amp;h&amp;i\end{vmatrix}</m>.
+            </p>
+          </li>
+
+          <li>
+            <p>
+              <m>\displaystyle \begin{vmatrix}2a&amp;b/3&amp;c\\2d&amp;e/3&amp;f\\ 2g&amp;h/3&amp;i\end{vmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+            <m>\displaystyle \begin{vmatrix}d&amp;e&amp;f\\ a&amp;b&amp;c\\ g&amp;h&amp;i\end{vmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\displaystyle \begin{vmatrix}a-c&amp;b&amp;c\\ d-f&amp;e&amp;f\\   g-i&amp;h&amp;i\end{vmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\displaystyle \begin{vmatrix}2c&amp;b&amp;a\\ 2f&amp;e&amp;d\\   2i&amp;h&amp;g\end{vmatrix}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\displaystyle \begin{vmatrix}a+2g&amp;b+2h&amp;c+2i\\ 3d+2g&amp;3e+2h&amp;3f+2i\\ g&amp;h&amp;i\end{vmatrix}</m>.
+            </p>
+          </li>
+          
+        </ol>    
+      </p>
+    </statement>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      
+        <p>
+          Soit <m>A = \begin{bmatrix} a&amp;b&amp;c\\d&amp;e&amp;f\\g&amp;h&amp;i\end{bmatrix}</m>. On sait que <m>\det{A} = 3</m>
+        </p>
+        <p>
+          Trouver la valeur de  <m>\begin{vmatrix} 3d &amp; 3a&amp; 3g\\2e-4f&amp;2b-4c&amp;2h-4i\\f&amp;c&amp;i\end{vmatrix}</m>
+        </p>
+      
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        On sait que <m>B</m> est une <m>3\times 3</m>-matrice telle que <m>\det{B} = -\frac{1}{4}</m>. Par ailleurs, <m>C</m> est telle que <m>ACB = A^2 B^2 (3A^T)</m>. Quelle est la valeur du déterminant de <m>C</m>?
+      </p>
+
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        Une matrice carrée est dite <em>orthogonale</em> si elle vérifie <m>A^T = A^{-1}</m>. Pour les parties qui suivent, soit <m>A</m> une matrice orthogonale.
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Quelles sont les valeurs possibles du déterminant de <m>A</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+              Montrer que <m>(I-A)^T (I+A)</m> est une matrice antisymétrique.
+          </p>
+        </li>
+        <li>
+          <p>
+            Montrer que chaque colonne de <m>A</m> est un vecteur unitaire qui est orthogonal à toutes les autres colonnes de <m>A</m>.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <p>
+			Pour tout entier naturel <m>n\geqslant 2</m> on définit la <m>n\times n</m>-matrice <m>M_n</m> par <me>M_n=\begin{bmatrix}
+2 &amp; 1 &amp; 0 &amp; 0 &amp; \cdots  &amp;\cdots &amp; 0 &amp; 0\\
+1 &amp; 2 &amp; 1 &amp; 0 &amp; \dots  &amp; \cdots&amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 2 &amp; 1 &amp; \cdots &amp; \cdots&amp; 0 &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \cdots &amp; \vdots &amp;\vdots &amp; \vdots\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \cdots &amp; 2 &amp;1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; \cdots &amp; 1&amp; 2 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; \cdots &amp; \cdots &amp;0 &amp; 1 &amp; 2
+                   \end{bmatrix}</me>
+		</p>
+    <ol marker = "(a)">
+      <li>
+          <p>
+            Calculer <m>\det{M_2} = \begin{vmatrix}2&amp;1\\1&amp;2\end{vmatrix}</m>, <me>\det{M_3} = \begin{vmatrix}2&amp;1&amp;0\\1&amp;2&amp;1\\0&amp;1&amp;2\end{vmatrix} \text{ et } \det{M_4} = \begin{vmatrix}2&amp;1&amp;0&amp;0\\1&amp;2&amp;1&amp;0\\0&amp;1&amp;2&amp;1\\0&amp;0&amp;1&amp;2\end{vmatrix}</me>
+          </p>
+      </li>
+      <li>
+        <p>
+          Donner une formule générale pour <m>\det{M_n}</m> et montrer par récurrence qu’elle est valable (il peut être utile de calculer <m>\det{M_5}</m> en termes de <m>\det{M_4}</m> et <m>\det{M_3}</m> afin de voir apparaître une régularité).
+        </p>
+      </li>
+    </ol>
+
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        Considérer le système d’équations <me>\left\{\begin{array}{rcrcrcc}
+  kx_1 &amp; - &amp; kx_2 &amp; - &amp; 9x_3 &amp; = &amp; k+1\\
+   &amp;  &amp; (k+2)x_2 &amp; + &amp; x_3 &amp; = &amp; 0\\
+  kx_1 &amp; - &amp; 8x_2 &amp; + &amp; (k-1)x_3 &amp; = &amp; k+1 \end{array}\right.</me>
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Écrire le système sous forme matricielle <m>A\bbm{x} = \bbm{b}</m>. Calculer le déterminant de <m>A</m> et trouver pour quelles valeurs de <m>k</m> le système admet une solution unique.             
+          </p>
+        </li>
+        <li>
+          <p>
+            Utiliser la règle de Cramer pour résoudre le système lorsque celui-ci admet une solution unique (cette solution doit être exprimée en fonction de <m>k</m>).            
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+        <em>Big Jack’s Pancake House</em> gagne à chaque mois <m>40\%</m> des clients de <em>Satisfied Sadie</em>, tandis que Sadie prend <m>50\%</m> de ceux de Jack’s. En ce moment, Sadie a <m>20\%</m> des clients totaux.        
+      </p>
+      <ol marker = "a">
+        <li>
+          <p>
+            Trouver la matrice de transition <m>T</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Trouver la distribution des clientd après 1 mois.
+          </p>
+        </li>
+        <li>
+          <p>
+            Trouver la distribution stable. Donner des valeurs exactes.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      Des robots ont été programmés pour circuler dans le circuit illustré ci-bas. À chaque intersection, un robot choisit au hasard (avec même probabilité) la direction dans la quelle il repart (sans revenir sur ses pas) Trouver la matrice de transition pour ce processus de Markov. Utiliser la rège de Cramer pour trouver l’état stationnaire de ce processus. 
+      <sidebyside width = "60%">
+        <image source="Robots" width="60%"/>
+      </sidebyside>
+    </statement>
+
+  </exercise>
+
+</exercises>

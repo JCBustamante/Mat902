@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exercises>
+
+<exercise>
+  <statement>
+    <p>
+			Soit le système d’équations <me>\left\{ \begin{array}{rcrcrcr}
+      x &amp; - &amp; 2y &amp; + &amp; z &amp; = &amp; 0\\
+    -3x &amp; + &amp; 7y &amp; - &amp; 6z &amp; = &amp; 3\\
+      2x &amp; - &amp; 3y &amp;  &amp;  &amp; = &amp; 2
+      \end{array}\right.</me>
+
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Écrire le système sous forme d’une équation matricielle. 
+		      </p>
+        </li>
+        <li>
+          <p>
+            Utiliser l’algorithme de Gauss-Jordan pour trouver l’inverse de la matrice de coefficients. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Avec la matrice trouvée en (b) résoudre le système donné.
+          </p>
+        </li>
+      </ol>
+    </p>
+      
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Considérer le système d’équations : 
+      <me>\left\{ \begin{array}{rcrcrcr}
+        2x &amp; - &amp; 4y &amp; + &amp; 2z &amp; = &amp; 14\\
+        x &amp; - &amp; y &amp; + &amp; 2z &amp; = &amp; 10\\
+        -x &amp; + &amp; 4y &amp; - &amp; z &amp; = &amp; -9
+        \end{array}\right.
+      </me>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Écrire le système sous forme matricielle. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Soit <m>A</m> la <m>3\times 3</m> matrice de la partie précédente. 
+          </p>
+        </li>
+        <li>
+          <p>
+            Utilisez la méthode de Gauss Jordan pour trouver l’inverse de <m>A</m>.
+          </p>
+        </li>
+      </ol>
+
+		</p>
+  </statement>
+  <answer>
+    <p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            On pose <me>\bbm{x} = \left[\begin{array}{rrr}x\\y \\z \end{array}\right], A = \left[\begin{array}{rrr} 2&amp;-4&amp;2\\ 1&amp;-1&amp;2\\ -1&amp; 4 &amp;-1&amp;\end{array}\right]\text{ et } \bbm{b} = \left[\begin{array}{rrr} 14\\10\\-9\end{array}\right]</me>. Le système donné est équivalent à <m>A\bbm{x} = \bbm{b}</m>.            
+          </p>
+        </li>
+        <li>
+          <p>
+            L’inverse de <m>A</m> est <me>A^{-1} = \left[\begin{array}{rrr} \frac{7}{4} &amp; -1 &amp; \frac{3}{2} \\[0.6em] 
+            \frac{1}{4} &amp; 0 &amp; \frac{1}{2} \\[0.6em]
+            -\frac{3}{4} &amp; 1 &amp; -\frac{1}{2}
+            \end{array}\right].</me>
+            
+          </p>
+        </li>
+        <li>
+          <p>
+            La solution est <me>\bbm{x} = A^{-1} \bbm{b} = \left[\begin{array}{r} 1\\-1\\4\end{array}\right]</me>
+		</p></li>
+      </ol>
+    </p>
+  </answer>
+</exercise>
+
+<exercise>
+
+<statement>
+  <p>
+		Soient <m>A</m> et <m>B</m> deux matrices telles que le produit <m>AB</m> est défini. Montrer que si les colonnes de <m>B</m> sont linéairement dépendantes, alors il en va de même pour les colonnes de <m>AB</m>.
+	</p>
+</statement>  
+</exercise>
+
+<exercise>
+  <statement>
+    <p> Soit <m>M = \left[\begin{array}{rr} -4&amp;6\\ -3&amp;5\end{array}\right]</m>.
+      
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+			     Pour quelles valeurs de <m>c\in \R</m> il existe des solutions non nulles à <m>M\bbm{x} = c \bbm{x}</m>? Pour chacune de ces valeurs, trouver une solution avec des coefficients entiers.
+		    </p>
+      </li>
+      <li>
+        <p>
+			    Soient <m>c_1, c_2</m> les valeurs trouvées dans la partie précédente, avec <m>c_1 &lt; c_2</m>. Soit par ailleurs <m>\bbm{p}_i</m> une solution à <m>M\bbm{x} = c_i \bbm{x}</m>. Est-ce que <m>\bbm{p}_1</m> et <m>\bbm{p}_2</m> sont linéairement dépendants ou indépendants? Soit <m>P= \left[\bbm{p}_1 \,\, \bbm{p}_2 \right]</m>, c'est à dire la matrice ayant pour colonnes  <m>\bbm{p}_1</m> et <m>\bbm{p}_2</m>. Montrer que <m>P</m> est inversible et trouver <m>P^{-1}</m>.
+		    </p>
+      </li>
+      <li>
+        <p>
+			    Calculer <m>MP</m> et montrer qu’il existe une matrice diagonale <m>D</m>, qu’on trouvera, telle que <m>MP = PD</m>.
+		    </p>
+      </li>
+    </ol>
+    
+  </statement>
+
+  
+</exercise>
+
+
+<exercise>
+  <statement>
+    <p>
+      Soit <m>t\in \R</m>, et posons <m>M_t = \left[\begin{array}{rr} \cos t &amp; -\sin t\\ \sin t &amp; \cos t\end{array}\right]</m>. 
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Montrer que <m>M_t^2 = M_{2t}</m> (vous pouvez utiliser les identités trigonométriques pour <m>\sin (a+b)</m> et <m>\cos(a+b)</m>).          
+        </p>
+      </li>
+      <li>
+        <p>
+          Prouver par récurrence que pour tout <m>n\geqslant 0</m> on a <m>M_t^n = M_{nt}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Soit <m>A= M_{\pi/4}</m>. Calculer <m>A^{2022}</m>.          
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Démontrer par récurrence que
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p><m>\sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}</m>          
+        </p>
+      </li>
+      <li>
+        <p>
+          Si <m>A,M</m> sont des matrices carrées de même taille avec <m>A</m> inversible, alors pour tout <m>n\in \mathbb{N}</m> on a <m>\left(AMA^{-1}\right)^n = AM^n A^{-1}.</m>          
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+<exercise>
+<statement>
+  <p>
+		Montrer que si <m>M</m> est une matrice telle que <m>M^4 = 0</m>, alors <m>I-M</m> est inversible et trouver une expression pour <m>(I-M)^{-1}</m> en termes de <m>I</m> et <m>M</m>.    
+  </p>
+</statement>
+<hint>
+  <p>
+    Considérer les puissances de <m>M</m>, puis utilisez des identités algébriques <em><q>usuelles</q></em>.    
+  </p>
+</hint>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Résoudre les équations matricielles suivantes, puis trouver <m>X</m>, étant donné que <m>A=\left[\begin{array}{rr} 1&amp;2\\3&amp;4\end{array}\right]</m> et  <m> B=\left[\begin{array}{rr} -1&amp;0\\1&amp;1\end{array}\right]</m>. 
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          <m>X-2A + 3 B = 0</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>2X = A-B</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>2(A+2B) = 3X</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>2(A-B+X) = 3(X-A)</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>AX = B</m>.
+        </p>
+      </li>
+    </ol>
+
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+			Résoudre chacune des équations matricielles suivantes. Isoler d’abord <m>X</m>, puis effectuez les calculs.       
+    </p>
+    <ol marker= "a">
+      <li>
+        <p> <m>AXB+C = D</m>, avec 
+        <md>
+          <mrow>\amp A= \begin{bmatrix}2&amp;1\\ -1 &amp; 4 \end{bmatrix},  \amp \amp B = \begin{bmatrix} 1&amp;0&amp;1\\1&amp;1&amp;0\\1&amp;1&amp;1\end{bmatrix},</mrow>
+          <mrow>\amp C = \begin{bmatrix}1&amp;-1&amp;1\\ -1&amp;1&amp;-1 \end{bmatrix}, \amp \amp D= \begin{bmatrix}8&amp;4&amp;8\\0&amp;3&amp;-3 \end{bmatrix} </mrow>
+        </md>         
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>AX+B = X</m>, avec
+          <md>  
+          <mrow> \amp A = \begin{bmatrix}-1&amp;1\\1&amp;1 \end{bmatrix}\amp \text{ et } \amp \amp  B= \begin{bmatrix} -2&amp;1\\3&amp;1\end{bmatrix} 
+          </mrow>
+          </md>         
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>XA+B = X</m>, avec
+          <md>  
+          <mrow> \amp A = \begin{bmatrix}-1&amp;1\\1&amp;1 \end{bmatrix}\amp \text{ et } \amp \amp  B= \begin{bmatrix} -2&amp;1\\3&amp;1\end{bmatrix} 
+          </mrow>
+          </md>         
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Résoudre chaque équation pour <m>X</m>, en supposant que tout ce qui doit être inversé est inversible. Simplifiez autant que possible. 
+    </p>
+    <ol>
+      <li>
+        <p>
+          <m>XA^2 = A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+           <m>AXB = (BA)^2</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+           <m>\left(A^{-1}X\right)^{-1} = A\left(B^{-2}A\right)^{-1}</m>. 
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>ABXA^{-1}B^{-1} = I+A</m>.
+        </p>
+      </li>
+    </ol>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Soient <m>A,B,C \in \mmn{2015}{2015}</m> et  <m>X</m> telle que <m>(XA-B)^{-1} = C- I</m> (<m>I</m> est la matrice identité). Isoler <m>X</m> en termes de <m>A,B,C</m> et <m>I</m>.
+    </p>
+  </statement>
+</exercise>
+
+
+<exercise>
+  <statement>
+    <p>
+			Montrer que si <m>M</m> est une matrice telle que <m>(M-3I)(M+I) = 0</m>, alors <m>M</m> est inversible, et trouver <m>M^{-1}</m> en fonction de <m>M</m>.  
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      Montrer que si <m>X</m> est une matrice telle que <m>(I-X)^3=0</m>, alors <m>X</m> est inversible, et donner son inverse en termes de <m>X</m>).      
+    </p>
+  </statement>
+</exercise>
+
+<exercise>
+<statement>
+  <p>
+		Considérer la matrice <me>A=\begin{bmatrix}-2&amp;4a &amp;2\\ a&amp;-2&amp;1\\1&amp;2&amp;a \end{bmatrix}.</me> Trouver les valeurs possibles de <m>\rg{A}</m> ainsi que de <m>\dim{\ker{A}}</m> lorsque <m>a</m> varie dans les nombres réels. Présentez vos résultats en remplissant une table comme celle ci. On pourra ajouter des lignes au besoin.
+		</p>
+    
+			<tabular>
+			<row header="yes" bottom = "medium">
+				<cell halign="left" right = "minor">Valeur de <m>a</m></cell>
+				<cell halign="center" right = "minor"><m>\rg{A}</m></cell>
+				<cell halign="center" ><m>\dim{\ker{A}}</m></cell>
+			</row>
+			<row class="odd" bottom = "minor" >
+				<cell halign="left" right = "minor"><m>\ </m> </cell>
+				<cell halign="center" right = "minor"></cell>
+				<cell halign="center" ></cell>
+			</row>
+			<row class="even">
+				<cell halign="left" right = "minor" ><m>\ </m>  </cell>
+				<cell halign="center" right = "minor"></cell>
+				<cell halign="center"></cell>
+			</row>
+			</tabular>
+		
+</statement>
+  
+</exercise>
+
+</exercises>

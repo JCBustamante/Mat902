@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-1-2-Produit-scalaire" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Le produit scalaire : angles et distances</title>
+  <introduction>
+    <p>
+    Dans cette section on aborde une autre opération avec les vecteurs. celle-ci donne comme résultat un nombre, un scalaire. Les propriétés de cette opération permettront de parler de
+    <ul>
+      <li>
+        <p>
+          Distances,
+        </p>
+      </li>
+      <li>
+        <p>
+          Angles.
+        </p>
+      </li>
+      <li>
+        <p>
+          Projections.
+        </p>
+      </li>
+    </ul>
+    </p>
+  </introduction>
+  <paragraphs xml:id="pars-prod-scalaire1">
+    <title>Le produit scalaire : premiers résultats</title>
+    <definition xml:id="def-prod-scalaire">
+      <statement>
+        <p>
+          Étant données <m>\vx = \Rvt{x_1}{\vdots}{x_n},\ \vy = \Rvt{y_1}{\vdots}{y_n} \in \R^n</m>  leur  <terms>produit scalaire</terms> est le nombre réel <m>\displaystyle \vx \cdot \vy = \sum_{i=1}^n x_i y_i</m>.
+
+        </p>
+      </statement>
+    </definition>
+
+<example>
+  <statement>
+    <p>
+      Soient <m>\vu = \rvt{1}{0}{2}, \vv = \rvt{0}{1}{4}</m> et <m>\bbm{w} = \rvt{4}{5}{2}</m>. Calculer <m>\vu \cdot \vv</m> et <m>\vu \cdot \bbm{w}</m>.
+    </p>
+  </statement>
+  
+</example>
+  <theorem xml:id="thm-Prp-prod-sc">
+    <title>Propriétés du produit scalaire</title>
+    <statement>
+      <p>
+        <ol>
+          <li>
+            <p>
+              <m>\vu \cdot \vv = \vv \cdot \vu</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m> \vu \cdot(\vv +\bbm{w} ) = \vu \cdot \vv +\vu\cdot \bbm{w}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(c\vu)\cdot \vv = c (\vu\cdot \vv) = \vu\cdot (c\vv)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\vu \cdot \vu \geqslant 0</m> et l'égalité a lieu si et seulement si  <m>\vu = \bbm{0}</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+
+    </statement>
+</theorem>
+</paragraphs>
+
+
+
+<paragraphs xml:id="pars-Angles">
+  <title>Angles et distances </title>
+
+
+  <definition xml:id="def-Norme">
+    <statement>
+      <p>Étant donné un vecteur <m>\vu \in \R^n</m>, sa <alert> <terms>norme</terms></alert> est le nombre réel <m>\nrm{\vu}  = \sqrt{\vu\cdot\vu}</m>. Un vecteur est dit être  <alert><terms>unitaire</terms></alert> si sa norme est 1.
+      </p>
+    </statement>
+  </definition>
+
+  <example>
+    <statement>
+      <p>Calculer les normes des vecteurs suivants et dites s'ils sont unitaires :
+        <ol>
+          <li>
+            <p>
+              <m> 2\vi + 3 \vj + 4\vk</m>
+
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\begin{bmatrix}1\\0\\-2\\7\end{bmatrix}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>3\vi - 4\vj</m>
+            </p>
+          </li>
+          <li>
+            <m>\frac{3}{5}\vi - \frac{4}{5}\vj</m>
+
+          </li>
+        </ol>
+      </p>
+    </statement>
+    
+  </example>
+  <remark>
+      <p><m>A(x_A, y_A)</m> un point dans le plan cartésien usuel,
+        <ul>
+          <li>
+            <p>La distance de <m>O</m> au point  <m>A</m>
+            est donnée, en vertu du Théorème de Pythagore, par <m> d(O,A) = \sqrt{x_A^2 + y_A^2}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Il se trouve que cette quantité est exactement  <m> \nrm{\va}</m>,
+            </p>
+          </li>
+          <li>
+            <p>La même chose tient dans l'espace de trois dimensions.
+            </p>
+          </li>
+          <li>
+            <p>
+               Si  <m>\vu</m> et <m>\vv</m> sont donnés, alors <m>\nrm{  \vu - \vv} </m>, donne la distance entre les buts des deux vecteurs lorsqu'ils sont représentées avec une source commune.
+            </p>
+          </li>
+        </ul>
+      </p>
+ </remark>
+
+
+
+  <proposition xml:id="prop-Pro-norme">
+    <title>Propriétés de la norme</title>
+    <statement>
+      <p>Soient <m>\vu,\vv\in \R^n</m>, et <m>c\in \R</m>. Alors
+      <ol>
+        <li>
+          <p>
+            <m>\nrm{\vu} |  = 0 \iff \vu = \bbm{0}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m> \nrm{c\vu}  = |c|\, \nrm{\vu} .</m>
+          </p>
+        </li>
+      </ol>
+      </p>
+    </statement>
+  </proposition>
+
+  <remark>
+    <p>Si <m>\vv</m> est un vecteur non nul, alors le vecteur
+    <me>
+      \hat{\vv} = \frac{\vv}{\nrm{\vv}}
+    </me>
+    est unitaire et pointe dans le même sens que <m>\vu</m>. On dit que <m>\vv</m> a été <em>normalisé</em>
+
+    </p>
+
+  </remark>
+
+
+
+
+  <theorem xml:id="thm-Cauchy-Schwarz">
+    <title>Inégalité de Cauchy - Schwarz</title>
+    <statement>
+      <p>
+        Donnés <m>\vu</m> et <m>\vv\in \R^n</m>, on a toujours
+     <me>
+    |\vu \cdot \vv| \leqslant \nrm{\vu} \, \nrm{\vv}
+     </me>
+     et l'égalité tient si et seulement si les deux vecteurs sont colinéaires.
+      </p>
+    </statement>
+
+  </theorem>
+
+
+  <p>
+    L'inégalité de Cauchy-Schwarz a plusieurs conséquences importantes. Tout d'abord elle permet également de définir les angles formés par deux vecteurs.
+  </p>
+
+
+  <definition xml:id="def-Angle">
+    <title>Angle formé par deux vecteurs</title>
+    <statement>
+      <p>
+        Il suit de l'inégalité de Cauchy - Schwarz que pour toute paire de vecteurs on a <m>\displaystyle -1\leqslant \frac{\vu\cdot \vv}{\nrm{\vu}  \, \nrm{\vv} } \leqslant 1</m>
+        <ol>
+          <li>
+            <p>
+              Ainsi, il existe un unique réel  <m>\j\in [0,\pi]</m> tel que <m>\displaystyle \cos\j = \frac{\vu\cdot \vv}{\nrm{\vu}  \, | \vv| }.</m>
+              Nous disons alors que  <m>\j</m> est  <terms>l'angle formé par  <m>\vu</m> et <m>\vv</m></terms>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Deux vecteurs  <m>\vu</m> et <m>\vv</m> sont <terms>orthogonaux</terms> si <m>\vu \cdot \vv  = 0</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+
+  <proposition xml:id="prop-Loi-cos">
+    <title>Loi des cosinus</title>
+
+
+    <statement>
+      <sidebyside widths="50% 50%">
+        <p>
+          Dans la situation illustrée dans la figure, on a
+          <me>
+            a^2 = b^2+ c^2 -2bc\cos \a
+          </me>
+        </p>
+        <figure>
+          <caption>La loi des cosinus</caption>
+          <image xml:id="fig_loi_cos">
+            <latex-image>
+              \begin{tikzpicture}
+
+              \coordinate (A) at (0,0);
+              \coordinate (B) at (6,1);
+              \coordinate (C) at (2,3);
+
+              \draw [myblue, thick](A)--(B) node[midway, below] {\(c\)};
+              \draw [myblue, thick](B)--(C) node[midway, above] {\(a\)};
+              \draw [myblue, thick](C)--(A) node[midway, left] {\(b\)};
+
+              \draw [myred, thick](0.5, 1/12) arc [start angle = 12, end angle = 57, radius =0.5cm] node[right] {$\alpha$};
+              \draw [myred, thick](5.55, 1.22) arc [start angle = 154, end angle = 190, radius =0.5cm] node[midway, left] {\(\beta\)};
+              \draw [myred, thick](1.72, 2.58) arc [start angle = 236, end angle = 333, radius =0.5cm] node[midway , below] {\(\gamma\)};
+              \filldraw [myblue] (A) circle [radius=2pt] node[left] {\(A\)}
+                   (B) circle [radius=2pt] node[right] {\(B\)}
+                   (C) circle [radius=2pt] node[above] {\(C\)};
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+
+      </sidebyside>
+
+    </statement>
+
+
+  </proposition>
+
+  <proposition xml:id="prop-Ineq-Tr">
+    <title>Inégalité du triangle</title>
+    <statement>
+      <p>
+      Étant donnés  <m>\vu, \vv\in \R^n</m> on a <m> \nrm{\vu + \vv}  \leqslant \nrm{ \vu} + \nrm{\vv} </m>,
+      </p>
+    </statement>
+  </proposition>
+
+
+  <remark>
+    <p>
+      Afin de déterminer si un angle <m>\j</m> est aigu ou obtus, on a simplement besoin de savoir si son cosinus est positif ou négatif, il n'est pas nécessaire de connaître la valeur exacte de l'angle.
+    </p>
+  </remark>
+  <example xml:id= "Exp-aigu-obtus">
+    <statement>
+      <p>Soient <m>\vu = \rvt{k}{-k}{2}</m> et <m>\vv = \rvt{2k}{k-1}{-1}</m>
+      Déterminer selon les valeurs de <m>k</m> si l'angle formé par <m>\vu</m> et  <m>\vv</m> est aigu ou obtus.
+
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Utilisez une fonction quadratique convenablement adaptée à ce problème.
+      </p>
+    </hint>
+    
+  </example>
+  <example>
+    <statement>
+      <p>Considérez le parallélogramme de l'<xref ref="exp-Parallelog-2d"/>. S'agit-il d'un rectangle? D'un losange? Justifier.
+      </p>
+    </statement>
+    
+  </example>
+<example>
+  <statement>
+    <p>
+      <ol>
+        <li>
+          <p>Montrez que pour deux vecteurs quelconques <m>\vu</m> et <m>\vv</m> on a <m>\nrm{\vu +\vv} = \nrm{\vu -\vv } </m> si et seulement si <m>\vu</m> et <m>\vv</m> sont orthogonaux.
+          </p>
+        </li>
+        <li>
+          <p>Faites un diagramme montrant  <m>\vu, \vv, \vu + \vv</m>, et <m>\vu - \vv</m> dans <m>\R^2</m> et utilisez  (a) pour déduire un résultat sur les parallélogrammes.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  
+</example>
+
+
+</paragraphs>
+
+<paragraphs xml:id="pars-Projections">
+  <title>Projections</title>
+  <p>
+    Un problème de décomposition, qu'on peut formuler de deux façons :
+  </p>
+    <sidebyside widths="45% 50%">
+      <ul>
+      <li>
+        <p>
+          <alert> Point de vue géométrique. </alert>
+          Étant donné un point  <m>P</m> et une droite <m>\plan{D}</m>, trouver le point sur  <m>\plan{D}</m> qui est le plus près de  <m>P</m>, et calculer la distance séparant <m>P</m> de <m>\plan{D}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>Point de vue vectoriel.</alert> Étant donnés <m>\vu</m> et <m>\vv</m> trouver une décomposition
+          <md>
+              <mrow>  \vv  \amp =   \left( {\text{vec. colin. à } \vu}\right) </mrow>
+              <mrow>  \amp </mrow>
+              <mrow>  \amp +  \left({\text{vect. orthog. à }\vu}\right)</mrow>
+          </md>
+        </p>
+      </li>
+    </ul>
+    <image xml:id="img-projection">
+      <latex-image>
+        \begin{tikzpicture}
+        \draw[step=.5cm, lightgray, thin] (0,0) grid (10,10);
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </sidebyside>
+
+  <p>Plus précisément, soient  <m>\vu=\vect{XR}</m> et <m>\vv = \vect{XP}</m> deux vecteurs. Désignons par <m>H</m> le projeté orthogonal de <m>P</m> sur la droite <m>XR</m>. Le vecteur <m>\vect{XH}</m> est la <em>projection</em> de <m>\vect{XP}</m> sur <m>\vect{XR}</m>, ou encore celle de <m>\vv</m> sur <m>\vu</m>, et on le note <m>{\rm proj}_{\vu} \vv</m>.
+  </p>
+
+  <figure xml:id="fig-projection">
+    <caption>La projection d'un vecteur <m>\vv</m> sur un vecteur <m>\vu</m>. On décompose <m>\vv</m> en somme d'un vecteur colináire à <m>\vu</m> et un autre orthogonal. Vous pouvez faire bouger les points <m>X,P</m> ainsi que le vecteur <m>\vu</m>. Par construction <m>\vect{XR} = \vu</m>.</caption>
+    <interactive xml:id="projection" geogebra="kd8waams" width="100%" aspect="7:5" shift-drag-zoom="yes"/>
+  </figure>
+
+
+  <theorem xml:id="thm-Projection">
+    <title>(et définition)</title>
+    <statement>
+      <p>
+        
+      </p>
+      <p>
+        Soient <m>\vu, \vv\in \R^n </m> (avec <m>\vu \ne \vZero</m>). La <terms>projection de <m>\vv</m> sur <m>\vu</m></terms> est le vecteur
+        <me>
+          \proj{\vv}{\vu} = \left(\frac{\vu\cdot \vv}{\vu\cdot \vu}\right)\vu
+        </me>
+      </p>
+      <p>
+        Le scalaire <m>\frac{\vu\cdot \vv}{\vu\cdot \vu}</m> est la <terms>composante de <m>\vv</m> dans la direction de <m>\vu</m></terms>.
+      </p>
+      <p>
+        De plus
+        <ul>
+          <li>
+            <p><m>\proj{\vv}{\vu}</m> est colinéaire à <m>\vu</m>, et
+           </p>
+          </li>
+          <li>
+            <p>
+              <m>\vv - \proj{\vv}{\vu}</m> est orthogonal à <m>\vu</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+
+  <example xml:id="Ex-aire-projection">
+    <statement>
+      <p>
+        Trouver l'aire du triangle de sommets <m>A(1,-1), B(2,2)</m> et <m>C(4,0)</m>.
+      </p>
+    </statement>
+    
+  </example>
+
+
+
+  
+  <example>
+      <statement>
+        <p> Soient <m>\vu</m> et <m>\vv</m> deux vecteurs non nuls. Est-ce possible d'avoir <m>\proj{\vv}{\vu} = \proj{\vu}{\vv}</m>? Quand?
+          
+        </p>
+      </statement>
+      
+  </example>
+
+
+
+
+</paragraphs>
+
+<!-- 
+<paragraphs>
+  <title>Exercices WeBWork à inclure dans cette section </title>
+
+  <p>
+    
+  </p>
+
+  <p>
+    Celui-ci pour le produit scalaire
+  </p>
+  <exercise>
+    <webwork source = "local/BPL/Mathema-TIC/AlgebreLineaire-105-EUCL/7-1-02.pg"/>
+  </exercise>
+
+  <p>
+    Celui-ci pour le produit vectoriel
+  </p>
+  <exercise>
+    <webwork source = "local/BPL/Mathema-TIC/AlgebreLineaire-105-EUCL/6-3-04.pg"/>
+  </exercise>
+
+  <p>
+    Pour le produit scalaire. Celui-ci ne devient pas interactif... pourquoi?
+  </p>
+  <exercise>
+    <webwork source="BPL/Mathema-TIC/AlgebreLineaire-105-EUCL/7-1-01.pg"/>
+  </exercise>
+
+  <p>
+    Produit scalaire Celui-ci ne devient pas interactif... pourquoi?
+  </p>
+  <exercise>
+    <webwork source="BPL/Mathema-TIC/AlgebreLineaire-105-EUCL/prob4.pg" />
+  </exercise>
+
+  <p>
+    Test
+  </p>
+  <exercise>
+    <webwork source="local/BPL/Mathema-TIC/AlgebreLineaire-105-EUCL/7-1-07.pg" />
+  </exercise>
+  <p>
+    This one was modified by alex.
+  </p>
+  <exercise>
+    <webwork source="local/BPL/Mathema-TIC/AlgebreLineaire-105-EUCL/7-1-07-modern.pg" />
+  </exercise>
+
+
+</paragraphs>
+ -->
+
+</section>

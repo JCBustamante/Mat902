@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-3-2-Inverse" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>L'inverse matriciel</title>
+
+<introduction>
+  <p>
+
+  Nous avons vu qu'un système linéaire dont la matrice augmentée est <m>\acm{A}{b}</m> peut s'écrire au moyen de la multiplication matrice - vecteur comme <m>A\bbm{x} = \bbm{b}</m>.
+
+  <ul>
+    <li>
+      <p>
+      Il est alors temptant d'écrire quelque chose comme  <m>\bbm{x} = \frac{\bbm{b}}{A}</m>, dans l'esprit de ce qu'on fait pour les nombres réels.
+      </p>
+    </li>
+    <li>
+      <p>
+        En fait, une équation de la forme <m>ax = b</m> dans  <m>\R</m> admet une unique solution lorsque  <m>a\neq 0</m>. Dans ce cas on a:
+        <me>
+         ax = b \Rightarrow a^{-1}a x = a^{-1}b \Rightarrow x = a^{-1} b
+       </me>
+        et on peut aussi écrire <m>x = b a^{-1}</m>.
+      </p>
+      <p>
+        La propriété clé ici est que  <m>a\ne 0 </m>, de sorte qu'il s'agit d'un nombre réel  <em> inversible</em> : il existe un autre nombre disons <m>a'\in \R</m> tel que
+        <me>        a a' = a'a = 1  </me>
+        Bien entendu, on écrit d'habitude  <m>a' = 1/a</m> ou <m>a' = a^{-1}</m>.
+      </p>
+    </li>
+  </ul>
+  Mais nous savons déjà que l'algèbre matricielle est très subtile...
+
+  </p>
+  <example>
+    <statement>
+      <p>On considère le système d'équations linéaires
+        <me>
+          \left\{ \begin{array}{rcr} 3x+4y \amp = \amp 3\\ 5x+6y \amp = \amp 7\end{array}\right.
+        </me>
+        <ol marker = "(a)">
+          <li>
+            <p>Écrire ce système sous forme matricielle <m>A \rvd{x}{y} = \vb</m>
+
+            </p>
+          </li>
+          <li>
+            <p>
+              Vérifier que <m>\mdd{-3}{2}{5/2}{-3/2} \mdd{3}{4}{5}{6} = I</m> et utiliser ceci pour donner la solution du système considéré.
+            </p>
+          </li>
+        </ol>
+
+
+      </p>
+    </statement>
+  </example>
+
+
+</introduction>
+
+<paragraphs xml:id="pars-Inversibles">
+  <title>Matrices inversibles </title>
+
+<definition xml:id="def-mat-inversible">
+    <statement>
+
+      <p>  
+      </p>
+      
+      <p>Une matrice carrée <m>A\in \mmn{n}{n}</m> est dite <em>inversible</em> s'il existe une matrice <m>B\in \mmn{n}{n}</m> telle que
+        <me>
+            AB = I = BA
+        </me>
+      </p>
+        
+      <p>
+          On dit alors que <m>B</m> est <em> une inverse</em> pour <m>A.</m>
+      </p>
+    
+    </statement>
+</definition>
+
+<example>
+  <statement>
+    <p>
+     On a vérifié que <m>\mdd{-3}{2}{5/2}{-3/2} \mdd{3}{4}{5}{6} = I</m>. On calcule également que <m> \mdd{3}{4}{5}{6} \mdd{-3}{2}{5/2}{-3/2} = I</m>, ce qui montre que les matrices données sont une inverse l'une de l'autre. 
+   </p>
+  </statement>
+</example>
+
+<proposition xml:id="prop-Uni-inverse">
+  <statement>
+    <p>
+      
+    </p>
+
+    <p>Si <m>A\in \mmn{n}{n}</m> est inversible, alors son inverse est unique, et on la note <m>A^{-1}.</m>
+    </p>
+  </statement>
+  
+
+</proposition>
+<example>
+  <statement>
+    <p>
+      Montrer que <m>\mdd{1}{3}{0}{2}</m> est inversible et trouver son inverse.
+    </p>
+  </statement>
+  
+  </example>
+
+
+
+<example>
+  <statement>
+    <ol marker = "(a)">
+      <li>
+      <p> Soit <m>M = \mtt 0 0 1 1 0 0 0 1 0</m> et <m>M' = \mtt 0 1 0 0 0 1 1 0 0 </m>. Alors <m>MM' = \mtt 100 010 001 = M'M</m>, de sorte que  <m>M</m> et <m>M'</m> sont mutuellement inverses.
+      </p>
+      </li>
+      <li>
+      <p> Soient <m>R = \mdd 1 2 2 5</m> et <m>R' = \mdd 5 {-2}{-2}1</m>. À nouveau, <m>R</m> et <m>R'</m> sont mutuellement inverses.
+      </p>
+      </li>
+      <li>
+      <p> Soit <m>A = \left[\begin{array}{rr} \sqrt{3}/2 \amp  -1/2\\[0.5em] 1/2\amp \sqrt{3}/2\end{array}\right]</m>. Nous avons vu que  <m>A^{12} = I</m>, de  sorte que <m>A</m> et <m>A^{11}</m> sont mutuellement inverses.
+      </p>
+      </li>
+      <li>
+      <p> Soit <m>A = \mdd{2}{-1}{6}{-3}</m>. Alors <m>A</m> ne peut pas avoir d'inverse.
+      </p>
+      </li>
+      <li>
+      <p> Soient  <m>P = \mdt 1 0 0 0 1 0</m> et <m>J= \mtd1 0 0 1 0 0.</m> Alors <m>PJ = I_2</m> mais <m>JP = \mtt 1 0 0 0 1 0 0 0 0.</m>
+      </p>
+      </li>
+    </ol>
+  </statement>
+  
+</example>
+
+<remark>
+  <p>
+    
+  </p>
+  <p>
+    Si <m>A \in \mmn{n}{n}</m> et <m>B\in \mmn{n}{n}</m> sont  telles que <m>AB = I</m>, il peut être démontré que <m>BA = I</m>. Ainsi, pour les matrices carrées, une des deux égalités de la définition des matrices inversibles suffit. Nous acceptons ce fait sans preuve. 
+  </p>
+  <p>
+    Le dernier item dans l'exemple précédent montre que ce n'est pas le cas pour les matrices qui ne sont pas carrées.
+  </p>
+</remark>
+
+
+<example>
+  <statement>
+    <p>
+      Montrer que si  <m>A</m> est une matrice carrée telle que  <m>A^2 -2A + I = 0</m>, alors <m>A</m> est inversible et <m>A^{-1} = 2I -A</m>.
+    </p>
+  </statement>
+</example>
+
+
+
+<proposition xml:id="prop-inv-col-indep">
+  <statement>
+    <p>
+      
+    </p>
+
+    <p>
+      Soit <m>A</m> une matrice inversible, alors :
+    </p>
+
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Pour tout vecteur <m>\vb \in \R^n</m>, l'équation <m>A\vx = \vb</m> admet une unique solution, à savoir <m>\vx = A^{-1}\vb.</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Les colonnes de <m>A</m> sont linéairement indépendantes.
+        </p>
+      </li>
+    </ol>
+  </statement>
+ 
+
+</proposition>
+<p>
+  Nous nous intéressons donc aux problèmes suivants :
+  <ul>
+    <li>
+      <p>
+        Étant donnée une matrice, trouver un moyen efficace de décider si elle est inversible.
+      </p>
+    </li>
+    <li>
+      <p>
+        Sachant qu'une matrice <m>A</m> est inversible, comment trouver son inverse <m>A^{-1}.</m>
+      </p>
+    </li>
+  </ul>
+  <p>
+    Nous commençons avec le cas des matrices <m>2 \times 2</m>, la réponse est plutôt simple.
+  </p>
+</p>
+
+<theorem xml:id="thm-Inv-2-2">
+  <statement>
+
+    <p>
+      
+    </p>
+
+    <p>
+       Soit <m>A = \mdd a b c d</m>. Alors <m>A</m> est inversible si et seulement si <m>ad - bc \ne 0</m>. Dans ce cas nous avons  <m>A^{-1}  = \frac{1}{ad-bc}\mdd{d}{-b}{-c}{a}</m>
+    </p>
+  </statement>
+  
+
+</theorem>
+
+<example>
+  <statement>
+    <p>
+      Résoudre le système d'équations en utilisant la matrice inverse
+      <me>
+      \left\{
+      \begin{alignedat}{3}
+        2x \amp {} + {} \amp  y \amp {}={} \amp -1\\
+       5x\amp {} + {} \amp  3y \amp ={} \amp 2
+      \end{alignedat}
+      \right.
+      </me>
+    </p>
+  </statement>
+</example>
+
+<example>
+  <statement>
+    <p>Soient <m>A = \mdd{-1}{1}{1}{1}</m> et  <m>B=\mdd{-2}{1}{3}{1}.</m> Trouver toutes les matrices <m>X</m> telles que <m>AX+B = X</m>, s'il en existe.
+      
+    </p>
+  </statement> 
+</example>
+
+
+
+<p>
+  Voyons maintenant quelques propriétés et règles de calcul avec les matrices inverses.
+</p>
+
+<theorem xml:id="thm-Inverses-prop">
+  <statement>
+    <p>
+
+    </p>
+    <p>
+      Soit <m>A\in \mmn{n}{n}</m>, alors :
+    </p>
+    <ol marker = "{\rm (a)}">
+      <li>
+        <p> Si <m>A</m> est inversible, alors il en est de même pour <m>A^{-1}</m> et <m>\left(A^{-1}\right)^{-1} = A</m>.
+        </p>
+      </li>
+
+      <li>
+        <p>Si <m>A</m> est inversible, <m>\a \in \R, \a \ne 0 </m>, alors <m>\a A</m> est inversible et  <m>\left(\a A\right)^{-1} = \frac{1}{\a} A^{-1}</m>.
+        </p>
+      </li>
+      <li>
+        <p>Si <m>A,B</m> sont inversibles (de la même taille) alors <m>AB</m> est inversible, et <m>\left(AB\right)^{-1} = B^{-1} A^{-1}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+    Si <m>A</m> est inversible, alors il en va même pour  <m>A^T</m>, et <m>\left(A^T\right)^{-1} = \left(A^{-1}\right)^T</m>
+    </p>
+    </li>
+    <li>
+      <p> Si <m>A</m> est inversible, alors <m>A^n</m> l'est aussi, et  <m>\left(A^n\right)^{-1} = \left(A^{-1} \right)^n</m>
+    </p>
+  </li>
+
+</ol>
+
+  </statement>
+
+</theorem>
+
+
+
+
+<example>
+  <statement>
+    <p>
+
+    </p>
+    <p>
+      En prenant pour acquis que toute matrice qui doit être inversée est inversible, exprimer <m>X</m> en fonction des autres matrices :
+      <ol marker = "(a)">
+        <li>
+          <p>
+            <m>ABXA^{-1}B^{-1} = I+A.</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A^{-1}\left(BX\right)^{-1} = \left(A^{-1} B\right)^2.</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>AX(D+BX)^{-1} = C.</m>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  
+</example>
+<example>
+  <statement>
+    <p>
+
+    </p>
+    <p>
+      Simplifier <m>A^{-1} (A+B) B^{-1}</m>. Puis, en prenant pour acquis que <m>A + B</m> est inversible, montrer que  <m>A^{-1} + B^{-1}</m> l'est aussi, et trouver son inverse.
+    </p>
+  </statement>
+  
+</example>
+
+<!--
+<example>
+  <statement>
+    <p>
+
+    </p>
+
+    <p>Soit  <m>M</m> une matrice carrée telle <m>M^k=0</m>, mais <m>M^{k-1} \ne 0</m> pour un certain naturel  <m>k</m>. Monter que  <m>I-M</m> est inversible, puis trouver une expression pour <m>(I-M)^{-1}</m> en termes des puissances de <m>M</m>.  Appliquer ceci pour montrer que  <m>X = \mtt{1}{-1}{2}{0}{1}{-1}{0}{0}{1}</m> est inversible, et trouver son inverse.
+
+    </p>
+  </statement>
+ 
+</example>
+-->
+
+</paragraphs>
+
+<paragraphs xml:id="pars-Inverse">
+  <title>Calcul de l'inverse d'une matrice</title>
+
+  <p>
+    Jusqu'à présent nous avons vu seulement une technique pour inverser les matrices <m>2\times 2.</m>
+  </p>
+  <p>
+    Le but de ce qui suit est de développer une méthode générale pour décider si une matrice arbitraire est inversible ou pas, et si c'est le cas, pour trouver son inverse.
+  </p>
+  <p>
+    À cette fin nous devons caractériser plus finement le fait qu'une matrice soit inversible. La preuve du résultat suivant fournira comme sous-produit l'algorithme cherché.
+  </p>
+
+
+  <theorem xml:id="thm-caract-inveribles">
+  <title>Caractérisation des matrices inversibles, prise 1</title>
+
+
+    <statement>
+      <p>
+
+      </p>
+      <p>
+    Soit <m>A\in \mmn{n}{n}</m>. Les conditions suivantes sont équivalentes :
+    <ol marker = "(a)">
+      <li>
+        <p>
+          <m>A</m> est inversible
+        </p>
+      </li>
+      <li>
+        <p>
+          Pour tout <m>\bbm{b}\in \R^n</m> l'équation  <m>A\bbm{x} = \bbm{b}</m> admet une unique solution.
+        </p>
+      </li>
+      <li>
+        <p>
+          L'équation <m>A\bbm{x} = \bbm{0}</m> admet une unique solution <m>\bbm{x} = \bbm{0}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Les colonnes de  <m>A</m> sont linéairement indépendantes.
+        </p>
+      </li>
+      <li>
+        <p>
+          La forme échelonnée réduite de  <m>A</m> est <m>I_n</m>.
+        </p>
+      </li>
+    </ol>
+      </p>
+    </statement>
+    
+
+  </theorem>
+
+  <remark>
+  <p>
+    
+  </p>
+
+  <p>
+    Le résultat précédent fournit une façon de décider si une matrice est inversible ou pas. Implicitement, il fournit aussi une façon de calculer l'inverse. En effet, si <m>X</m> est l'inverse de  <m>A</m>, alors <m>AX = I</m> vu au travers de la représentation matrice-colonnes du produit, devient  
+    <me> X = A \left[\begin{array}{cccc}\bbm{x}_1\amp \bbm{x}_2\amp \cdots \amp  \bbm{x}_n\end{array}\right] = \left[\begin{array}{cccc}A\bbm{x}_1\amp A\bbm{x}_2\amp \cdots \amp  A\bbm{x}_n\end{array}\right] = I = \left[\begin{array}{cccc}\bbm{e}_1\amp \bbm{e}_2\amp \cdots \amp  \bbm{e}_n\end{array}\right]</me>
+    
+    Ainsi, la première colonne de <m>X</m> s'obtient en résolvant <m>AX = \bbm{e}_1</m>, et ainsi de suite...
+  </p>
+
+  </remark>
+
+  <example>
+    <statement>
+      <p>Sachant que   <m>A=\mtt{1}{2}{-1}{2}{2}{4}{1}{3}{-3}</m> est inversible, calculer son inverse.
+
+      </p>
+    </statement>
+  </example>
+
+
+  <p>
+    Nous le voyons bien : la procédure décrite dans la remarque et l'exemple précédent est tout à fait générale. Tel que promis, nous obtenons un algorithme pour le calcul de l'inverse d'une matrice, lorsque l'inverse existe. Cet algorithme est connu sous le nom d'algoritjme de Gauss - Jordan.
+  </p>
+
+  <proposition xml:id="prop-Gauss-Jordan-inverse">
+  <title>Algorithme de Gauss - Jordan pour le calcul de l'inverse</title>
+  
+  
+    <statement>
+      <p>
+      
+      </p>
+    
+      <p>Soit  <m>A\in \mmn{n}{n}</m> et <m>\left[\begin{array}{ccc}A \amp \vdots \amp I \end{array}\right]</m> la matrice obtenue après augmentation de <m>A</m> par <m>I</m>. Alors
+        <ol marker = "(a)">
+          <li>
+            <p>
+              Si la forme échelonnée réduite de  <m>\left[ \begin{array}{ccc} A\amp \vdots \amp I\end{array}\right]</m> est de la forme  <m>\left[\begin{array}{ccc}I\amp \vdots \amp X\end{array}\right]</m>, alors  <m>A</m> est inversible et <m>A^{-1} = X</m>.
+            </p>
+          </li>
+          <li>
+            <p>Si ce n'est pas le cas, <m>A</m> n'est pas inversible.
+
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+
+
+  <example>
+    <statement>
+      <p>
+
+      </p>
+      <p>Considérer les matrices suivantes. Utiliser l'algorithme de Gauss-Jordan pour déterminer si elles sont inversibles. Si c'est le cas, trouver l'inverse.
+      </p>
+      <ol marker = "(a)" cols="2">
+        <li>
+          <p>
+            <m>A = \mtt{1}{-2}{-1}{-1}{5}{6}{5}{-4}{5}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A = \left[ \begin{array}{rrrr}
+                1\amp 0\amp 1\amp 1\\
+                0\amp 0\amp 1\amp 0\\
+                1\amp 1\amp 1\amp 0\\
+                1\amp 0\amp 0\amp 2
+              \end{array}\right] </m>
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </example>
+</paragraphs>
+
+
+
+
+
+<paragraphs>
+  <title>Matrices élémentaires</title>
+
+  <p>
+    
+  </p>
+  <p>
+    Jusqu'à présent les opérations élémentaires sur les rangées d'une matrice  ont été un outil central. Elles permettent  de réduire les matrices, ce qui est utile dans plusieurs contextes. Outre l'échange de deux rangées, ces opérations élémentaires sont des combinaisons linéaires sur les rangées.
+  </p>
+  <p>
+    Par ailleurs nous avons vu que la multiplication d'une matrice peut s'interpréter comme effectuer des combinaisons linéaires des rangées (du deuxième facteur, ou des colonnes du premier facteur).
+  </p>
+  <p>
+    Nous étudions ici les matrices qui par multiplication correspondent aux opérations élémentaires sur les rangées.
+  </p>
+
+<definition xml:id="def-mat-elem">
+  <statement>
+    <p>
+      
+    </p>
+
+    <p> Une matrice <m>E\in \mmn{n}{n}</m> est dite <em>élémentaire</em>  si elle est obtenue de l'identité  <m>I_n</m> en faisant une opération élémentaire sur les rangées ou sur les colonnes. Rappelons qu'il y a trois types d'opérations élémentaires sur les rangées  : <m>R_i \leftrightarrow R_j,\ R_i + k R_j,\ cR_j</m> avec <m>c\ne0</m>. Nous avons les opérations analogues pour les colonnes, à savoir <m>C_i \leftrightarrow C_j,\ C_i + k C_j,\ cC_j</m> avec <m>c\ne 0.</m>
+
+    </p>
+  </statement>
+</definition>
+
+<example>
+<statement>
+  <p>
+    <ol marker = "(a)">
+      <li>
+        <p><m>E =\left[\begin{array}{rrrr}
+1 \amp  0 \amp  0 \amp  0 \\
+0 \amp  0 \amp  0 \amp  1 \\
+0 \amp  0 \amp  1 \amp  0 \\
+0 \amp  1 \amp  0 \amp  0
+\end{array}\right] </m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>E = \left[\begin{array}{rrrr}
+1 \amp  0 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \amp  0 \\
+0 \amp  0 \amp  10 \amp  0 \\
+0 \amp  0 \amp  0 \amp  1
+\end{array}\right]</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>E =\left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+0 \amp  -10 \amp  1
+\end{array}\right] </m>
+        </p>
+      </li>
+    </ol>
+  </p>
+</statement>
+
+</example>
+<p>
+  Voyons maintenant un énoncé précis faisant le lien entre les matrices élémentaires et les opérations élémentaires. La preuve suit de la <xref ref="Produit-comb-lin"/>.
+</p>
+<proposition xml:id="prop-effet-elem">
+  <statement>
+    <p>
+
+    </p>
+    <p>
+      Soit <m>E\in \mmn{n}{n}</m> une matrice élémentaire, <m>A\in \mmn{n}{m}</m> et <m>B\in \mmn{r}{n}</m>. Alors
+      <ol marker = "(a)">
+        <li>
+          <p>
+            <m>EA</m> est la matrice de <m>A</m> obtenue en effectuant l'opération élémentaire sur les lignes correspondant à <m>E</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>BE</m> est la matrice de <m>B</m> obtenue en effectuant l'opération élémentaire sur les colonnes correspondant à <m>E</m>,
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  
+</proposition>
+
+<example>
+  <p>
+  </p>
+  <p>
+    Soit <m>A = \left[\begin{array}{rrr}
+0 \amp  0 \amp  -2 \\
+3 \amp  -5 \amp  0 \\
+0 \amp  -6 \amp  0
+\end{array}\right],  E_1 =\left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+0 \amp  0 \amp  10
+\end{array}\right], E_2 =  \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  0 \amp  1 \\
+0 \amp  1 \amp  0
+\end{array}\right]</m> et <m>E_3 = \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+-10 \amp  0 \amp  1
+\end{array}\right]</m>
+  </p>
+  <ol marker = "(a)">
+    <li>
+    <p>
+    Calculer les produits
+  </p>
+    <ol  marker = "1">
+      <li>
+        <p>
+        <m>E_1 A = \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+0 \amp  0 \amp  10
+\end{array}\right] \left[\begin{array}{rrr}
+0 \amp  0 \amp  -2 \\
+3 \amp  -5 \amp  0 \\
+0 \amp  -6 \amp  0
+\end{array}\right] </m>
+      </p>
+      </li>
+      <li>
+        <p><m>A E_1  = \left[\begin{array}{rrr}
+0 \amp  0 \amp  -2 \\
+3 \amp  -5 \amp  0 \\
+0 \amp  -6 \amp  0
+\end{array}\right] \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+0 \amp  0 \amp  10
+\end{array}\right].</m>
+
+        </p>
+      </li>
+      <li>
+        <p>
+        <m>E_2 A = \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  0 \amp  1 \\
+0 \amp  1 \amp  0
+\end{array}\right] \left[\begin{array}{rrr}
+0 \amp  0 \amp  -2 \\
+3 \amp  -5 \amp  0 \\
+0 \amp  -6 \amp  0
+\end{array}\right]</m>
+
+        </p>
+      </li>
+      <li>
+        <p><m>A E_3 = \left[\begin{array}{rrr}
+0 \amp  0 \amp  -2 \\
+3 \amp  -5 \amp  0 \\
+0 \amp  -6 \amp  0
+\end{array}\right] \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+-10 \amp  0 \amp  1
+\end{array}\right]</m>
+        </p>
+      </li>
+
+
+    </ol>
+
+    </li>
+    <li>
+      <p>
+        Soit en plus <m>B = \left[\begin{array}{rrrr}
+0 \amp  -2 \amp  -1 \amp  0 \\
+0 \amp  0 \amp  3 \amp  0 \\
+-6 \amp  0 \amp  0 \amp  4
+\end{array}\right].</m> Calculer :
+      </p>
+      <ol marker = "1">
+        <li>
+          <p><m>E_1 B = \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+0 \amp  0 \amp  10
+\end{array}\right] \left[\begin{array}{rrrr}
+0 \amp  -2 \amp  -1 \amp  0 \\
+0 \amp  0 \amp  3 \amp  0 \\
+-6 \amp  0 \amp  0 \amp  4
+\end{array}\right]</m>;
+
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>E_3 B  =  \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+-10 \amp  0 \amp  1
+\end{array}\right] \left[\begin{array}{rrrr}
+0 \amp  -2 \amp  -1 \amp  0 \\
+0 \amp  0 \amp  3 \amp  0 \\
+-6 \amp  0 \amp  0 \amp  4
+\end{array}\right]</m>
+          </p>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</example>
+<p>
+  Nous savons que les opérations élémentaires peuvent être défaites. Plus précisément, si on effectue une opération élémentaire quelconque, on peut la défaire en effectuant une autre opération élémentaire, selon le tableau ci-bas.
+  <tabular halign="center">
+    <row bottom="minor" >
+      <cell right="minor">Opération</cell>
+      <cell><m>cR_i </m></cell>
+      <cell><m>R_i \leftrightarrow R_j </m></cell>
+      <cell><m>R_i +cR_j</m></cell>
+    </row>
+    <row>
+      <cell right="minor">Opération inverse</cell>
+            <cell><m>\frac{1}{c}R_i </m></cell>
+      <cell><m>R_i \leftrightarrow R_j </m></cell>
+      <cell><m>R_i  - cR_j</m></cell>
+    </row>
+  </tabular>
+  Pour les opérations sur les colonnes, le même résultat tient. Mais ce qui est vraiment joli par rapport à ceci, est que la correspondance entre opérations élémentaires et multiplications matricielles se comporte bien par rapport à l'inversion.
+</p>
+<example>
+  <statement>
+    <p>
+
+    </p>
+    <ul>
+      <li>
+      <p>
+      Dans notre exemple précédent,  <m> E_3 =\left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+-10 \amp  0 \amp  1
+\end{array}\right]</m>  est obtenue en effectuant l'opération élémentaire sur les rangées <m>R_3 - 10 R_1.</m>
+      </p>
+      </li>
+      <li>
+        <p>
+          Pour défaire ceci, on fait l'opération élémentaire (sur les rangées) <em>inverse</em> , c'est à dire  <m>R_3 + 10 R_1.</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Comme on s'y attend, <m>E_3^{-1} = \left[\begin{array}{rrr}
+1 \amp  0 \amp  0 \\
+0 \amp  1 \amp  0 \\
+10 \amp  0 \amp  1
+\end{array}\right].</m>
+        </p>
+      </li>
+    </ul>
+
+  </statement>
+</example>
+<p>
+  Les observations précédentes,  fournissent ce qu'il nous manque pour compléter la preuve du <xref ref="thm-caract-inveribles"/> . On peut en fait faire un petit peu plus.
+</p>
+<theorem>
+<title>Caractérisation des matrices inversibles, au complet</title>
+
+
+  <statement>
+    <p>
+
+    </p>
+    <p>
+      Soit <m>A\in \mmn{n}{n}</m>, les conditions suivantes sont équivalentes :
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p><m>A</m> est inversible,
+        </p>
+      </li>
+      <li>
+        <p>
+          Pour tout <m>\bbm{b}\in \R^n</m> l'équation <m>A\bbm{x} = \bbm{b}</m> admet une unique solution.
+        </p>
+      </li>
+      <li>
+        <p>
+          L'équation <m>A\bbm{x} = \bbm{0}</m> admet pour unique solution <m>\bbm{x} = \bbm{0}</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Les colonnes de <m>A</m> sont linéairement indépendantes
+        </p>
+      </li>
+      <li>
+        <p>
+          La forme échelonnée-réduite de <m>A</m> est <m>I_n</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>A</m> est un produit de matrices élémentaires.
+        </p>
+      </li>
+    </ol>
+  </statement>
+</theorem>
+
+</paragraphs>
+
+
+</section>

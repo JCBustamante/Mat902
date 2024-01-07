@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-3-1-Ope-matrices" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Algèbre matricielle</title>
+  <introduction>
+    <p>
+    Nous commençons par définir les opérations sur les matrices, et étudier leurs propriétés. Plus concrètement, on s'intéresse à    <ul>
+      <li>
+        <p>
+          L'addition des matrices et leur multiplication par un scalaire,
+        </p>
+      </li>
+      <li>
+        <p>La transposition des matrices,
+        </p>
+      </li>
+      <li>
+        <p>
+        Le produit matriciel.
+        </p>
+      </li>
+    </ul>
+    </p>
+    <p>
+        Nous commençons avec un peu de vocabulaire.
+    </p>
+
+    <definition xml:id="def-Vocabulaire-matrices">
+        <statement>
+            <p>
+            <ul>
+                <li>
+                    <p>
+                    Une <em>matrice</em> est un tableau rectangulaire de nombres. Sa  <em>taille</em>  est la paire <m>(m,n)</m> qu'on écrit aussi <m>m\times n</m>, où <m>m</m> est le nombre de rangées (ou lignes) et  <m>n</m> le nombre de colonnes. On écrit <m>\mmn{m}{n}</m> pour l'ensemble de toutes les matrices de taille  <m>m\times n</m>. Si l'on veut mettre en relief la taille d'une matrice <m>A\in \mmn{m}{n}</m>, on écrira <m>A_{m \times n}</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Une matrice est une  <em>matrice carrée</em> si <m>n = m</m>. L'ensemble de toutes les matrices carrés <m>n\times n</m> est <m>\mmn{n}{n}</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Étant donnée une matrice  <m>A \in \mmn{n}{m}</m> on écrit <m>A = [a_{ij}]</m>, où <m>a_{ij}</m> est le coefficient de <m>A</m> dans la rangée <m>i</m>, colonne <m>j</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Deux matrices <m>A = [a_{ij}]</m> et <m>B = [b_{ij}]</m> sont égales si elles sont de la même taille, disons  <m>m\times n</m> et <m>a_{ij} = b_{ij}</m> pour tous <m>i</m> tel que <m>1\leqslant i \leqslant m</m> et tout <m>j</m> tel que <m>1\leqslant j\leqslant n</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Les coefficients sur la  <em>diagonale</em> de <m>A</m> sont les <m>a_{ii}</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Une  <em>matrice rangée</em> ou <em>matrice ligne</em> est une matrice de taille <m>1\times n</m> pour un certain  <m>n</m>,c'est à dire, c'est une matrice à une seule rangée.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Une  <em>matrice colonne</em> est une matrice de taille <m>n\times 1</m>, pour un certain <m>n</m>, c'est à dire une matrice à une seule colonne. Nous identifions les vecteurs (colonne) de  <m>\R^n</m> aux matrices colonne de  <m>\mmn{n}{1}</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p> Une <em>matrice diagonale</em> est une matrice carrée <m>A</m> telle que <m>a_{ij} = 0</m> lorsque <m>i\ne j</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p>Une  <em>matrice scalaire</em> est une matrice diagonale dans <m>\mmn{n}{n}</m> telle que tous les éléments de la diagonale sont égaux à une constante <m>c</m>. Lorsque <m>c=1</m>, nous avons la <em>matrice identité d'ordre <m>n</m></em> qu'on écrit usuellement  <m>I_n</m>, ou <m>I</m>, si aucune ambiguïté n'est à craindre.
+                    </p>
+                </li>
+            </ul>
+
+            </p>
+        </statement>
+    </definition>
+
+
+    <example>
+    <statement>
+        <p>Soient <m>A = \begin{bmatrix}a\amp b\\c\amp d\end{bmatrix}, B =\begin{bmatrix} 2\amp 0\\5\amp 3\end{bmatrix}, C= \begin{bmatrix} 2\amp  0 \amp  x\\3\amp -3\amp y\end{bmatrix}</m> et <m>D = \begin{bmatrix}2\amp 3\\0\amp -3\\x\amp y\end{bmatrix}</m>
+        </p>
+        <p>
+          <ol marker = "(a)">
+            <li>
+              <p><m>A</m> et  <m>B</m> sont des <m>2\times 2</m> matrices, donc <m>A, B \in \mmn{2}{2}</m> mais <m>C</m> est une <m>2\times 3</m> matrice, et <m>D</m> est une  <m>3\times 2</m> matrice, donc <m>C\in \mmn{2}{3}</m> et <m>D\in \mmn{3}{2}.</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>A</m> est diagonale si et seulement si <m>b=c=0</m> et scalaire si en plus <m>a=d</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+              <m>B</m> n'est pas diagonale,
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>C</m> et <m>D</m> ne peuvent pas être égales, puisqu'elles n'ont pas la même taille.
+              </p>
+            </li>
+          </ol>
+        </p>
+    </statement>
+    </example>
+
+
+
+
+  </introduction>
+  <paragraphs>
+    <title>Combinaisons linéaires</title>
+    <p>
+      Afin de former des combinaisons linéaires de vecteurs, nous avons utilisé la multiplication par un scalaire, ainsi que l'addition. Voyons les opérations correspondantes pour les matrices.
+    </p>
+    <definition xml:id="def-Comb-lin-mat">
+      <statement>
+      <p>
+        
+      </p>
+        <p>Soient <m>A = [a_{ij}], B=[b_{ij}]\in \mmn{m}{n}</m>, et <m>k\in \R</m>. On définit alors :
+        </p>
+        <ol marker = "(a)">
+          <li>
+            <p><m>C = A+B</m> comme la matrice <m>C=[c_{ij}]</m>, où <m>c_{ij} = a_{ij} + b_{ij}</m>
+
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>D = kA</m>   comme la matrice <m>D = [d_{ij}]</m> où <m>d_{ij} = k a_{ij}</m>
+            </p>
+          </li>
+        </ol>
+        <p>
+          En d'autres termes ces deux opérations se font exactement comme l'addition des vecteurs et la multiplication d'un vecteur par un scalaire.
+        </p>
+
+
+
+      </statement>
+    </definition>
+    <p>
+      Il faut aussi noter qu'on a une <alert>matrice nulle</alert> dans <m>\mmn{m}{n}</m>, on la dénote simplement <m>0</m>, ou s'il faut spécifier la taille, <m>0_{m\times n}</m>.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Soient  <m>A = \mdd{3}{0}{-1}{5}</m> et <m>B = \mdd{0}{-3}{-2}{1}</m>. Calculer :
+        </p>
+        <ol marker = "(a)" cols = "2">
+          <li>
+            <p>
+              <m>-3A</m>
+            </p>
+          </li>
+          <li>
+            <p>
+            <m>A+2B</m>
+            </p>
+          </li>
+        </ol>
+      </statement>
+    </example>
+
+
+    <example>
+      <statement>
+        <p>Soient <m>B = \mtt{2}{-2}{3}{0}{0}{-2}{0}{0}{2}, A_1= \mtt1 0 00 10001, A_2 = \mtt0 1 1 0 0 1 0 0 0 </m> et <m>A_3 = \mtt{-1}{0}{-1}{0}{2}{0}{0}{0}{-1}.</m>
+        <ol marker = "(a)">
+          <li>
+            <p>Déterminer si <m>B \in \gen{A_1,A_2,A_3}</m>. Si c'est le cas, écrire  <m>B</m> comme combinaison linéaire de  <m>A_1,A_2</m> et <m>A_3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Est-ce que les matrices <m>A_1,A_2,A_3</m> sont linéairement dépendantes ou indépendantes?
+            </p>
+          </li>
+        </ol>
+
+        </p>
+      </statement>
+    </example>
+    <p>
+      Il est naturel de se demander quelles sont les règles de calcul qui sont valables pour l'addition des matrices et leur multiplication par des scalaires. La réponse est donnée dans le résultat suivant. Sommairement, on peut dire que <em>tout fonctionne comme d'habitude.</em>
+    </p>
+    <theorem xml:id="thm-Prop-comb-lin-mat">
+      <statement>
+      <p>
+        
+      </p>
+        <p>
+          Soient <m> A,B</m> et <m>C</m> des matrices de même taille et <m>\a, \be, k \in \R</m>. Alors :
+         <ol marker = "(a)" cols = "2">
+          <li>
+            <p>
+               <m>A+B = B+A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(A + B) + C = A+ (B + C)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A + 0 = 0 + A = 0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A+ (-A) = 0</m>,
+            </p>
+          </li>
+          <li>
+            <p><m>\a (A+B) = \a A + \a B</m>,
+          </p>
+          </li>
+          <li>
+            <p><m>(\a + \be)A = \a A + \be A</m>,
+            </p>
+          </li>
+          <li>
+            <p><m>\a (\be A) = (\a \be)A = (\be \a) A</m>
+            </p>
+          </li>
+          <li>
+            <p> <m>1 A = A</m>,
+            </p>
+          </li>
+         </ol>
+        </p>
+      </statement>
+    </theorem>
+
+  </paragraphs>
+  <example>
+    <statement>
+      <p>
+        Soient <m>A = \mdd{1}{2}{3}{4}</m> et <m>B= \mdd{-1}{0}{1}{1}</m>. Trouver <m>X</m> si <m>2(A-B+X) = 3(X-A).</m>
+      </p>
+    </statement>
+    
+  </example>
+
+
+
+
+
+  <paragraphs>
+    <title>Transposition </title>
+    <p>
+      Nous introduisons maintenant une autre opération avec les matrices, la <alert>transposition.</alert>
+    </p>
+    <definition xml:id="def-Transp">
+      <statement>
+      <p>
+        
+      </p>
+        <p>Soit <m>A \in \mmn{n}{m}</m> donnée. Sa <em> transposée</em> est la matrice  <m>B= A^T\in \mmn{m}{n}</m> definie par  <m>B=[b_{ij}]</m> où <m>b_{ij}= a_{ji}</m>. En d'autres termes, les lignes de <m>A^T</m> sont les colonnes de <m>A</m>.
+        </p>
+        <p>Une matrice <m>A</m> est <em>symétrique</em>  si <m>A^T = A</m>, et <em>anti-symétrique</em> si <m>A^T = -A</m>.
+
+        </p>
+      </statement>
+    </definition>
+    <example>
+      <statement>
+        <p>Soient <m>A =\mdd{1}{2}{3}{4}</m> et <m>B = \mtd{1}{2}{3}{4}{5}{6}</m>
+        <ol marker = "(a)">
+          <li>
+            <p>Trouver <m>A^T</m> et <m>B^T</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+             Calculer <m>A-A^T</m> et déterminer s'il s'agit d'une matrice symétrique ou anti-symétrique. 
+            </p>
+          </li>
+        </ol>
+        </p>
+      </statement>
+    </example>
+
+
+  <theorem xml:id="thm-Prop-transposition">
+    <statement>
+    <p>
+      
+    </p>
+      <p>Soient <m>A, B\in \mmn{m}{n}</m> et <m>\a \in \R</m>. Alors 
+     
+      <ol marker = "(a)">
+        <li>
+          <p>
+            <m>\left(A+B\right)^T = A^T + B^T.</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left(\a A\right)^T = \a A^T.</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left(A^T\right)^T = A.</m>
+          </p>
+        </li>
+      </ol>
+        
+      </p>
+    </statement>
+  </theorem>
+  <example>
+    <statement>
+      <p>
+        Montrer que pour toute matrice <m>A\in \mmn{n}{n}</m> la matrice <m>A+A^T</m> est symétrique et la matrice <m>A-A^T</m> est anti-symétrique.
+      </p>
+    </statement>
+    
+  </example>
+  
+
+
+
+  </paragraphs>
+
+  <paragraphs>
+    <title>La multiplication matricielle</title>
+    <p>
+      
+    </p>
+
+    <definition xml:id="def-prod-matriciel">
+      <statement>
+      <p>
+        
+      </p>
+        <p>Étant données deux matrices  <m>A_{m\times n}=[a_{i,j}]</m> et <m>B_{r\times s} =[b_{i,j}]</m>, leur produit <m>AB=C=[c_{i,j}] \in \mmn{m}{s}</m> est défini, seulement lorsque  <m>n=r</m>, par la formule
+        
+        <me>
+        c_{i,j} =\sum_{k=1}^na_{i,k}b_{k,j} = \left(i^\text{è} \text{ ligne de }A\right) \cdot \left(j^\text{è} \text{ colonne de }B\right)
+        </me>
+        De façon plus visuelle :
+        <image source="Multiplication-matricielle" width="100%">
+          <description>Un schéma montrant comment on calcule</description>
+        </image>
+        </p>
+      </statement>
+    </definition>
+
+
+
+    <example xml:id="eg_prod-mat">
+      <statement>
+        <p>
+        <ol marker = "(a)">
+          <li>
+            <p>Soient <m>A =\mdd{1}{2}{4}{5}</m> et <m>X= \Rvd{x_1}{x_2}</m>. Calculer, s'ils sont définis, les  produits <m>AX</m> et <m>XA</m>
+            </p>
+          </li>
+          <li>
+
+            <p> Soient <m>A = \mdd{2}{4}{-1}{-2},\ B = \mdd{1}{0}{1}{1},\ C= \mdt{5}{0}{3}{-1}{-4}{-1},\ X= \Rvd{-2}{1}</m> et <m>Y = \Rvd{6}{-3}</m>, alors 
+            <ol marker = "1">
+              <li>
+                  <m>AB = </m>
+              </li>
+             <li> <m>BA = </m></li>
+
+            <li> <m>AC = </m> </li>
+
+           <li>  <m>AX = </m></li>
+
+           <li>  <m>AY = </m></li>
+
+
+            </ol>
+              
+            </p>
+          </li>
+          <li>
+            <p> Soit <m>M=\mdd{1}{1}{0}{1}</m>. Calculer <m>M^2 = M M</m> puis <m>M^3 = M M^2</m>.
+              
+            </p>
+          </li>
+        </ol>
+          
+        </p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+      <ol marker = "(a)">
+        
+        <li>
+          <p>
+          Soit <m>B= \mdd a b c d</m>. Trouver des conditions sur <m>a,b,c,d</m> de sorte que  <m>B</m> commute avec <m>\mdd1 1 0 1</m>            
+          </p>
+        </li>
+        <li>
+          <p>Soit <m>B= \mdd a b c d</m>. Trouver des conditions sur  <m>a,b,c,d</m> de sorte que <m>B</m> commute avec toute matrice dans  <m>\mmn{2}{2}.</m>
+        </p>
+        </li>
+      </ol>
+        
+      </statement>
+    </example>
+
+
+
+    <theorem>
+      <statement>
+      <p>
+        
+      </p>
+
+        <p>
+        Soit <m>A \in \mmn{m}{n}</m>  et <m>\vc \in \R^n</m> un vecteur colonne, qu'on  peut voir comme une matrice de <m>\mmn{n}{1}</m>. Le produit <m>A\vc</m> est défini et <m>A\vc </m>   est la combinaison linéaire des colonnes de  <m>A</m> avec coefficients pris dans <m>\bbm{c}</m>. 
+        </p>
+        <p>
+         Si on écrit  <m>A</m> par ses colonnes <m>A= \left[ \begin{array}{cccc} \va_1 \amp\va_2 \amp \cdots \amp \va_n\end{array}\right]</m>, et <m>\bbm{c}  = \left[\begin{array}{c}c_1 \\ \vdots \\ c_n\end{array}\right]</m>, ceci devient
+
+        <me>
+   A \bbm{c} = \left[ \begin{array}{cccc} \va_1 \amp\va_2 \amp \cdots \amp\va_n\end{array}\right] \left[ \begin{array}{c}c_1 \\ \vdots \\ c_n\end{array}\right] = \sum_{i=1}^n c_i\va_i
+        </me>
+        </p>
+      </statement>
+    </theorem>
+    <p>
+      L'interprétation du produit d'une matrice par un vecteur comme combinaison linéaire nous permet de faire le point avec les sytèmes d'équations linéaires. En effet, nous avons vu que résoudre un système linéaire revient savoir si on peut exprimer un vecteur comme combinaison linéaire de certains autres vecteurs.
+    </p>
+<corollary xml:id="cor-Mat-vect-system">
+  <statement>
+    <p>
+    <ol marker = "(a)">
+      <li>
+        <p>La première conséquence est qu'un système d'équations linéaires dont la matrice augmentée est  <m>\acm{A}{b}</m> peut être écrit sous forme matricielle comme 
+        <me>
+         A \bbm{x} = \bbm{b}
+         
+        </me> 
+        </p>
+      </li>
+      <li>
+        <p>
+          Considérons les vecteurs  <m>\bbm{a}_1, \ldots, \bbm{a}_n</m> et soit  <m>A</m> la matrice ayant ces vecteurs comme colonnes. Alors les  <m>\bbm{a}_i</m> sont linéairement dépendants si et seulement si l'équation <m>A\bbm{x} = \bbm{0}</m> admet une solution non nulle. Qui plus est, toute telle solution fournit une relation de dépendance linéaire entre les colonnes de <m>A</m>.
+        </p>
+      </li>
+    </ol>
+      
+    </p>
+  </statement>
+</corollary>
+
+<example>
+  <statement>
+    <p>
+      On a une matrice  <m>A</m>, de taille <m>3\times 4</m> dont les colonnes sont <m>\bbm{a}_1 = \rvt{1}{-2}{2}</m>, et telle que  <m>\bbm{a}_3= \rvt{3}{1}{-2}</m>. De plus, on sait que   <m>\bbm{c} = \rfvect{2}{1}{-3}{0}</m> et <m>\bbm{d}=\rfvect{3}{0}{1}{2}</m> sont tels que  <m>A\bbm{c} = \bbm{0}</m> et <m>A\bbm{d}=\bbm{0}</m>. Trouver <m>A</m>.
+    </p>
+  </statement>
+</example>
+
+
+<example>
+  <statement>
+    <p> Soient <m>A =\mdd{1}{2}{4}{5}</m> et <m>B = \mdd{1}{0}{1}{1}</m>. calculer <m>\left(AB\right)^T, A^T B^T</m> puis <m>B^T A^T</m>.
+      
+    </p>
+  </statement>
+</example>
+
+
+
+<p>
+  À la lumière des exemples que nous avons vu, il est tout à fait naturel de se demander quelles sont les propriétés du produit matriciel qui sont toujours valables.
+</p>
+
+<theorem xml:id="thm-prop-produit-mat">
+  <statement>
+  <p>
+    
+  </p>
+    <p>
+      Soient  <m>A,B</m> et <m>C</m> des matrices dont les tailles sont telles que les opérations sont définies et  <m>k\in \R</m>. Alors :
+      <ol marker = "(a)" cols = "2">
+        <li>
+          <p>
+            <m>A(BC) = (AB)C</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>A(B+C) = AB + AC</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>(A+B)C =AC + BC</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>k(AB) = (kA)B = A(kB)</m>
+          </p>
+        </li>
+        <li>
+          <p>
+             <m>I_m A = A = AI_n</m>, si  <m>A\in \mmn{m}{n}</m>
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\left(AB\right)^T = B^T A^T</m>
+          </p>
+        </li>
+      </ol>
+
+
+    </p>
+  </statement>
+</theorem>
+
+<example>
+  <statement>
+    <p>Soit  <m>A,B\in \mmn{n}{n}</m>. Montrer que  <m>\left(A + B\right)^2 = A^2 + 2 AB + B^2</m> si et seulement si <m>AB = BA.</m> 
+    </p>
+  </statement>
+</example>
+</paragraphs>
+
+
+
+<paragraphs>
+  <title>Intermède : deux interprétations utiles</title>
+  
+
+
+
+<p>
+  Nous pouvons interpréter le produit matriciel en mutipliant <em>par morceaux</em>, en considérant le deuxième facteur comme une juxtaposition de vecteurs, et en juxtaposant les résultats. Quelque chose de semblable tient pour les rangées.
+</p>
+
+<remark xml:id="Produit-comb-lin">
+  <statement>
+  <p>
+    
+  </p>
+    <p>Si le produit de deux matrices <m>A</m> et <m>B</m> est défini, alors le résultat est une matrice <m>C</m> telle que 
+    <ol marker = "(a)">
+      <li>
+        <p>La <m>j^\text{è}</m> colonne de <m>C</m> est la combinaison linéaire des colonnes de <m>A</m> avec les coefficients pris dans la  <m>j^\text{è}</m> colonne de <m>B</m>. Si on écrit  <m>B = \begin{bmatrix}\bbm{b}_1\amp \bbm{b}_2\amp \cdots \amp\bbm{b}_m\end{bmatrix}</m>   on peut écrire la représentation <em>matrice-colonnes</em> du produit :
+ <me>
+    A B = A \begin{bmatrix}\bbm{b}_1\amp\bbm{b}_2\amp \cdots \amp\bbm{b}_m\end{bmatrix}  = \begin{bmatrix}A\bbm{b}_1\amp A\bbm{b}_2\amp \cdots \amp A\bbm{b}_m\end{bmatrix}
+ </me>
+
+        </p>
+      </li>
+      <li>
+        <p> La <m>i^\text{è}</m> rangée de  <m>C</m> est la combinaison linéaire des rangées de  <m>B</m> avec coefficients pris dans la <m>i^\text{è}</m> rangée de <m>A</m>. Si on écrit  
+ <m>A=\begin{bmatrix}\bbm{A}_1\\ \bbm{A}_2\\ \vdots \\ \bbm{A}_n\end{bmatrix}</m> alors, on obtient la représentation  <em>rangées - matrice </em> du produit matriciel:
+ 
+<me>AB = \begin{bmatrix}\bbm{A}_1\\ \bbm{A}_2\\ \vdots \\ \bbm{A}_n\end{bmatrix} B = \begin{bmatrix}\bbm{A}_1B\\ \bbm{A}_2B\\ \vdots \\ \bbm{A}_nB\end{bmatrix}</me>
+          
+        </p>
+      </li>
+    </ol>
+      
+    </p>
+  </statement>
+</remark>
+<p>
+  Voyons quelques exemples.
+</p>
+
+<example>
+  <statement>
+    <p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+        Soient <m>A\in \mmn{3}{3}</m> et <m>\bbm{e}_i \in \R^3</m> le vecteur (colonne)  ayant <m>1</m> comme <m>i^{\text{è}}</m> composante, et  <m>0</m> partout ailleurs. Calculer <m>A\bbm{e}_i</m>, et <m>\bbm{e}_i^T A</m>          
+        </p>
+      </li>
+
+      <li>
+        <p>
+          Soient <m>A = \mdt{1}{3}{2}{0}{-1}{1}</m> et <m>B= \mtd{4}{-1}{1}{2}{3}{0}</m>. Calculer  <m>AB</m> au moyen des  représentations matrice-colonnes, ainsi que rangées-matrice du produit matriciel.
+        </p>
+      </li>
+    </ol>
+      
+    </p>
+  </statement>
+  
+</example>
+
+
+
+
+  </paragraphs>
+
+<paragraphs>
+  <title>Retour à la multiplication matricielle, en puissance</title>
+  <p>
+    Nous avons vu comment multiplier des matrices, en particulier si on a une matrice carrée, on peut la multiplier par elle-même, et continuer de la sorte. Naturellement on parle alors des <em>puissances d'une matrice</em>. Mais il faut faire attention à ce stade-ci: seules les puissances positives sont définies. Pour les puissances négatives il faudra attendre la notion d'inverse matriciel.
+  </p>
+  <definition xml:id="def-puissance-mat">
+    <statement>
+    <p>
+      
+    </p>
+
+      <p>Soit <m>A\in \mmn{p}{p}</m>. On définit alors les puissances de <m>A</m> comme suit : pour <m>n\in \N</m> on pose <m>A^n  = \underbrace{A\, \cdots \, A}_{n\, \text{ facteurs}}</m> et <m>A^0 = I.</m>
+      </p>
+    </statement>
+  </definition>
+  <theorem xml:id="thm-prop-puissance">
+    <statement>
+    <p>
+      
+    </p>
+      <p>
+        Soient <m>A\in \mn{n}</m>. Alors, pour toute paire de nombre naturels <m>r,s</m> on a 
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p><m>A^r A^s = A^{r+s}</m> ,
+          </p>
+        </li>
+        <li>
+          <p>
+          <m>\left(A^r\right)^s =A^{rs}</m>,
+          </p>
+        </li>
+        <li>
+          <p>
+          <m>\left(A^r\right)^T =\left(A^T\right)^r</m> 
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </theorem>
+  
+  <example>
+    <statement>
+    <ol marker = "(a)">
+    <li>
+      <p>
+      Soit <m> M= \left[ \begin{array}{rr} \sqrt{3}/2 \amp  -1/2\\[0.5em] 1/2\amp \sqrt{3}/2\end{array}\right]</m>. Trouver <m>M^{2021}.</m> 
+      </p>
+      </li>
+      <li>
+        <p> Soit <m>M = \mdd{1}{1}{1}{1}</m>. Calculer les puissances de <m>M</m>, donner une formule pour <m>M^k</m>, pour tout <m>k\in \N.</m>
+          
+        </p>
+      </li>
+      
+    </ol>
+
+
+
+
+      
+    </statement>
+    
+  </example>
+
+
+
+  
+</paragraphs>
+
+
+
+</section>

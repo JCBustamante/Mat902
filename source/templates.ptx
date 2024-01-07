@@ -1,0 +1,17 @@
+<sidebyside width="100%">
+<image>
+  <latex-image>
+    \begin{tikzpicture}
+    \draw[step=0.5cm, lightgray, thin] (0,0) grid (24,18);
+    \end{tikzpicture}
+  </latex-image>
+</image>
+</sidebyside>
+
+<image source = "Grille-24x12"></image>
+<image source = "Grille-24x6"></image>
+
+
+<exercise>
+<webwork source = "local/Library/Hope/Multi1/01-01-Vectors-in-Rn/Vectors-06/Vectors-06.pg"/>
+</exercise>

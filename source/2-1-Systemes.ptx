@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-2-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Systèmes linéaires</title>
+  <paragraphs>
+    <title>Motivation</title>
+
+
+Nous avons vu, à  <xref ref="ex-nouv-grille"> l'exemple</xref> un système d'équations linéaires.
+
+<sidebyside widths="50% 40%">
+<p>
+  <image xml:id="sageplot-syst-2x2">
+    <description>Un système de deux équations est représenté comme une paire de droites.</description>
+      <sageplot>
+        var('x,y')
+        Fig = implicit_plot( x-3*y==-3,(x,-2,8),(y,-2,8), color = "blue")
+        Fig += implicit_plot(2*x +y ==8,(x,-2,8),(y,-2,8), color = "blue",
+          gridlines = True, axes_labels = ['$x$','$y$'], axes = True,
+          axes_labels_size=1.2, tick_formatter="latex", ticks = [[-2,0,..8],[-2,0,..8]],figsize = 4)
+        Fig += text("$x-3y=3$", (0,1.5), rotation = 18.43, color = "blue",
+          fontsize = 11, zorder = 1)
+        Fig += text("$2x+ y = 8$", (2.3,4.5), rotation = -63.43,
+          color = "blue", fontsize = 11, zorder = 1)
+        Fig
+      </sageplot>
+  </image>
+</p>
+<p> Forts de ce qui a été fait à la <xref ref="S-1-3-Droites-plans" text ="custom"> section 1.3</xref>, nous interprétons le système
+<me>
+  \left\{ \begin{array}{lcr}2x+y \amp = \amp 8\\ x-3y \amp =\amp -3
+    \end{array}\right.
+</me>
+comme la donnée de deux droites dans le plan, chaque équation représentant une droite. La solution au système correspond alors au point commun aux deux droites.
+</p>
+
+</sidebyside>
+
+<p>
+  Les équations linéaires à 3 variables représentent des plans dans l'espace de sorte qu'un système (de trois équations) peut être compris comme la donnée de trois plans dans l'espace.
+</p>
+  <p>Dans la figure ci-après on trouve plusieurs configurations possibles de trois plans dans l'espace. On peut donc penser que nous avons, dans chaque cas, un système de trois équations linéaires (chacune représente un plan) en trois variables (<m>x,y,z</m>).
+  </p>
+  
+  <figure xml:id="Figure-geogebra-config-plans">
+    <caption>Avec le curseur à gauche, passez d'une configuration à une autre.</caption>
+    <interactive xml:id="Config-plans" platform="geogebra" width =" 100%" aspect = "5:2" preview="Config-plans.png">
+    <slate surface="geogebra" source = "Geogebra/Config-plans.ggb" aspect = "5:2"/>
+    </interactive>
+  </figure>
+
+
+
+  
+  <p>Voyons quelques aspects qualitatifs
+    <ul>
+      <li>
+        <p>
+          <alert>Configuration 1.</alert> Les <m>3</m> plans ont un point en commun, la solution au système est unique.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>Configuration 2.</alert> Il n'y a pas de point commun aux trois plans. Deux d'entre-eux sont parallèles, le troisième leur est sécant.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>Configuration 3.</alert> Les <m>3</m> plans partagent toute une droite de points communs. Il y a donc une infinité de solutions au système.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>Configuration 4.</alert> À nouveau, il n'y a pas de solution au système, mais cette fois les plans sont deux à deux sécants.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    Les équations dont il est question sont dites <alert>linéaires</alert>, le but de ce chapitre est de faire une étude systématique des sytèmes d'équations linéaires, avec plus d'équations, et plus de variables.  Nous verrons également plusieurs applications, de nature moins géométrique, mais bien plus pratique.
+  </p>
+
+<p>
+  Notons que dans les deux contextes considérés, nous avons que le système en question admet soit une infinité de solutions, soit une unique solution, soit aucune solution. Cette caractéristique est très importante, elle est valable pour les systèmes linéaires en géneral, nous verrons pourquoi plus loin. Pour l'instant nous pouvons prouver de façon élémentaire le résultat partiel suivant.
+</p>
+
+<proposition xml:id="prop-Syst-3x3">
+  <statement>
+    <p></p>
+
+    <p>Étant donné un système linéaire de <m>3</m> équations et <m>3</m> inconnues, exactement une des trois possibilités suivantes est vérifiée:
+    <ol marker = "(a)">
+      <li>
+        <p>Le système n'admet aucune solution,
+        </p>
+      </li>
+      <li>
+        <p>
+          Le système admet une unique solution,
+        </p>
+      </li>
+      <li>
+        <p>
+          Le système admet une infinité de solutions.
+        </p>
+      </li>
+    </ol>
+
+    </p>
+  </statement>
+</proposition>
+
+
+</paragraphs>
+
+<paragraphs xml:id="pars-syst-lin">
+  <title>Systèmes linéaires et leurs solutions</title>
+
+<definition xml:id="def-syst-lin">
+  <statement>
+    <ul>
+      <li>
+        <p>Une <em>équation linéaire en</em>  <m>x_1,x_2,\ldots, x_n</m> est une équation de la forme <m>\sum_{i=1}^na_i x_i = b</m>, où <m>a_i,b\in \R</m>.
+        </p>
+      </li>
+      <li>
+        <p>On remarque que si on écrit <m>\bbm{a} = \rvt{a_1}{\vdots}{a_n}</m> et <m>\bbm{x} = \rvt{x_1}{\vdots}{x_n}</m>, ceci revient à écrire <m>\bbm{a}\cdot \bbm{x} = b</m>.
+        </p>
+      </li>
+      <li>
+        <p>Un  <em>système d'équations linéaires</em> est un ensemble fini d'équations linéaires:
+
+        <md>
+          <mrow xml:id="eqn-syst-lin" tag = "star"> \amp
+            \left\{ \begin{array}{ccl}
+            a_{1,1} x_1 + a_{1,2} x_2 +\cdots + a_{1,n} x_n \amp = \amp b_1\\
+            a_{2,1} x_1 + a_{2,2} x_2 +\cdots +a_{2,n} x_n \amp = \amp b_2\\
+            \vdots\amp   \amp \vdots\\
+            a_{m,1} x_1 + a_{m,2} x_2 +\cdots +a_{m,n} x_n \amp=  \amp b_m \end{array}\right. </mrow>
+
+        </md>
+
+          On dira que les <m>b_i</m>'s sont les  <em>termes constants</em> et <m>a_{i,j}</m> est le coefficient de la variable  <m>x_j</m> dans la <m>i^{\text{ème}}</m> équation.
+        </p>
+      </li>
+      <li>
+        <p>
+          Uns sytème possédant au moins une solution est dit <em>consistant</em> ou <em>compatible</em>.
+        </p>
+      </li>
+    </ul>
+
+  </statement>
+</definition>
+<example>
+  <statement>
+    <p>Considérez les systèmes d'équations suivants. Dites s'ils sont linéaires ou pas, et donnez leurs ensembles solution.
+      <ol marker = "(a)">
+        <li>
+          <p><m>
+            \left\{ \begin{array}{lcr}3x-4y \amp = \amp 12
+              \end{array}\right.
+          </m>
+
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>
+              \left\{ \begin{array}{lcr}\frac{2}{x} +\frac{3}{y}\amp = \amp 0\\ \frac{3}{x} + \frac{4}{y} \amp =\amp 1
+                \end{array}\right.
+            </m>
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  
+</example>
+
+
+<example>
+  <statement>
+    <p>
+      <ol marker = "(a)">
+        <li>
+          <p>Trouver un système d'équations linéaires en  <m>x_1, x_2</m> et <m>x_3</m> tel que son ensemble solution soit  donné par les équations paramétriques <m>x_1 = t</m>, <m>x_2= 1+t</m> et <m>x_3 = 2-t</m>
+          </p>
+        </li>
+        <li>
+          <p>
+             Trouver un autre solution  pour le système de la partie  (a) dans lequel le paramètre est  <m>s</m> et <m>x_3 = s</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+  
+</example>
+
+  <p>
+  Jusqu'à présent nous avons des modèles géométriques : droites dans le plan (équations avec deux variables) ou plans dans l'espace (équations avec trois variables)
+  </p>
+  <p>
+  Nous verrons dans les exemples ci-après que les systèmes avec plus de variables apparaissent aussi dans des contextes très terre à terre. L'interprétation sera différente.
+  </p>
+
+<example xml:id="Eg-reseau-motivation">
+  <statement>
+
+    <p>
+      La figure ci-après montre un réseau routier. Chaque flèche représente une rue, et le flux d'automobiles est mesuré en nombre d'automobiles par heure (en moyenne). Le principe fondamental est la  <alert>conservation du flux</alert> : à chaque intersection, le nombre d'automobiles qui entre est égal au nombre d'automobiles qui en sort.
+      </p>
+
+      <p>
+      On convient de plus que le trafic suit le sens des flèches. Ainsi un nombre négatif voudrait dire que le trafic va, en moyenne dans le sens opposé.
+    </p>
+    <p><image source = "Reseau-Intro" width = "80%"></image></p>
+    <p>
+      Écrire le système d'équations qui résulte de la loi de conservation du flux.
+    </p>
+
+  </statement>
+
+</example>
+
+<example xml:id= "Chimie-A">
+  <statement>
+    <p>
+      Lorsqu'une réaction chimique a lieu, certaines molécules sont combinés. Une équation est balancée lorsque le nombre d'atomes de chaque côté de l'équation est le même (pour chaque type d'atome). Par exemple, la réaction qui à partir du gaz hydrogène <m>H_2</m> et d'oxygène  <m>O_2</m> donne de l'eau, <m>H_2O</m>, a pour équation balancée
+<me>
+2H_2 + O_2 \longrightarrow 2H_2O.
+</me>
+
+Ceci qui indique que deux molécules d'hydrogène doivent être combinées avec une molécule d'oxygène pour forme deux molécules d'eau. L'équation est balancée puisqu'il y a 4 atomes d'hydrogène à gauche, et 4 à droite, tandis que nous avons deux atomes d'oxygène de chaque côté.
+
+Il faut aussi noter qu'une équation chimique peut être balancée d'une infinité de façons, puisque n'importe quel multiple d'une équation balancée en est une.
+
+Écrire le système d'équations associé à la réaction :
+
+<me>
+C_5 H_{11}OH +\  O_2 \longrightarrow \ H_2 O + \ CO_2
+</me>
+    </p>
+  </statement>
+</example>
+
+
+<p>
+  On s'intéresse aux solutions d'un système linéaire. On peut donc énoncer le problème suivant:
+</p>
+
+<problem xml:id="prob-solutions-syst-lin">
+  <statement>
+    <p>
+      Étant donné un système d'équations linéaires, on voudrait savoir :
+      <ol marker = "(a)">
+        <li>
+          <p>
+            S'il admet une solution unique, un nombre fini de solutions, une infinité de solutions ou aucune solution,
+          </p>
+        </li>
+        <li>
+          <p>
+            Dans le cas où le système est compatible, trouver toutes ses solutions.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</problem>
+
+
+
+<p>
+  Une première réponse est donnée par le résultat suivant qui nous dit que ce qui a été noté à la <xref ref="prop-Syst-3x3"/> reste vrai en général.
+</p>
+
+
+
+<theorem xml:id="thm-Solutions-syst-lin">
+  <statement>
+    <p>
+
+    </p>
+    <p>Pour un système d'équations linéaires donné, exactement un  parmi les trois énoncés suivants est vrai :
+      <ol marker = "(a)">
+        <li>
+          <p>Le système n'admet aucune solution,
+          </p>
+        </li>
+        <li>
+          <p>
+            Le système admet une unique solution,
+          </p>
+        </li>
+        <li>
+          <p>
+            Le système admet une infinité de solutions.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+
+</theorem>
+
+
+
+
+<p>
+  Dans ce qui suit nous allons développer une technique efficace pour répondre à ces deux questions. Quelques notions doivent être introduites auparavant.
+</p>
+
+<definition xml:id="def-Syst-equiv">
+  <statement>
+    <p></p>
+
+    <p>Deux systèmes d'équations linéaires sont dits être <em>équivalents</em> s'ils possèdent exactement les mêmes solutions.
+    </p>
+  </statement>
+</definition>
+
+<example>
+  <statement>
+    <p>
+      Voici quelques systèmes d'équations équivalents.
+    </p>
+    <p>
+      <ol marker = "(a)">
+        <li>
+        <p>
+        <m>
+          \left\{
+          \begin{alignedat}{3}
+          2x \amp {} + {} \amp  3y \amp {} ={} \amp 1\\
+          -x\amp {} + {} \amp  y \amp {} = {} \amp 4
+          \end{alignedat}
+          \right. \qquad \text{ est équivalent à } \qquad \left\{
+          \begin{alignedat}{3}
+          -x\amp {} + {} \amp  y \amp {} = {} \amp 4\\
+          2x \amp {} + {} \amp  3y \amp {} ={} \amp 1
+          \end{alignedat}
+          \right. 
+          </m>
+          </p>
+        </li>
+        <li>
+          <p>
+          <m>
+          \left\{
+          \begin{alignedat}{3}
+          2x \amp {} + {} \amp  y \amp {} ={} \amp 1\\
+          -x\amp {} + {} \amp  y \amp {} = {} \amp 4
+          \end{alignedat}
+          \right. \qquad \text{ est équivalent à } \qquad \left\{
+          \begin{alignedat}{3}
+          x \amp {} + {} \amp  y/2 \amp {} ={} \amp 1/2\\
+          -x\amp {} + {} \amp  y \amp {} = {} \amp 4
+          \end{alignedat}
+          \right. 
+          </m>
+            
+          </p>
+        </li>
+        <li>
+          <p>
+          <m>
+          \left\{
+          \begin{alignedat}{3}
+          x \amp {} - {} \amp  y \amp {} ={} \amp 1\\
+          x\amp {} + {} \amp  y \amp {} = {} \amp 3
+          \end{alignedat}
+          \right. \qquad \text{ est équivalent à } \qquad \left\{
+          \begin{alignedat}{3}
+          x \amp {} - {} \amp  y \amp {} ={} \amp 1\\
+            \amp {}   {} \amp  2y \amp {} = {} \amp 2
+          \end{alignedat}
+          \right. 
+          </m>
+            
+          </p>
+        </li>
+
+        
+      </ol>
+    </p>
+  </statement>
+</example>
+
+
+<p>
+
+</p>
+<proposition xml:id="prop-Op-elem">
+  <statement>
+    <p></p>
+    <p>Étant donné un système linéaire, une <em>opération élémentaire</em> est une des opérations suivantes :
+      <ol marker = "(a)">
+        <li>
+          <p>Échanger de deux équations,
+          </p>
+        </li>
+        <li>
+          <p>
+            Multiplier une équation par une constante non nulle,
+          </p>
+        </li>
+        <li>
+          <p>
+            Ajouter à une équation un multiple d'une autre équation.
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Si on a un système linéaire et on effectue une opération élementaire, alors on obtient un système équivalent au premier.
+    </p>
+  </statement>
+</proposition>
+
+
+<example xml:id="ex-syst-sol1">
+  <statement>
+    <p>Résoudre au moyen d'opérations élémentaires, le système d'équations linéaires
+      <me>
+      \left\{
+      \begin{alignedat}{4}
+        x \amp {} - {} \amp  y \amp {}-{} \amp z \amp {}={} \amp 2\\
+       3x\amp {} - {} \amp  3y \amp {}+{} \amp 2z \amp {}={} \amp 16\\
+        2x  \amp {}-{} \amp y \amp {}+{} \amp z \amp {}={} \amp 9
+      \end{alignedat}
+      \right.
+        </me>
+    </p>
+  </statement>
+</example>
+</paragraphs>
+
+
+<paragraphs xml:id="pars-methodes">
+  <title>Matrice des coefficients et réductions</title>
+  <p>
+    On s'intéresse maintenant à une méthode systématique pour résoudre des systèmes d'équations linéaires.
+  </p>
+
+
+
+
+
+
+<remark>
+    <p></p>
+    <sidebyside widths="50% 30%">
+    <p>
+    Le nom des variables dans un système linéaire importe vraiment peu, ce qui est important est d'être cohérent avec l'utilisation des variables, et garder trace des <alert>coefficients</alert>, c'est ce qui compte vraiment.
+  </p>
+  <p>
+    <image source = "Systems-meme.png"></image>
+  </p>
+    </sidebyside>
+</remark>
+
+<definition xml:id="def-Mat-coeffi">
+  <statement>
+    <p></p>
+
+
+    <p>
+      Étant donné un système de <m>m</m> équations linéaires en  <m>n</m> variables <m>x_1, x_2,\ldots, x_n</m>, on définit :
+      <ul>
+        <li>
+          <p>
+            Sa <em>matrice de coefficients</em> est l'arrangement <m>m\times n</m> (<m>m</m> rangées, <m>n</m> colonnes) rectangulaire dans lequel le coefficient en rangée <m>i</m>, colonne <m>j</m> est le coefficient de la variable <m>x_j</m> dans l'équation n. <m>i</m>. La matrice des coefficients du systeme <xref ref="eqn-syst-lin"/> est
+            <me>
+              \begin{bmatrix}
+                a_{1,1} \amp  a_{1,2} \amp \cdots \amp a_{1,n} \\
+                a_{2,1} \amp a_{2,2} \amp \cdots \amp a_{2,n} \\
+                \vdots \amp \vdots  \amp  \amp \vdots \\
+            a_{i,1} \amp a_{i,2}\amp \cdots \amp a_{i,n}\\
+            \vdots \amp \vdots  \amp  \amp\vdots \\
+            a_{m,1} \amp a_{m,2} \amp \cdots \amp a_{m,n}
+          \end{bmatrix}
+            </me>
+          </p>
+          <p>
+            On la note <m>A = [a_{i,j}]_{1\leqslant i \leqslant m, 1\leqslant j \leqslant n }</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Sa  <em>matrice augmentée</em> est la matrice  des coefficients, à laquelle on ajoute une colonne à droite, avec les termes constants des équations. Pour le système <xref ref="eqn-syst-lin"/>, sa matrice augmentée est
+          </p>
+          <p>
+            <me>\left[
+              \begin{array}{cccc|c}
+                a_{1,1} \amp  a_{1,2} \amp \cdots \amp a_{1,n} \amp b_1 \\
+                a_{2,1} \amp a_{2,2} \amp \cdots \amp a_{2,n} \amp b_2 \\
+                \vdots \amp \vdots  \amp  \amp \vdots \amp \vdots\\
+            a_{i,1} \amp a_{i,2}\amp \cdots \amp a_{i,n} \amp b_i\\
+            \vdots \amp \vdots  \amp  \amp\vdots \amp \vdots \\
+            a_{m,1} \amp a_{m,2} \amp \cdots \amp a_{m,n} \amp b_n
+          \end{array}\right]
+            </me>
+          </p>
+          <p>
+            Si <m>A</m> désigne la matrice des coefficients, la matrice augmentée est dénotée par <m>[A| \vb]</m>, où on pense au vecteur <m>\vb</m> comme étant formé par les termes constants des équations.
+          </p>
+        </li>
+      </ul>
+
+    </p>
+  </statement>
+</definition>
+<example>
+  <statement>
+    <p>Donner les matrices de coefficients, et les matrices augmentées des systèmes suivants.
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          <m>
+          \left\{
+          \begin{alignedat}{4}
+            x \amp {} - {} \amp  y \amp {}-{} \amp z \amp {}={} \amp 2\\
+           3x\amp {} - {} \amp  3y \amp {}+{} \amp 2z \amp {}={} \amp 16\\
+            2x  \amp {}-{} \amp y \amp {}+{} \amp z \amp {}={} \amp 9
+          \end{alignedat}
+          \right.
+          </m>
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>
+          \left\{
+          \begin{alignedat}{4}
+            2u \amp {} - {} \amp  3v  \amp {}={} \amp 5\\
+           4u\amp {} + {} \amp v \amp {}={} \amp 2
+          \end{alignedat}
+          \right.
+          </m>
+
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>
+          \left\{
+          \begin{alignedat}{4}
+            2u \amp {} - {} \amp 3v   \amp {}={} \amp 2\\
+           \amp {} + {} \amp 7v \amp {}={} \amp -7
+          \end{alignedat}
+          \right.
+          </m>
+
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>
+          \left\{
+          \begin{alignedat}{4}
+            3x_1 \amp {} + {} \amp  8x_2 \amp {}-{} \amp x_3 \amp {}={} \amp 2\\
+           5x_1 \amp          \amp        \amp {}+{} \amp 2x_3 \amp {}={} \amp -1\\
+            2x_1  \amp {}+{} \amp 6x_2 \amp  \amp  \amp {}={} \amp 5\\
+            x_1 \amp {} +{} \amp x_2 \amp {} + {} \amp 2x_3{} \amp {}={} \amp 2
+
+          \end{alignedat}
+          \right.
+          </m>
+        </p>
+      </li>
+    </ol>
+  </statement>
+</example>
+
+<definition xml:id="def-mat-ech">
+  <statement>
+    <p></p>
+
+    <p>Étant donnée une matrice <m>A=[a_{ij}]</m> on définit :
+    <ul>
+      <li>
+        <p>
+          Le <em>pivot</em> de la rangée <m>i</m> est le coefficient non nul qui se trouve le plus à gauche sur cette rangée.
+        </p>
+      </li>
+      <li>
+        <p>
+          La matrice <m>A</m> est sous <em>forme échelonnée</em> si
+          <ul>
+            <li>
+              <p>
+                Toute rangée composée de zéros se trouve tout en bas,
+              </p>
+            </li>
+            <li>
+              <p>
+                Dans chaque rangée non nulle, le pivot se trouve à gauche de tout pivot d'une rangée inférieure.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </li>
+      <li>
+        <p>
+          La matrice <m>A</m> est sous <em>forme échelonnée et réduite</em> si elle est echelonnée et en plus
+          <ul>
+            <li>
+              <p>
+                Le pivot de chaque rangée non nulle est <m>1</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                chaque colonne contenant un pivot (forcément égal à <m>1</m>) n'a que des zéros dans les autres positions.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </li>
+    </ul>
+
+    </p>
+  </statement>
+</definition>
+
+<example>
+  <statement>
+    <p>
+      Dire lesquelles des matrices suivantes sont des matrices échelonnées, ou échelonnées et réduites.
+    </p>
+
+    <ol marker = "(a)">
+      <li>
+        <p><m>\displaystyle \begin{bmatrix}1\amp 7 \amp 1 \\ 0\amp 2 \amp 5\\ 0\amp 0 \amp 0  \end{bmatrix}</m>
+        </p>
+      </li>
+
+      <li>
+        <p><m>\displaystyle \begin{bmatrix}1\amp 7 \amp 1 \\ 0\amp 1 \amp 5\\ 0\amp 0 \amp 0  \end{bmatrix}</m>
+        </p>
+      </li>
+
+      <li>
+        <p><m>\displaystyle \begin{bmatrix}0\amp 2 \amp 5 \\ 1\amp 7 \amp 1\\ 0\amp 0 \amp 0  \end{bmatrix}</m>
+        </p>
+      </li>
+      </ol>
+
+
+
+
+
+  </statement>
+</example>
+
+<p>
+  Nous avons vu que les opérations élémentaires sur les équations préservent les ensembles solutions. Nous avons les notions correspondantes sur les rangées d'une matrice.
+</p>
+
+<definition xml:id="def-Op-elem-mat">
+  <statement>
+    <p></p>
+
+    <p>
+      Étant donnée une matrice, on a trois types d'<em>opérations élémentaires</em> sur les rangées (ou sur les lignes), à savoir :
+      <ol marker = "(a)">
+        <li>
+          <p>Échange de deux rangées, disons la rangée <m>i</m> et la rangée <m>j</m>. On dénote cette opération par <m>R_i \leftrightarrow R_j</m>.
+          </p>
+          
+          
+          <p>
+            Notons qu'il est aussi commun d'écrire <m>R_{i,j}</m>, ou encore <m>L_i \leftrightarrow L_j</m> ou <m>L_{i,j}</m> pour désigner cette opération<fn><em>R</em> pour <em>rangées</em>, ou <em>L</em> pour <em>lignes</em> d'une matrice. </fn>
+          </p>
+          
+        
+        </li>
+        <li>
+          <p>
+            Multiplier une rangée, disons la rangée <m>i</m> par une constante non nulle <m>c</m>. On écrit <m>cR_i</m>.
+          </p>
+          <p>
+            On trouve souvent la notation <m>L_i \to cL_i</m> ou encore <m>R_i \to cR_i</m> pour ce type d'opération.
+          </p>
+        </li>
+        <li>
+          <p>
+            Ajouter à une rangée, disons <m>R_i</m> un multiple d'une autre rangée, disons <m>R_j</m>. Dans ce cas on écrit <m>R_i + cR_j</m>.
+          </p>
+          <p>
+            On écrit souvent <m>R_i \to R_i + cR_j</m> ou encore <m>L_i \to L_i + cL_j</m> pour ce type d'opération. 
+          </p>
+        </li>
+      </ol>
+    </p>
+    <p>
+      Le processus d'appliquer les opérations élémentaires sur les rangées, de sorte à l'amener à une forme échelonnée, est appelé <em>réduction par rangéees</em>, ou <em>réduction par lignes</em> ou encore <em>réduction de Gauss</em>.
+    </p>
+  </statement>
+</definition>
+
+<example>
+  <statement>
+    <p>
+      Soit la matrice
+      <me>
+        A = \left[\begin{array}{rrrr} 0\amp  2 \amp  1 \amp  -1\\3\amp 5\amp -5\amp 1\\2\amp 4\amp -2\amp 2\end{array}\right]
+      </me>
+    </p>
+    <p>
+      Effectuer les opérations élémentaires suivantes :
+      <ol>
+        <li>
+          <p>
+            <m>R_1 \leftrightarrow R_3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\frac{1}{2}R_1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>R_2 - 3R_1</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</example>
+
+<example>
+  <statement>
+    <p>
+      Considérer le système d'équations ci-après
+      <me>
+      \left\{
+      \begin{alignedat}{6}
+        x \amp {} - {} \amp  2y \amp {}+{} \amp 2z \amp {}+{} \amp{} 4w \amp {}={} \amp 4\\
+       -x\amp {} + {} \amp  2y \amp {}+{} \amp 3z \amp {}+{} \amp{} 6w \amp{} = {} \amp 1\\
+        2x  \amp {}-{} \amp 4y \amp {}-{} \amp z \amp {}-{}\amp 2w  \amp {}={} \amp 3
+      \end{alignedat}
+      \right.
+      </me>
+    </p>
+    <p>
+      <ol marker = "(a)">
+        <li>
+          <p>Écrire sa matrice augmentée et obtenir une forme échelonnée et réduite de celle-ci.
+          </p>
+        </li>
+        <li>
+          <p>
+            Déduire l'ensemble solution du système donné.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </statement>
+</example>
+
+<example>
+  <statement>
+    <p>
+      Il y a longtemps, un professeur de mathématiques écrivait un examen pour ses étudiants. Pour ceci, il a fait une série de figures associées à 4 systèmes d'équations linéaires. Malheureusement, il a perdu trace de quelle figure correspond à quel système. Les systèmes considérés étaient :
+
+    </p>
+    <sidebyside widths="45% 45%">
+    <p>
+    <p>
+      <m>(A)\ \left\{\begin{array}{rcrcrcr}2x\amp - \amp 3y\amp  +\amp z\amp = \amp 3\\ 4x\amp +\amp 3y\amp +\amp z\amp =\amp 8\\ \amp  \amp 9y\amp -\amp z\amp  = \amp 2 \end{array} \right.</m>
+    </p>
+
+    <p>
+      <m> (B)\  \left\{\begin{array}{rcrcrcr} 2x\amp  - \amp 3y \amp  + \amp z\amp =\amp 3\\-x\amp  - \amp  y \amp  - \amp 2z\amp  = \amp -1 \\ 2x\amp  + \amp y\amp -\amp z\amp =\amp -2 \end{array} \right.</m>
+    </p>
+    </p>
+
+    <p>
+    <p>
+      <m> (C)\ \left\{\begin{array}{rcrcrcr}  -4x \amp  + \amp  6y \amp  - \amp  2z\amp  = \amp -4\\ 2x\amp  - \amp 3y \amp  + \amp z\amp =\amp 3\\4x\amp  + \amp  3y \amp  + \amp z\amp  = \amp 8  \end{array} \right.</m>
+    </p>
+
+    <p>
+      <m>(D)\  \left\{\begin{array}{rcrcrcr}  8x \amp  + \amp  6y \amp  + \amp  2z\amp  = \amp 6\\ \amp   \amp -9y \amp  + \amp z\amp =\amp -15\\2x\amp  - \amp  3y \amp  + \amp z\amp  = \amp 3  \end{array} \right.</m>
+    </p>
+    </p>
+      </sidebyside>
+
+    <p>
+      Chacune des figures correspond à un des sytèmes <m>(A),(B),(C)</m> et <m>(D)</m>. On vous demande d'associer les figures  <m>(a)</m> (aucune solution, deux plans parallèles), <m>(b)</m> (aucune solution, les plans se coupent par paires), <m>(c)</m> (un unique solution) et <m>(d)</m> (une infinité de solutions : les plans se coupent le long d'une droite).
+
+    </p>
+    <p>
+  <figure>
+  <caption>En haut à gauche (a): deux plans parallèles. En haut à droite (b): plans concourants par paires. En bas à gauche (c): trois plans concourants. En bas à gauche (d) : Trois plans avec une droite commune.  </caption>
+  <tabular halign="center">
+    <row header="no" bottom="none">
+      <cell>
+        <image xml:id="deux-paralleles" source = "2-Para.png"><caption>(a) Deux plans parallèles</caption>
+        </image>
+      </cell>
+      <cell>
+        <image xml:id="DeuxADeuxConc-conc" source = "2a2-conc.png"><caption>(b) Plans se coupent par paires</caption>
+        </image>
+      </cell>
+    </row>
+    <row>
+      <cell>
+        <image xml:id="Meme-faisceau" source = "4-meme-reseau.png"><caption>(a) Deux plans parallèles</caption>
+        </image>
+      </cell>
+
+      <cell>
+        <image xml:id="Meme-reseau" source = "3-meme-faisceau.png"><caption>(b) Plans se coupent par paires</caption>
+        </image>
+
+      </cell>
+    </row>
+  </tabular>
+
+</figure>
+    </p>
+  </statement>
+</example>
+
+
+
+<remark>
+  <p></p>
+
+  <p>
+    Il est important de retenir que :
+    <ul>
+      <li>
+        <p>
+          Une matrice peut avoir plusieurs formes échelonnées.
+        </p>
+      </li>
+      <li>
+        <p>
+          La forme échelonnée et réduite d'une matrice donnée est unique.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+</remark>
+
+<definition xml:id="def-rang">
+  <statement>
+    <p></p>
+
+    <p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Deux matrices sont  <em>équivalentes par rangées</em> si l'une d'elles peut être obtenue à partir de l'autre par une suite finie d'opérations élémentaires (sur les rangées).
+          </p>
+        </li>
+        <li>
+          <p>
+            Le <em>rang</em> d'une matrice  <m>A</m> est le nombre de pivots dans une forme échelonnée de <m>A</m>, on écrit <m>\rg{A}</m>. Même si la forme échelonnée n'est pas unique, le nombre de pivots est unique.
+          </p>
+        </li>
+        <li>
+          <p>
+            Soit <m>R</m> une forme échelonnée de la matrice augmentée d'un système d'équations. Les variables correspondant aux colonnes pivot de <m>R</m> sont les <em>variables pivot</em>, les autres sont les <em>variables libres</em>.
+          </p>
+        </li>
+      </ol>
+
+    </p>
+  </statement>
+</definition>
+
+<p>
+  Avec le vocabulaire introduit ci-haut, nous pouvons écrire explicitement la caractérisation des ensembles solution des systèmes linéaires en termes des rangs de la matrice des coefficients et sa matrice augmentée.
+</p>
+
+<theorem xml:id="thm-Sol-rang">
+  <statement>
+  <p>
+    
+  </p>
+    <p> Étant donné un système linéaire à <m>m</m> équations et <m>n</m> inconnues, dont la matrice de coefficients est <m>A</m> et sa matrice augmentée est <m>[A|\vb]</m>, on a
+    <ol>
+      <li>
+        <p>
+          Si <m>\rg{A} \lt \rg{A|\vb} </m> alors le système est incompatible,
+        </p>
+      </li>
+      <li>
+        <p>
+          Si <m>\rg{A} = \rg{A|\vb} = n</m> alors le système est compatible, et il admet une solution unique,
+        </p>
+      </li>
+      <li>
+        <p>
+          Si <m>\rg{A} = \rg{A|\vb} \lt n</m> alors le système est compatible, et il admet une infinité de solutions
+        </p>
+      </li>
+    </ol>
+    </p>
+  </statement>
+
+</theorem>
+
+
+
+
+<p>
+  Voyons maintenant deux exemples qu'on a utilisé pour motiver la théorie.
+</p>
+
+
+<example>
+  <title>L'<xref ref="Eg-reseau-motivation"/> revu</title>
+
+  <statement>
+    <p> Dans le contexte de l'<xref ref="Eg-reseau-motivation"/> on mesure que le trafic le long de l'avenue <em>Canal</em> se chiffre à <m>100</m> véhicules par heure, en moyenne.
+    </p>
+
+    <p><image source = "Reseau-egA" width = "80%"></image></p>
+
+    <p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Donner les flux le long des autres rues
+        </p>
+      </li>
+
+      <li>
+        <p>
+        Quelles sont la valeur minimale et maximale du flux le long de la rue <em>Espérance</em> si le sens du trafic dans chaque rue doit être vérifié.
+      </p>
+      </li>
+    </ol>
+    </p>
+
+  </statement>
+</example>
+
+<example>
+  <title>L'<xref ref="Chimie-A"/> revu</title>
+
+
+  <statement>
+    <p>Balancer la réaction chimique
+
+      <me>
+      C_5 H_{11}OH +\  O_2 \longrightarrow \ H_2 O + \ CO_2
+      </me>
+
+    </p>
+  </statement>
+</example>
+
+
+
+<example>
+  <statement>
+    <p>
+      Soit <m>a</m> un nombre réel et considérer le système d'équations
+<me>
+  \left\{ \begin{array}{rlrlrcr}
+x 	\amp  + \amp  a y 	\amp  - \amp  z \amp  = \amp 1\\
+-x 	\amp  + \amp (a-2)y 	\amp  + \amp  z \amp  = \amp -1\\
+2x \amp  + \amp  2y \amp  + \amp (a-2)z \amp  = \amp 1
+\end{array} \right.
+</me>
+</p>
+<p>
+  <ol marker = "(a)">
+    <li>
+      <p>Déterminer sous quelles conditions au sujet de <m>a</m> le système admet une infinité de solutions, une solution unique, ou aucune solution.
+
+      </p>
+    </li>
+    <li>
+      <p>
+        Dans le cas où le système admet au moins une solutions, donner l'ensemble complet de solutions.
+      </p>
+    </li>
+  </ol>
+</p>
+  </statement>
+</example>
+
+
+<p>
+  Voyons maintenant un dernier exemple un peu plus consistant, où on trouve deux variables libres.
+</p>
+
+<example xml:id="Irrigation-2libres">
+  <statement>
+    <p>Dans l'applet ci-bas on illustre un réseau d'irrigation, où les flux d'eau sont mesurés en milliers de litres par jour. Les flux doivent être positifs ou nuls.
+    </p>
+    <p>
+      Le principe est le même qur pour le traffic : à chaque jonction le flux entrant doit être égal au flux sortant. Il y a des valeurs qui sont fixées, les entrées aux nodes <m>A,D</m> et les sorties aux nodes <m>B,C</m>. Avec les curseurs vous pouvez faire varier les flux <m>f_3</m> (tronçon <m>AD</m>) et <m>f_5</m> (tronçon <m>DC</m>). On voit notamment que les valeurs de <m>f_3</m> et <m>f_5</m> ne peuvent pas être arbitraires. On propose d'explorer quelles sont les valeurs possibles.
+    </p>
+
+    <figure xml:id="fig-Reseau-2-param">
+      <caption>Avec les curseurs faites varier les flux. Notez que seulement certaines valeurs sont permises.</caption>
+      <interactive xml:id="Irrig" iframe= "https://www.geogebra.org/material/iframe/id/xspj8r7n" width="100%" aspect="6:4" preview = "Reseau-2-param.png"/>
+    </figure>
+
+   
+      <ol marker = "(a)">
+        <li>
+          <p>
+            Mettez en place un système linéaire qui permet de modéliser la situation. Utilisez la réduction de matrices pour donner l'ensemble solution sous forme vectorielle.
+          </p>
+        </li>
+        <li>
+          <p>
+            Si le tronçon <m>DC</m> est fermé, quelles sont les valeurs possibles pour le flux le long du tronçon <m>DB</m>?
+          </p>
+        </li>
+        <li>
+          <p>
+            En utilisant l'applet, voyez pourquoi le tronçon <m>DB</m> ne peut pas être fermé. Retrouvez ce résultat en utilisant l'ensemble solution trouvée dans la partie a.
+          </p>
+        </li>
+        <li>
+          <p>
+            En utilisant l'ensemble solution de la partie a, donnez quelles sont les valeurs maximale et minimale pour le flux le long du tronçon <m>DB.</m>
+          </p>
+        </li>
+      </ol>
+  </statement>
+  
+</example>
+</paragraphs>
+</section>

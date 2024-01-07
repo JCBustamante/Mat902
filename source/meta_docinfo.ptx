@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The docinfo block is the analogue to the latex preamble -->
+<!-- This is where you can define macros and other book-wide -->
+<!--  settings.                                              -->
+<docinfo xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!-- The next three lines are likely for mature projects only: -->
+
+<!-- <brandlogo url="" source="images/cover.png"/> -->
+<!-- <covers front="images/front.pdf" back="images/back.pdf"/> -->
+<!-- <document-id>unique-book-id</document-id> -->
+
+<!-- macros for defining latex math shortcuts. It is good practice  -->
+<!-- to define these semantically, so that the macro relates to what-->
+<!-- it defines.                                                    -->
+<macros>
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{xcolor}
+
+
+\usepackage[all]{xy}
+
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+
+
+
+\renewcommand{\a}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\g}{\gamma}
+\newcommand{\e}{\varepsilon}
+\renewcommand{\d}{\delta}
+\newcommand{\f}{\varphi}
+\renewcommand{\j}{\theta}
+\renewcommand{\k}{\kappa}
+\renewcommand{\l}{\lambda}
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\renewcommand{\r}{\rho}
+\newcommand{\s}{\sigma}
+\renewcommand{\t}{\tau}
+
+
+
+\newcommand{\plan}[1]{\mathscr{#1}}
+\newcommand{\va}{\mathbf{a}}
+\newcommand{\vb}{\mathbf{b}}
+\newcommand{\vc}{\mathbf{c}}
+\newcommand{\vd}{\mathbf{d}}
+\newcommand{\ve}{\mathbf{e}}
+\newcommand{\vm}{\mathbf{m}}
+\newcommand{\vn}{\mathbf{n}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\vp}{\mathbf{p}}
+\newcommand{\vs}{\mathbf{s}}
+
+\newcommand{\vu}{\mathbf{u}}
+\newcommand{\vv}{\mathbf{v}}
+\newcommand{\vw}{\mathbf{w}}
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\vy}{\mathbf{y}}
+
+
+\newcommand{\vZero}{\mathbf{0}}
+
+
+\newcommand{\bbm}[1]{\mathbf{#1}}
+
+
+
+\newcommand{\proj}[2]{\text{proj}_{#2}\, {#1} }
+
+<!-- Espace engendré -->
+\newcommand{\gen}[1]{\plan{G}\!en\!\left(#1 \right)}
+
+<!-- Dimension -->
+\renewcommand{\dim}[1]{\text{dim}\, #1 }
+
+
+<!-- Espace colonne d'une matrice-->
+\newcommand{\col}[1]{\plan{C}\!\left(#1 \right)}
+
+
+
+<!-- Espace ligne d'une matrice-->
+\newcommand{\lin}[1]{\plan{L}\!\left(#1 \right)}
+
+<!-- Noyau matrice-->
+\renewcommand{\ker}[1]{\plan{N}\!\left(#1 \right)}
+
+
+\newcommand{\acm}[2]{[#1\, {\scriptsize \vdots}\,  \bbm{#2} ]}
+
+<!-- petits vecteurs à 2 composantes, alignés à droite --> 
+\newcommand{\rvd}[2]{\left[\begin{smallmatrix} #1 \\ #2 \end{smallmatrix}\right]}
+
+<!-- vecteurs à 2 composantes, alignés à droite --> 
+\newcommand{\Rvd}[2]{\left[\begin{array}{r} #1\\ #2\end{array}\right]}
+
+
+\renewcommand{\det}[1]{\text{det}\left(#1 \right)}
+\newcommand{\Ddet}[4]{\left| \begin{matrix}#1\amp #2 \\ #3\amp #4 \end{matrix}\right| }
+
+
+\newcommand{\rvt}[3]{\left[{\begin{smallmatrix} \hfill#1 \\ \hfill #2  \\ \hfill #3 \end{smallmatrix}}\right]}
+\newcommand{\Rvt}[3]{\left[\begin{matrix} #1\\ #2\\ #3\end{matrix}\right]}
+
+\newcommand{\rfvect}[4]{\left[{\begin{smallmatrix} \hfill#1 \\ \hfill #2  \\ \hfill #3 \\ \hfill #4 \end{smallmatrix}}\right]}
+
+
+
+<!-- Norme -->
+\newcommand{\nrm}[1]{\left|\hspace{-0.5mm}\left| #1 \right|\hspace{-0.5mm}\right|}
+
+<!-- Ensemble des matrices rectangulaires -->
+\newcommand{\mmn}[2]{\mathbb{R}^{#1 \times #2}}
+
+
+<!-- Ensemble des matrices carrées -->
+\newcommand{\mn}[1]{\mathbb{R}^{#1 \times #1}}
+
+<!-- Matrice 2 x 2  -->
+\newcommand{\mdd}[4]{\left[\begin{array}{rr} #1 \amp #2\\#3 \amp #4\end{array}\right] }
+
+
+<!-- Matrice 2 x 3  -->
+\newcommand{\mdt}[6]{\left[ \begin{array}{rrr} #1 \amp  #2 \amp #3 \\ #4 \amp  #5 \amp  #6 \end{array}\right] }
+
+
+<!-- Matrice 3 x 2  -->
+\newcommand{\mtd}[6]{\left[ \begin{array}{rr} #1 \amp  #2 \\ #3 \amp   #4\\  #5 \amp  #6 \end{array}\right] }
+
+
+
+<!-- Matrice 3 x 3  -->
+\newcommand{\mtt}[9]{\left[\begin{array}{rrr} #1 \amp  #2 \amp #3 \\  #4\amp #5 \amp #6\\ #7 \amp#8 \amp#9 \end{array}\right] }
+
+
+
+<!-- Le rang d'une matrice -->
+\newcommand{\rg}[1]{\text{rg}\,(#1)}
+
+</macros>
+
+<!-- If you put any latex-image elements you can include preambles  -->
+<!-- for those in the next element.                                 -->
+<latex-image-preamble>
+  \usepackage{tikz, pgfplots, tkz-euclide, tikz-cd}
+  \tikzset{>=latex}
+  \pgfplotsset{compat=1.16}
+  \usetikzlibrary{positioning,matrix,arrows, cd}
+  \usetikzlibrary{shapes,decorations,shadows,fadings,patterns}
+  \usetikzlibrary{decorations.markings}
+  \usetikzlibrary{calc}
+  \definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+  \definecolor{arsenic}{rgb}{0.23, 0.27, 0.29}
+  \colorlet{veccol}{green!45!black}
+  \colorlet{myred}{red!90!black}
+  \colorlet{myblue}{blue!90!black}
+  \colorlet{mypurple}{blue!50!red!80!black!80}
+  \tikzstyle{vector}=[->,very thick,veccol]
+  \usetikzlibrary{arrows.meta}
+  
+  \tikzstyle{thin arrow}=[dashed,thin,-{Latex[length=4,width=3]}]
+  \tikzstyle{line} = [thin, arsenic]
+  \tikzstyle{points} = [color = arsenic]
+
+</latex-image-preamble>
+
+<!-- It is possible to rename elements using the tags below -->
+  <rename element="investigation" xml:lang="en-US">Puzzle</rename>
+  <rename element="assemblage" xml:lang="en-US">Summary</rename>
+  <rename element="question" xml:lang="fr-CA">Coin technique</rename>
+
+<!-- Specify the default type of cross reference:           -->
+  <cross-references text="type-global" />
+
+
+</docinfo>

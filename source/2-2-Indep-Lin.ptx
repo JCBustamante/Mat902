@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-2-2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Indépendance linéaire</title>
+    <paragraphs>
+    <title>Quelques rappels et un nouveau point de vue</title>
+
+
+    <remark>
+      <statement>
+        <p>
+          <ul>
+          <li>
+            <p>
+              Ètant données des vecteurs <m>\bbm{u}_1,\ldots,\bbm{u}_n</m> dans <m>\R^m</m>, une <em>combinaison linéaire</em>  de ceux-ci est n'importe quel vecteur  <m>\bbm{v}</m> qui peut être exprimé sous la forme
+              <me>
+                 \sum_{i=1}^n c_i \bbm{u}_i \text{ avec } c_i \in \R
+              </me>
+
+            </p>
+
+          </li>
+
+          <li>
+            <p>
+              Nous avons déjà remarqué que résoudre un système d'équations est équivalent à  déterminer si un vecteur est combinaison linéaire de certains vecteurs.
+              <ul>
+              <li>
+                <p>
+                  Résoudre le système
+                  <m> \displaystyle
+                  \left\{ \begin{alignedat}{3}
+                2x \amp {} + {} \amp  y  \amp {}={} \amp 8\\
+                x\amp {} - {} \amp  3y \amp {} = {} \amp -3
+                \end{alignedat}\right.
+                  </m>
+                </p>
+                <p>
+                  équivaut à
+                </p>
+                </li>
+
+                <li>
+                  <p>
+                  Écrire <m>\displaystyle \Rvd{8}{-3}</m> comme combinaison linéaire des vecteurs <m>\displaystyle \Rvd{2}{1} </m> et <m>\displaystyle \Rvd{1}{-3}</m>
+
+                  </p>
+                </li>
+              </ul>
+            </p>
+          </li>
+          </ul>
+        </p>
+      </statement>
+    </remark>
+    <p>
+      Nous pouvons maintenant établir une version générale de ceci
+    </p>
+
+    <theorem xml:id="thm-Syst-Comb-lin">
+      <statement>
+      <p>
+        
+      </p>
+        <p>Le système dont la matrice augmentée est <m>\acm{A}{b}</m> est compatible si et seulement si le vecteur <m>\vb</m> peut être écrit comme combinaison linéaire des vecteurs colonne de la matrice <m>A.</m>
+        </p>
+      </statement>
+    </theorem>
+  </paragraphs>
+
+
+  <paragraphs xml:id="pars-Espace-engendre">
+      <title>L'espace engendré par une famille de vecteurs</title>
+
+      <p>
+        À la lumière du <xref ref="prob-solutions-syst-lin"/> on peut donc commencer par se demander quand est-ce qu'un système admet une solution. Le <xref ref="thm-Syst-Comb-lin"/> nous dit que c'est le cas seulement si le vecteur des termes constants est combinaison linéaire des colonnes de la matrice des coefficients. Il est donc naturel de s'intéresser à tous les vecteurs qui peuvent être écrits comme combinaison linéaire d'une famille donnée de vecteurs.
+      </p>
+
+    <example>
+      <statement>
+        <p>
+          Rustfree Products Inc. produit des éviers à cuisine à partir d'un alliage d'acier qui est fait à  76% de fer, à 16% de nickel, et 8% de chrome. La compagnie produit aussi des comptoirs, ceux-ci sont faits avec un mélange de  70% de fer, 20% de nickel, et 10% de chrome. Ils ont identifié deux revendeurs de matériaux recyclés. Il est considérablement moins cher pour la compagnie de s'approvisionner auprès de ces fournisseurs. Un des deux fournisseurs vend un mélange fait à 80% de fer, à 15% de nickel, et à  5%, de chrome, l'autre mélange est fait de 60% de fer, 20% de nickel, et 20% de chrome.
+        </p>
+        <p>
+          <ol marker = "(a)">
+            <li>
+              <p>Déterminer s'il est possible pour Rustfree d'acheter les mélanges pour leurs produits, et si c'est le cas, déterminer les proportions.
+              </p>
+            </li>
+
+            <li>
+              <p>Ces fournisseurs semblent être des des partenaires fiables à long terme. La compagnie considère donc la possibilité de fabriquer de nouveaux produits à partir des mélanges en question. Trouver les pourcentages de chaque métal dans les nouveaux produits qui pourront être ainsi fabriqués.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+
+
+    <definition xml:id="def-Esp-engendre">
+      <statement>
+      <p>
+        
+      </p>
+        <p>
+          Étant donnée une famille de vecteurs  <m>\plan{F} = \{\bbm{u}_1, \ldots, \bbm{u}_n \}</m> dans  <m>\R^m</m>, on définit  <em>l'espace engendré par</em> <m>\plan{F}</m>, comme
+          <md>
+            <mrow> \gen{\plan{F}} \amp= \left\{ \sum_{i=1}^{n} c_i \bbm{u}_i \text{ où } c_i \in \R \right\}   </mrow>
+          <mrow> \amp=\left\{\text{Toutes les combinaisons linéaires des vecteurs de } \plan{F}\right\} </mrow>
+          </md>
+        </p>
+      </statement>
+    </definition>
+    <p>
+      Il faut noter que le vecteur nul, <m>\vZero</m> appartient toujours à <m>\gen{\plan{F}}</m>, peu importe ce que <m>\plan{F}</m> est.
+    </p>
+
+    <example>
+      <statement>
+        <p>
+          Interpréter <m>\gen{\plan{F}}</m> dans les cas suivants :
+        </p>
+
+        <p>
+          <ol marker = "(a)">
+            <li>
+              <p>Si <m>\plan{F}= \{ \bbm{u} \} \subseteq \R^3</m> (un unique vecteur).
+              </p>
+            </li>
+            <li>
+              <p>Si <m>\plan{F} = \{\bbm{u},\bbm{v} \}\subseteq \R^2</m> (deux vecteurs dans le plan).
+              </p>
+            </li>
+            <li>
+              <p>Si <m>\plan{F} = \{ \bbm{u},\bbm{v} \} \subseteq \R^3</m> (deux vecteurs dans l'espace).
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+
+    <remark>
+      <title>Droites vs. <m>\gen{\vd }</m> et plans vs. <m>\gen{\vu, \vv}</m> </title>
+
+      <p>
+
+      </p>
+      
+      <p>
+      
+      <ul>
+        <li>
+          <p>
+            L'équation vectorielle d'une droite dans <m>\R^2</m> ou <m>\R^3</m> est <m>\vx = \vp_0 + t\vd</m>. Une droite est donc l'espace engendré par son vecteur directeur mais <em>décalé</em> de sorte à ce qu'elle passe par <m>\vp_0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            L'équation vectorielle d'un plan dans <m>\R^3</m> est <m>\vx = \vp_0 + s\vu + t\vv</m>. Un plan est donc l'espace engendré par deux vecteurs s'y trouvant (non colinéaires) mais <em>décalé</em> de sorte à ce qu'il passe par <m>\vp_0</m>.
+          </p>
+        </li>
+      </ul>
+      </p>
+
+
+
+
+
+    </remark>
+    <example xml:id="ex-gen-plan">
+      <statement>
+        <p>
+          Soient les vecteurs <m>\va_1 = \rvt{1}{-1}{-2},\ \va_2 = \rvt{-2}{3}{11}</m> et <m>\va_3 = \rvt{4}{-2}{6}</m>.
+          <ol marker = "(a)">
+            <li>
+              <p>
+                Sous quelles conditions un vecteur <m>\vx = \rvt{x_1}{x_2}{x_3}</m> appartient-il à <m>\gen{\va_1,\va_2,\va_3}</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                Donnez une description géométrique de <m>\gen{\va_1,\va_2,\va_3}</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+    </example>
+
+
+
+    <problem xml:id = "Lind-dep-indep">
+      <statement>
+        <p>
+          Soient les vecteurs <m>\vu = \rvd{1}{1}</m>, <m>\vv = \rvd{1}{-1}</m> et <m>\vw = \rvd{3}{1}</m>.
+
+        </p>
+        <sidebyside widths="60% 35%">
+          <p>
+          <ol marker = "(a)">
+            <li>
+              <p>
+                Montrer que  <m>\vw \in \gen{\vu, \vv}</m>  de façon algébrique et géométrique. Écrire <m>\vw</m> comme combinaison linéaire de <m>\vu,\vv</m>.
+              </p>
+             </li>
+             <li>
+               <p>
+                 Montrer que <m>\vZero \in \gen{\vu, \vv,\vw}</m>, de façon non triviale (c'est à dire avec des coefficients non nuls).
+               </p>
+             </li>
+             <li>
+               <p>
+                 Parmi les vecteurs <m>\vu,\vv,\vw</m>, lequel dépend des autres?
+               </p>
+             </li>
+          </ol>
+        </p>
+
+          <image>
+          <latex-image>
+            \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm]
+            \draw [color=gray,dash pattern=on 1pt off 1pt, xstep=0.5cm,ystep=0.5cm] (-2,-2) grid (6,6);
+            \draw[->,color=black] (-2,0) -- (6,0);
+            \draw[->,color=black] (0,-2) -- (0,6);
+            \foreach \x in {1, 5}
+            \draw[shift={(\x,0)}, color=black] (0pt,2pt) -- (0pt,-2pt) node[below]{\footnotesize $\x$};
+            \foreach \y in {1, 5}
+            \draw[shift={(0,\y)}, color=black] (0pt,2pt) -- (0pt,-2pt) node[left]{\footnotesize $\y$};
+            \draw [->] (0, 0.) -- (1, 1) node[right]{\footnotesize $\vu$};
+            \draw [->] (0, 0.) -- (1, -1) node[right]{\footnotesize $\vv$};
+            \draw [->] (0, 0.) -- (3, 1.)node[right]{\footnotesize $\vw$};
+            \end{tikzpicture}
+          </latex-image>
+          </image>
+
+
+        </sidebyside>
+
+
+      </statement>
+    </problem>
+    <p>
+      Le problème qui précède met la table pour une des notions les plus importantes de l'algèbre linéaire, celle de <em>dépendance ou indépendance linéaire</em>.
+    </p>
+
+<definition xml:id="def-Lin-dep-indep">
+  <statement>
+  <p>
+    
+  </p>
+    <p>
+      Soit <m>\plan{F} = \{\bbm{u}_1,\ldots, \bbm{u}_n\}</m> une famille de vecteurs dans  <m>\R^m.</m>
+    </p>
+    <ul>
+      <li>
+        <p>La famille   <m>\plan{F}</m> est <em>linéairement dépendante</em> (on dit souvent aussi une <em>famille liée</em>) s'il existe des scalaires <m>c_1,\ldots,c_n</m>, non tous nuls tels que  <m>\displaystyle \sum_{i=1}^n c_i \bbm{u}_i =\bbm{0}</m>. Dans ce cas, on dit que l'égalité est une <em>relation de dépendance linéaire</em>.
+        </p>
+      </li>
+      <li>
+        <p>
+        Si <m>\displaystyle \sum_{i=1}^n c_i \bbm{u}_i =\bbm{0}</m> entraîne <m>c_i=0</m> pour tout <m>i</m>, alors la famille est  <em>linéairement indépendante</em> (on dit aussi <em>famille libre</em>).
+        </p>
+      </li>
+    </ul>
+  </statement>
+</definition>
+
+
+<example xml:id = "ex-lin-dep">
+  <statement>
+    <ol marker = "(a)">
+      <li>
+        <p> On considère les vecteurs du <xref ref="Lind-dep-indep"/>, à savoir <m>\vu = \rvd{1}{1}</m>, <m>\vv = \rvd{1}{-1}</m> et <m>\vw = \rvd{3}{1}</m>. Alors <m>\{\vu,\vv\}</m> est linéairement indépendante, tandis que <m>\{\vu, \vv,\vw\}</m> est linéairement dépendante.
+        </p>
+      </li>
+      <li>
+        <p>
+          Si <m>\vx \in \R^n</m> est non nul, alors la famille <m>\{\vx\}</m> est linéairement indépendante.
+        </p>
+      </li>
+      <li>
+        <p>
+          Si une famille contient le vecteur nul, alors elle est linéairement dépendante.
+        </p>
+      </li>
+    </ol>
+  </statement>
+  
+</example>
+
+<example>
+  <statement>
+    <p>
+      On considère les vecteurs <m>\rvt{1}{1}{k}, \rvt{1}{k}{1}</m> et <m>\rvt{k}{1}{1}</m>. Discuter selon les valeurs de <m>k</m> si ces trois vecteurs sont linéairement dépendants ou indépendants.
+    </p>
+  </statement>
+</example>
+
+
+
+
+<example>
+<statement>
+  <p>
+    Soient <m>\vu</m>, <m>\vv</m> et <m>\vw</m> trois vecteurs linéairement indépendants de <m>\R^{2022}</m>.
+  
+  <ol marker = "(a)">
+    <li>
+      <p>Montrer que les vecteurs <m>\vu -\vv</m>, <m>\vv - \vw</m> et <m>\vw - \vu</m> sont linéairement dépendants, et donner une relation de dépendance linéaire.
+        
+      </p>
+    </li>
+    <li>
+      <p>
+        Est-ce que les vecteurs <m>\vu +\vv</m>, <m>\vv + \vw</m> et <m>\vw + \vu</m> sont linéairement dépendants ou indépendants? Justifier.
+      </p>
+    </li>
+  </ol>
+  </p>
+</statement>
+  
+</example>
+
+
+<p>
+  La notion de colinéarité (voir la <xref ref="def-Colin-2d"/> au besoin) est étendue naturellement aux vecteurs avec plus de deux coordonnées : <m>\vu, \vv</m> (non nuls) sont colinéaires si et seulement s'il existe un scalaire <m>\lambda</m> tel que <m>\vu = \lambda \vv</m>.
+</p>
+
+<proposition xml:id="prop-dep-lin-colin">
+  <statement>
+    <p>
+
+    </p>
+    <p> Deux vecteurs <m>\vu,\vv\in \R^n</m>  sont colinéaires si et seulement si la famille <m>\{\vu, \vv\}</m> est linéairement dépendante.
+    </p>
+  </statement>
+</proposition>
+
+<p>
+  On pourrait être tenté de penser qu'une famille <m>\plan{F} = \{\bbm{u}_1,\ldots, \bbm{u}_n\} </m> est liée si et seulement si un des vecteurs <m>\vu_i</m> est colinéaire à un autre des vecteurs de la famille. Il n'en est rien, le résultat qui tient est le suivant.
+</p>
+<theorem xml:id="thm-Caract-F-Lin-dep">
+  <statement>
+    <p>
+
+    </p>
+    <p>
+      Une famille <m>\plan{F} =  \{\bbm{u}_1,\ldots, \bbm{u}_n\} </m> est linéairement dépendante si et seulement si un des vecteurs <m>\vu_i</m> est combinaison linéaire des autres vecteurs de <m>\plan{F}.</m>
+    </p>
+  </statement>
+</theorem>
+
+<example>
+  <statement>
+    <p>On considère les vecteurs de l'<xref ref="ex-gen-plan"/>, à savoir <m>\va_1 = \rvt{1}{-1}{-1},\ \va_2 = \rvt{-2}{3}{11}</m> et <m>\va_3 = \rvt{4}{-2}{6}.</m> 
+    </p>
+    <ol marker = "(a)">
+      <li>
+        <p>
+           Montrer que ces trois vecteurs sont linéairement dépendants puis  donner une relation de dépendance linéaire entre ces vecteurs.            
+        </p>
+      </li>
+      <li>
+        <p>
+          Exprimer chacun des vecteurs comme combinaison linéaire des autres.
+        </p>
+      </li>
+    </ol>
+
+
+  </statement>
+</example>
+
+
+<example>
+  <statement>
+    <p>
+      La compagnie de chaussures Zéphir fabrique des chaussures à crampons, des chaussures d'entraînement intérieur, et des chaussures de course, elle possède quatre usines. La production journalière (en centaines de paires de chaussures) de chacune des usines est détaillée dans le tableau ci-bas.
+    </p>
+    <p>
+
+  <title>A simple table</title>
+  <tabular halign="center">
+    <row header="yes" bottom="minor" >
+      <cell halign="left">Produit </cell>
+      <cell>Usine 1 </cell>
+      <cell>Usine 2 </cell>
+      <cell>Usine 3 </cell>
+      <cell>Usine 4 </cell>
+    </row>
+    <row>
+      <cell halign="left" >Crampons</cell>
+      <cell>1</cell>
+      <cell>2</cell>
+      <cell>2</cell>
+      <cell>1</cell>
+    </row>
+    <row>
+      <cell halign="left">Entraînement</cell>
+      <cell>3</cell>
+      <cell>7</cell>
+      <cell>5</cell>
+      <cell>0</cell>
+    </row>
+    <row>
+      <cell halign="left">Course</cell>
+      <cell>5</cell>
+      <cell>8</cell>
+      <cell>11</cell>
+      <cell>10</cell>
+    </row>
+  </tabular>
+    </p>
+    <p>
+    La compagnie a obtenu un contrat pour <m>1800</m> paires de chaussures à crampons, <m>5100</m> paires de chaussures d'entraînement et <m>9300</m> paires de chaussures de course par semaine à une chaîne de marchands.
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Donnez un plan de production hebdomadaire qui fasse appel à exactement 1 journée de production à l'usine n.3.
+        </p>
+      </li>
+      <li>
+        <p>
+          Déterminez s'il est possible de fermer une des usines. Si c'est le cas, présentez quels sont les plans de production possibles et comment la fermeture d'une usine est compensée par les autres.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  </statement>
+</example>
+
+<remark>
+  <p>
+
+  </p>
+<p>
+  Nous avons déjà remarqué que peu importe ce que la famille <m>\plan{F}</m> est, le vecteur nul appartient à <m>\gen{\plan{F}}</m>. Se demander si <m>\plan{F}</m> est linéairement dépendante revient à se demander si on peut exprimer <m>\vZero</m> comme combinaison linéaire des vecteurs de <m>\plan{F}</m> de façon <em>non triviale</em>.
+</p>
+</remark>
+<theorem>
+  <statement>
+    <p>
+
+    </p>
+
+    <p>
+      Soit  <m>\plan{F} = \{\bbm{u}_1, \ldots, \bbm{u}_n \} \subseteq \R^m</m>  une famille de vecteurs et <m>A = \begin{bmatrix}\vu_1 \amp \vu_2 \amp \cdots \amp \vu_n\end{bmatrix}</m> (c'est à dire que <m>A</m> est la matrice dont les colonnes sont les vecteurs de <m>\plan{F}</m>).
+    </p>
+    <p>
+      Alors  <m>\plan{F}</m> est linéairement dépendante si et seulement si le système dont la matrice augmentée est <m>\acm{A}{\vZero}</m> admet une solution non nulle.
+    </p>
+  </statement>
+</theorem>
+<p>
+  Nos avons vu à l'<xref ref="ex-lin-dep"/> que dans le plan la famille formée par les vecteurs <m>\vu = \rvd{1}{1}</m>, <m>\vv = \rvd{1}{-1}</m> et <m>\vw = \rvd{3}{1}</m> est linéairement dépendante. Le résultat qui précède, ainsi que la caractérisation des systèmes compatibles du <xref ref="thm-Sol-rang"/> nous permettent d'étudier un problème plus général.
+</p>
+
+<problem>
+  <statement>
+  <p>
+    
+  </p>
+    <p>
+      Est-il possible d'avoir <m>3</m> vecteurs linéairement indépendants dans le plan?
+    </p>
+  </statement>
+</problem>
+<p>
+  La même logique permet d'établir le résultat suivant.
+</p>
+<proposition xml:id="prop-trop-vecteurs">
+  <statement>
+  <p>
+    
+  </p>
+    <p>
+      Une famille de vecteurs <m>\{\bbm{u}_1,\ldots,  \bbm{u}_n\}</m> dans <m>\R^m</m> avec <m> n \gt m</m> est toujours linéairement dépendante.
+    </p>
+  </statement>
+</proposition>
+<p>
+  Pour finir, voyons quelques exercices résolus.
+</p>
+
+<example>
+  <statement>
+    <p>
+    Soient  <m>\bbm{u}_1,\bbm{u}_2,\bbm{u}_3</m> et <m>\bbm{u}_4</m> des vecteurs linéairement indépendants (donc des vecteurs de la même taille). 
+    
+    <ol marker = "(a)">
+      <li>
+        <p>
+          Que peut-on dire au sujet du nombre de coordonnées des vecteurs <m>\bbm{u}_i</m>?
+        </p>
+      </li>
+      <li>
+        <p>
+          Soient <m>\bbm{w}_1 = \bbm{u}_1,\ \bbm{w}_2 = \bbm{u}_1+\bbm{u}_2,\ \bbm{w}_3 =  \bbm{u}_1+\bbm{u}_2 + \bbm{u}_3</m> et <m>\bbm{w}_4 = \bbm{u}_1+\bbm{u}_2 + \bbm{u}_3+ \bbm{u}_4</m>. Déterminer si les vecteurs <m> \bbm{w}_1,\bbm{w}_2,\bbm{w}_3,\bbm{w}_4</m> sont linéairement dépendants.
+      
+
+        </p>
+      </li>
+    </ol>
+
+
+    </p>
+  </statement>
+</example>
+
+
+<example>
+  <statement>
+    <p> Soient <m>\bbm{v}_1, \bbm{v}_2 \in \R^m</m> des vecteurs donnés et définissons <m>\bbm{w}_1 = a_1 \bbm{v}_1 +a_2\bbm{v}_2,\ \bbm{w}_2=b_1\bbm{v}_1 + b_2\bbm{v}_2</m> et <m>\bbm{w}_3 = c_1\bbm{v}_1 +c_2\bbm{v}_2</m>. Montrer que  <m>\bbm{w}_1,\bbm{w}_2</m> et <m>\bbm{w}_3</m> sont linéairement dépendants
+    </p>
+  </statement>
+</example>
+
+
+</paragraphs>
+
+</section>

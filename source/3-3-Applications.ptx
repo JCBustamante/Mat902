@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="S-3-3-Applications" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Applications</title>
+
+
+
+
+<paragraphs xml:id="pars-Lentieff">
+  <title>Application : modèle économique de Leontief</title>
+  <p>
+    Dans ce qui suit nous étudions une application de l'algèbre matricielle à la science économique, il s'agit du <q><em>modèle d'entrée - sortie</em></q>, attribué communément à Leontieff. 
+  </p>
+  
+  <p>
+    Dans les applications réélles les matrices considérées sont très très grandes, nous nous contentons ici de présenter des versions simplifiées, de sorte à rendre les calculs faisables manuellement.
+  </p>
+
+  <p>
+    Une <q><em>économie</em></q> est un ensemble de secteurs d'activité qui interagissent entre eux. Cette interaction consiste en l'achat de biens et de services que ces secteurs d'activité produisent ou consomment. Le modèle d'entrée - sortie postule que l'économie est en équilibre lorsque  tout secteur est en équilibre, c'est à dire lorsque la demande est pleinement satisfaite.
+  </p>
+
+  <p>
+    Commençons avec une situation réduite à l'extrême. Supposons que'on s'intéresse à une  <q>économie</q> formée par un seul secteur ou agent d'activité. Le coût de production de <m>x\,</m>$ de marchandise (ou service) est de <m>cx\,</m>$. Cette activité sera dite <em>profitable</em> si <m>0\leqslant c \lt 1</m>, c'est à dire si le coût de production est inférieur à la valeur produite. Dans ce cas, un excédant sera disponible pour combler une demande venant d'un autre agent (ou secteur de l'économie). Supposons alors que la demande externe soit de <m>d\,</m>$. La production totale requise se décompose alors comme 
+    <md>
+      <mrow>\text{prod. totale} \amp = \text{demande interne} \amp + \amp  \qquad \text{demande externe} </mrow>
+      <mrow> x \qquad \amp = \qquad cx \amp + \amp \qquad \qquad d </mrow>
+    </md>
+    On en tire aisément que la production doit être <m>x = (1-c)^{-1}d.</m>
+   </p>
+
+   <p>
+    Présentons maintenant ces idéees dans un contexte un peu moins simpliste, avec une économie formée de deux secteurs.
+   </p>
+
+<example>
+  <statement>
+    <p>
+      Nous commençons par une économie composée de deux industries, la compagnie d'électricité <m>E</m> et la compagnie des eaux <m>W</m>. La production des deux entreprises est mesurée en dollars. La compagnie d'électricité utilise à la fois de l'électricité et de l'eau (intrants) pour produire de l'électricité (production), et la compagnie des eaux utilise à la fois de l'électricité et de l'eau (intrants) pour produire de l'eau (production). Supposons que la production de chaque dollar d'électricité nécessite <m>0,30</m>$ d'électricité et <m>0,10</m> $d'eau, et que la production de chaque dollar d'eau nécessite <m> 0,20</m>$ d'électricité et <m> 0,40</m>$ d'eau. Si la demande finale (la demande de tous les autres utilisateurs d'électricité et d'eau) est de 
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            <m>d_1 = 12</m> millions de dollars d'électricité. 
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>d_2 =  8</m> millions de dollars pour l'eau.
+            
+          </p>
+        </li>
+      </ul>
+    </p>  
+    <p>
+      Quelle quantité d'électricité et d'eau devrait être produite pour répondre à cette demande finale ?
+    </p>
+
+  </statement>
+</example>
+
+<p>
+  Dans l'exemple précédent nous avons utilisé la matrice 
+  <me>
+    C = \mdd{0,3}{0,2}{0,1}{0,4}
+  </me>
+ Cette matrice est appelée la <em>matrice d'entrée - sortie</em> ou encore la <em>matrice des coefficients de l'économie.</em> 
+</p>
+
+<p>
+  En général, si une économie est formée par <m>n</m> secteurs, on aura une matrice <m>C\in \mmn{n}{n}</m> vérifiant :
+
+  <ul>
+    <li>
+      <p>
+        Chaque rangée et chaque colonne correspond à un secteur de l'économie. L'ordre importe peu, mais on doit choisir le même ordre pour les rangées et les colonnes. Si on a un vecteur de demande <m>\vd</m>, le même ordre doit être utilisé pour ses composantes.
+      </p>
+    </li>
+
+    <li>
+      <p>
+        Le coefficient <m>c_{ij}</m>, en rangée <m>i</m>, colonne <m>j</m> est la demande du secteur <m>i</m> qu'une production d'une unité du secteur <m>j</m> cause. Ceci permet d'interpéter les sommes des coefficients de chque rangée et chaque colonne :
+      </p>
+      <ul>
+        <li>
+          <p>
+            La somme des coeffcients d'une colonne donnée équivaut à la production du secteur correspondant qui est utilisé par l'économie.
+          </p>
+        </li>
+        <li>
+          <p>
+            La somme des coefficients d'une rangée équivaut au cout total de production de <m>1\$</m> de biens du secteur correspondant.
+          </p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+
+
+</p>
+
+<example>
+    <statement>
+
+    <p>On considère l'économie formée par les secteurs des services, de l'électricité et du pétrole, avec coûts d'interaction donnés dans le tableau ci-bas.
+    </p>
+        
+    
+    <tabular halign="center">
+        <row header="yes">
+        <cell right = "minor" colspan = "2"> </cell>
+        <cell header = "yes" colspan = "3"> <m>1\$</m> Produit par (sortie) </cell>
+        </row>
+        <row header="yes" bottom = "minor">
+        <cell right = "minor" colspan = "2"> </cell>
+        <cell> Services </cell>
+        <cell> Électricité </cell>
+        <cell> Pétrole </cell>
+        </row>
+        <row header = "yes">
+        <cell header = "yes">Requiert</cell>
+        <cell header = "yes" right = "minor">Service </cell>
+        <cell> <m>1/5</m> </cell>
+        <cell> <m>1/2</m> </cell>
+        <cell> <m>1/10</m> </cell>
+        </row>
+        <row header = "yes">
+        <cell header = "yes">(entrée) </cell>
+        <cell header = "yes" right = "minor">Électricité </cell>
+        <cell> <m>2/5</m> </cell>
+        <cell> <m>1/5</m> </cell>
+        <cell> <m>1/5</m> </cell>
+        </row>
+        <row header = "yes">
+        <cell></cell>
+        <cell header = "yes" right = "minor">Pétrole </cell>
+        <cell> <m>1/10</m> </cell>
+        <cell> <m>3/10</m> </cell>
+        <cell> <m>3/10</m> </cell>
+        </row>
+
+    </tabular>
+    
+    <p>
+    On remarque que la somme de la colonne correspondant aux Services est <m>7/10</m> qui est strictement inférieur à <m>1.</m> Seulement <m>70\%</m> de ce qui est produit par ce secteur (en valeur) est consommé par l'économie. Le surplus peut donc être destiné à combler une demande externe. Dans cette situation on dit que le secteur des Services est <em>productif</em>. Quelque chose de semblable arrive pour le secteur du Pétrole: <m>\frac{1}{2} +\frac{1}{5} +\frac{3}{10} =\frac{3}{5}</m>. Le secteur de l'électricité pour sa part n'est pas productif, puisque le cout de production de <m>1\$</m> par ce secteur est de <m>\frac{1}{2}+\frac{1}{5} +\frac{3}{10} =1</m>.
+    </p>
+
+    <p>
+    Supposons qu'on a une demande externe annuelle (en millions de dollars) de <m>10, 10</m> et <m>30</m> de chacun des trois secteurs. Trouvons les quantités qui doivent être produites pour satisfaire cette demande.
+    </p>
+
+    </statement>
+    
+</example>
+
+<p>
+<ul>
+  <li>
+    <p>
+    Un vecteur de production <m>\vx</m> doit avoir des composantes non négatives, c'est à dire <m>x_i\geqslant 0</m> pour <m>i\in\{1,2,\ldots,n\}.</m> Dans ce cas on écrira <m>\vx \geqslant 0.</m>
+  </p>
+  </li>
+  <li>
+    <p>
+      De la même façon, si une matrice <m>A=\left[a_{ij}\right]</m> est telle que <m>a_{ij}\geqslant 0</m> pour <m>i, j \in\{1,2,\ldots,n\}</m>, on écrira <m>A \geqslant 0.</m>
+    </p>
+  </li>
+</ul>
+</p>
+
+<p>
+  Si <m>\vd \geqslant  0</m> est un vecteur de demande et <m>\left(I-C\right)^{-1}</m> existe et vérifie <m>\left(I-C\right)^{-1}\geqslant 0</m>, alors le vecteur de production associé est 
+  <me>
+    \vx = \left(I-C\right)^{-1}\vd \geqslant 0
+  </me>
+
+  Ceci voudrait dire que pour toute demande externe (non négative) il existe un vecteur production (non négatif). Dans ce cas on dit que <m>C</m>, ou l'économie associée est <em>productive</em>.
+  
+</p>
+
+<remark>
+
+  <p>
+    
+  </p>
+  <p>
+    
+  Si la demande varie de <m>\vd</m> à <m>\vd + \Delta \vd</m>, alors la production varie de <m>\left(I-C\right)^{-1} \vd</m> à <m>\left(I-C \right)^{-1}\left(\vd + \Delta \vd \right).</m> La variation de la production est donc 
+  <me>
+    \Delta \vx = \left(I-C\right)^{-1}(\vd + \Delta \vd) - \left(I-C\right)^{-1} \vd = \left(I-C\right)^{-1}\Delta \vd
+  </me>
+
+  En particulier, si <m>\vd = \ve_1</m> on aura que <m>\Delta \vx = \left(I-C\right)^{-1}\ve_1</m>, c'est à dire la première colonne  de <m>\left(I-C\right)^{-1}.</m> Cette colonne donne donc l'ajustement à la production de chaque secteur lorsque la demande du secteur 1 augmente de 1 unité. Bien entendu, ceci reste valable pour les autres colonnes de <m>\left(I-C\right)^{-1}.</m>
+  </p>
+
+</remark>
+
+<example>
+  <statement>
+    <p>Dans le contexte de l'exemple précédent, 
+    <ol marker = "(a)">
+      <li>
+        <p>Quel est l'ajustement de la production si la demande est de <m>20, 20</m> et <m>40</m> unités pour chaque secteur?
+          
+        </p>
+      </li>
+      <li>
+        <p>
+          Donner l'interprétation de la deuxième colonne de <m>\left(I-C\right)^{-1}</m>.
+        </p>
+      </li>
+    </ol>
+      
+    </p>
+  </statement>
+</example>
+
+<p>
+  Pour conclure, on peut se demander s'il existe des conditions assurant qu'une matrice (ou une économie) est productive. C'est en effet le cas :
+  <ul>
+    <li>
+      <p>
+        Si chaque colonne de la matrice a une somme strictement inférieure à <m>1</m>, chaque secteur de l'économie est profitable. On peut montrer que dans ce cas on aura <m>(I-C)^{-1}\geqslant 0.</m>
+      </p>
+    </li>
+    <li>
+      <p>
+        De la même façon, si chaque rangée de la matrice a une somme strictement inférieure à <m>1</m>, ça veut dire que pour chaque secteur, les ressources nécessaires pour produire <m>1\$</m> de biens de ce secteur sont inférieures à <m>1.</m> À nouveau, on peut montrer que ceci garantit que <m>(I-C)^{-1}\geqslant 0.</m>
+      </p>
+    </li>
+
+  </ul>
+ </p>
+ <p>
+  L'exemple suivant montre qu'aucune de ces deux conditions n'est nécessaire cependant.
+ </p>
+
+<example>
+  <statement>
+    <p>
+      Soit une économie formée de trois secteurs :  agricole, manufacturier et main d'oeuvre. Supposons que les coûts sont donnés par le tableau ci-après.
+      <tabular halign="center">
+        <row header="yes">
+        <cell right = "minor" colspan = "2"> </cell>
+        <cell header = "yes" colspan = "3"> <m>1\$</m> Produit par (sortie) </cell>
+        </row>
+        <row header="yes" bottom = "minor">
+        <cell right = "minor" colspan = "2"> </cell>
+        <cell> Agriculture </cell>
+        <cell> Manufacture </cell>
+        <cell> Travail </cell>
+        </row>
+        <row header = "yes">
+        <cell header = "yes">Requiert</cell>
+        <cell header = "yes" right = "minor">Agriculture </cell>
+        <cell> <m>0.5</m> </cell>
+        <cell> <m>0</m> </cell>
+        <cell> <m>0.25</m> </cell>
+        </row>
+        <row header = "yes">
+        <cell header = "yes">(entrée) </cell>
+        <cell header = "yes" right = "minor">Manufacture </cell>
+        <cell> <m>0.2</m> </cell>
+        <cell> <m>0.8</m> </cell>
+        <cell> <m>0.1</m> </cell>
+        </row>
+        <row header = "yes">
+        <cell></cell>
+        <cell header = "yes" right = "minor">Travail </cell>
+        <cell> <m>1</m> </cell>
+        <cell> <m>0.4</m> </cell>
+        <cell> <m>0</m> </cell>
+        </row>
+
+    </tabular> </p>
+    <p>
+      Montrer que l'économie est productive et trouver le vecteur de production si la demande est de <m>100\$</m> pour le secteur de l'agriculture, <m>500\$</m> pour le secteur manufacturier et <m>700\$</m> pour le secteur de la main d'oeuvre (travail).
+    </p>
+  </statement>
+</example>
+
+
+</paragraphs>
+
+
+<paragraphs>
+  <title>Processus de Markov</title>
+  <p>
+    Plusieurs situations pratiques peuvent être modélisées comme un système qui passe d'un état à un autre avec des probabilités données. Ces processus sont appelés <em>processus de Markov</em> en mathématiques. Sans aller dans les fins détails, nous présentons les rudiments, en guise d'application de l'algèbre matricielle.
+  </p>
+  
+  <example xml:id="Markov-1">
+    <statement>
+      <p>
+        Une résidence collégiale comporte 200 locataires. À l'accueil on vend deux marques de dentifrice, disons <m>A</m> et <m>B</m>. Un sondage pour comprendre les préférences des locataires en termes de dentifrice est mené auprès des étudiants pendant quelques mois, à intervalles réguliers. 
+      </p>
+      <p>
+        Lors du dernier mois du sondage, on a que <m>120</m> usagers préfèrent la marque <m>A</m>, tandis que <m>80</m> préfèrent la marque <m>B.</m> Par ailleurs, avec l'information collectée pendant l'étude on est en mesure de dire que parmi les utilisateurs de la marque <m>A</m> à un mois donné, <m>70\%</m> continueront de l'utiliser au mois suivant, tandis que <m>30\%</m> changeront vers la marque <m>B.</m> D'autre part, <m>80\%</m> des utilisateurs de la marque <m>B</m> continueront avec celle-ci, et <m>20\%</m> changeront vers la marque <m>A.</m> 
+      </p>
+      
+      <ol marker = "(a)">
+        <li>
+          <p>Quel sera le nombre d'utilisateurs de chaque marque <m>1</m> et <m>2</m> mois après le dernier sondage?
+        </p>
+        </li>
+       <li>
+        <p>
+        Existe-t-il une distribution stable des consommateurs par marque?
+      </p>
+       
+       </li>
+      </ol>
+      
+      
+      
+    </statement>
+    
+  </example>
+  <p>
+    Remarquons qu'il est possible de faire l'analyse en considérant les proportions des usagers, plutôt que des nombres absolus. On aura alors affaire à des vecteurs dont les entrées sont non-négatives et en plus leur somme est égale à <m>1.</m> De tels vecteurs sont appelés des <em>vecteurs de probabilité</em>.
+  </p>
+  <p>
+    L'exemple précédent, nous a mené naturellement à considérer la <em>matrice de transition</em> du processus (ou système). Nommons-la <m>P.</m> Si un système admet <m>n</m> états, numérotés de <m>1</m> à <m>n</m> alors <m>P</m> sera une matrice de taille <m>n\times n</m>, elle vérifie:
+
+    <ul>
+      <li>
+        <p>Le coefficient <m>p_{ij}</m> (<m>i^{\text{ème}}</m> rangée, <m>j^{\text{ème}}</m> colonne) contient la probabilité de passer de l'état <m>j</m> à l'état <m>i</m>;
+        </p>
+      </li>
+      <li>
+        <p>
+          Les sommes de coefficients de chaque colonne sont égaux à <m>1,</m> c'est a dire que les colonnes de <m>P</m> sont des vecteurs de probabilité.
+        </p>
+      </li>
+    </ul>
+    Une matrice carrée dont les colonnes sont des vecteurs de probabilité est dite une matrice <em>stochastique</em>.
+  </p>
+
+  <remark>
+    <p>
+      
+    </p>
+    <p>
+    Afin d'obtenir la somme des composantes d'un vecteur <m>\vv = \rvt{v_1}{\vdots}{v_n}</m> il suffit de calculer le produit scalaire avec le vecteur <m>\rvt{1}{\vdots}{1}</m> ou, de façon équivalente, de calculer le produit <m>S \vv</m> où <m>S</m> est la matrice rangée <m>S= \left[\begin{array}{ccc} 1 \amp \cdots \amp 1\end{array}\right].</m> Un vecteur <m>\vv</m> à composantes non négatives est un vecteur de probabilité si et seulement si <m>S \vv = 1.</m>  
+    </p>
+
+    <p>
+      De même, une matrice <m>P = \left[\begin{array}{ccc} \vp_1 \amp \cdots \amp \vp_n\end{array}\right] </m> est une matrice stochastique si et seulement si <m>S\vp_i = 1</m> pour <m>i\in\{1,\ldots,n\},</m> c'est à dire si et seulement si 
+      <md>
+        <mrow> SP  = S \left[\begin{array}{ccc} \vp_1 \amp \cdots \amp \vp_n\end{array}\right]  \amp = \left[\begin{array}{ccc} S \vp_1 \amp \cdots \amp S \vp_n\end{array}\right]</mrow>
+        <mrow> \amp = \left[\begin{array}{ccc} 1 \amp \cdots \amp 1\end{array}\right] = S </mrow>
+      </md>
+    </p>
+ 
+  </remark>
+  <p>
+    Nous avons considéré les puissances de la matrice de transition. Ces puissances sont (du moins dans l'exemple traité) des matrices stochastiques, et on peut les utiliser pour calculer les vecteurs de probabilité après plusieurs périodes. Ceci est un fait général.
+  </p>
+  <proposition xml:id="prop-stoch">
+    <statement>
+      <p>
+        
+      </p>
+
+      <p>
+        Soit <m>P</m> une matrice stochastique, et <m>\vv_0</m> un vecteur de probabilité correspondant à la distribution initiale d'un processus de Markov. Alors: 
+      </p>
+      <ol marker = "(a)">
+        <li>
+          <p>
+            <m>P\vv_0</m> est un vecteur de probabilité;
+          </p>
+        </li>
+        <li>
+          <p>
+            Les puissances de <m>P</m> sont des matrices stochastiques;
+          </p>
+        </li>
+        <li>
+          <p>
+            L'entrée en position <m>(i,j)</m> de la puissance <m>P^k</m> donne la probabilité de passer de l'état <m>j</m> à l'état <m>i</m> en <m>k</m> étapes. 
+          </p>
+        </li>
+      </ol>
+      
+      
+      <p>
+        
+      </p>
+    </statement>
+  </proposition>
+
+  <p>
+    Étant donnée une matrice  stochastique <m>P</m>, un vecteur <m>\vv </m> est un <em>vecteur stable</em> si <m>P\vv = \vv.</m> 
+  </p>
+
+  <example>
+    <statement>
+      <p>
+        Des scientifiques placent une souris dans une cage ayant trois compartiments, tel qu'illustré dans la figure ci-bas. 
+      </p>
+      <p>
+        Les cercles désignent les compartiments et les lignes représentent les portes. Notamment, il y a deux portes entre les compartiments <m>2</m> et <m>3.</m>  La souris est entrainée de sorte à choisir et emprunter une des portes qui s'offrent à elle, au hasard à chaque fois qu'une cloche sonne.
+      </p>
+
+     <sidebyside widths="60% 30%"  valign="middle">
+      <p>
+       
+        <ol marker = "(a)">
+          <li>
+            <p>
+              Si la souris est initialement au compartiment <m>1</m>, quelle est la probabilité qu'elle se trouve au compartiment <m>2</m> après deux coups de cloche?
+            </p>
+          </li>
+          <li>
+            <p>
+              À la longue, quelle proportion de temps la souris passera-t-elle en chaque compartiment?
+            </p>
+          </li>
+        </ol> 
+      </p>
+
+
+      
+      <p>
+        <image source="Markov-souris" width="80%">
+        <description>Un schéma montrant la cage</description>
+        </image>
+      </p>
+      
+     </sidebyside>
+      
+    </statement>
+    
+  </example>
+  
+  <p>
+    Dans les exemples rencontrés jusqu'à présent nous avons observé que les puissances de la matrice de transition <m>P</m> ont des colonnes qui s'approchent de plus en plus du vecteur stable que nous avons trouvé. On notera le vecteur stable comme <m>\vv_\infty.</m> S'il est vrai qu'une matrice stochastique admet toujours un vecteur stable, ce n'est pas toujours vrai que les colonnes des puissances de la matrice s'approchent de plus en plus de celui-ci.
+  </p>
+  <example>
+    <statement>
+      <p>Soit <m>P = \mdd{0}{1}{1}{0}</m> et <m>\vv_0 =\frac{1}{10} \Rvd{1}{9}</m>.
+      <ol marker = "(a)">
+        <li>
+          <p>Calculer les vecteurs de distribution <m>\vv_1, \vv_2, \vv_3, \ldots...</m>
+            
+          </p>
+        </li>
+        <li>
+          <p>
+            Calculer le vecteur stable associé <m>\vv_\infty</m>
+          </p>
+        </li>
+      </ol>
+        
+      </p>
+    </statement>
+    
+  </example>
+  <p>
+    Une matrice stochastique <m>P</m> est dite <em>régulière</em> s'il existe une puissance <m>r</m> telle que <m>P^r</m> n'a aucune composante nulle. Les matrices stochastiques rencontrées dans cette section, à l'exception de celle de l'exemple précédent sont toutes régulières. Il peut être démontrée que si <m>P</m> est une matrice stochastique <alert>régulière</alert>, alors il existe un unique vecteur stable et qu'il est la limite des colonnes de <m>P^n.</m>  
+  </p>
+
+
+
+
+
+</paragraphs>
+
+
+
+</section>
+

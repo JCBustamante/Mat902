@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+<chapter xml:id="C-4" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!-- Change title when you have one: -->
+  <title>Espaces vectoriels, sous-espaces et coordonnées</title>
+  <!-- If the chapter has sections, there may be an introduction -->
+  <!-- before those sections. Note the <p> tags around content.  -->
+  <introduction>
+  <p> Dans ce chapitre nous nous intéressons aux <em>espaces vectoriels</em>, des ensembles <q>d'objets</q> avec lesquels on peut effectuer des opérations qui se comportent comme les combinaisons linéaires des vecteurs ou des matrices. Nous nous intéresserons plus particulièrement à certains sous-espaces vectoriels associés à des matrices, certains d'eux ont déjà été vus dans les sections précédentes, mais nous le regarderons d'un autre oeil.
+  </p>
+
+  <p> Dans la deuxième section nous nous attarderons à des familles particulières de vecteurs dans un espace ou sous-espace vectoriel : les bases, qui permettent de parler de coordonnées et de définir précisément ce que la <q>dimension</q> d'un espace ou sous-espace vectoriel est.
+  </p>
+  </introduction>
+
+
+  <xi:include href="./4-1-Espaces-vectoriels.ptx" />
+  <xi:include href="./4-2-Bases-coordonnees.ptx" />
+  <xi:include href="./Prob-Chap-4.ptx" />
+
+
+
+ </chapter>

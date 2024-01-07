@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Chapters are enclosed with <chapter> tags. Use xml:id to -->
+<!-- uniquely identify the chapter.  The @xmlns:xi attribute  -->
+<!-- is needed if you use xi:include in this file             -->
+<chapter xml:id="C-1" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<!-- Change title when you have one: -->
+  <title>Vecteurs et Géométrie</title>
+ 
+  <introduction>
+    <p>Dans ce chapitre on introduit les vecteurs du point de vue géométrique ainsi qu'algébrique. On verra comment s'en servir pour faire la géométrie en deux ou trois dimensions.</p>
+  </introduction>
+  <xi:include href="./1-1-Vecteurs.ptx"/>
+
+  <xi:include href="./1-2-Produit-scalaire.ptx"/>
+
+  <xi:include href="./1-3-Droites-plans.ptx"/>
+  
+  <xi:include href="./Prob-Chap-1.ptx"/>
+
+</chapter>
